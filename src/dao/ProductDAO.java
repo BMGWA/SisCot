@@ -17,8 +17,8 @@ public class ProductDAO {
 		
 		try {
 			PreparedStatement statement =  connection.prepareStatement(sql);
-			statement.setString(1, product.getName());
-			statement.setString(2, product.getDescription());
+			statement.setString(1, product.getProductName());
+			statement.setString(2, product.getProductDescription());
 			statement.execute();
 			
 			statement.close();
@@ -50,8 +50,8 @@ public class ProductDAO {
 			
 			while(rs.next()) {
 				Product product = new Product();
-				product.setName(rs.getString("nome"));
-				product.setDescription(rs.getString("description"));
+				product.setProductName(rs.getString("nome"));
+				product.setProductDescription(rs.getString("description"));
 				products.add(product);
 			}
 			
