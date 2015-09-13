@@ -29,9 +29,7 @@ public class ConsultProduct extends HttpServlet {
 		productList = productdao.listProducts();
 		
 		request.setAttribute("products", productList);
-		
-		System.out.println("AQUUUI " + productList.get(0).getProductName());
-		
+				
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ConsultProductList.jsp");
         rd.forward(request,response);
