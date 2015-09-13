@@ -25,8 +25,8 @@
 	<div class="col s5 offset-s2">
 	Descrição do Produto: <span class="blue-text text-darken-2"><%= request.getParameter("productDescription") %></span><br><br>
 	
-	<a href="/SisCot/DeleteProduct?name=<%= request.getParameter("productName") %>"> Deletar Contato</a>	<br> 
-	<a href="/SisCot/UpdateProduct?name=<%= request.getParameter("productName") %>""> Alterar Contato</a>
+	<a href="/SisCot/DeleteProduct?name=<%= request.getParameter("productName") %>"> Deletar Produto</a>	<br> 
+	<a href="/SisCot/UpdateProduct?name=<%= request.getParameter("productName") %>""> Alterar Produto</a>
 	</div>
 	</div>
 	
