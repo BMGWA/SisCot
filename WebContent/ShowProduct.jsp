@@ -26,7 +26,8 @@
 	Descrição do Produto: <span class="blue-text text-darken-2"><%= request.getParameter("productDescription") %></span><br><br>
 	
 	<a href="/SisCot/DeleteProduct?productName=<%= request.getParameter("productName") %>"> Deletar Produto</a>	<br> 
-	<a href="/SisCot/UpdateProduct?productName=<%= request.getParameter("productName") %>""> Alterar Produto</a>
+	<a href="/SisCot/UpdateProductView.jsp?productName=<%= request.getParameter("productName") %>
+		"> Alterar Produto</a>
 	</div>
 	</div>
 	

@@ -4,13 +4,15 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ProductDAO;
 import model.Product;
+import dao.ProductDAO;
 
+@WebServlet("/UpdateProduct")
 public class UpdateProduct extends HttpServlet {
 	
 	/**
@@ -25,7 +27,7 @@ public class UpdateProduct extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String messageUpdateConfirmation = "Iniciada";
 		boolean wasUpdated = sendToProductDAO(request);
-		
+		System.out.println("Entrou aki");
 		if(wasUpdated) {
 			messageUpdateConfirmation = "Produto atualizado com sucesso!";
 		}
@@ -33,7 +35,7 @@ public class UpdateProduct extends HttpServlet {
 			messageUpdateConfirmation = "Produto não foi atualizado!";
 		}
 		
-		request.setAttribute("message", messageUpdateConfirmation);
+		request.setAttribute("mensage", messageUpdateConfirmation);
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ProductResponse.jsp");
@@ -42,7 +44,7 @@ public class UpdateProduct extends HttpServlet {
 	
 	public boolean sendToProductDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
-		String actualProductName = request.getParameter("actualname");
+		String actualProductName = request.getParameter("actualName");
 		
 		Product product = new Product();
 		
@@ -51,6 +53,7 @@ public class UpdateProduct extends HttpServlet {
 		
 		ProductDAO productDAO = new ProductDAO();
 		
+		System.out.println("nome atual: " + actualProductName);
 		wasUpdated = productDAO.updateProduct(actualProductName, product);
 		
 		return wasUpdated;
