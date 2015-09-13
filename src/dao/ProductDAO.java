@@ -114,11 +114,48 @@ public class ProductDAO {
 			statement.setString(1, nome);
 			deleted = true;
 			statement.execute();
+			//Close the operators
+			statement.close();
+			connection.close();
 		} catch(SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return deleted;
+	}
+	
+	public boolean updateProduct(String nameToUpdate, Product product){
+		
+		boolean wasUpdate = false;
+		
+		//Create a sql comand for delete the product with nama equal params recive
+
+
+		String sql = "update Products set description=?, nome=? where nome=?";
+
+		
+		//Connect with data base
+		DBConnect dbconnect = new DBConnect();
+		Connection connection = dbconnect.connect();
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			//Set the first atribute of the query
+			statement.setString(1, product.getProductDescription());
+			statement.setString(2, product.getProductName());
+			statement.setString(3, nameToUpdate);
+			
+			wasUpdate = true;
+			statement.executeUpdate();
+			
+			//Close the operators
+			statement.close();
+			connection.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return wasUpdate;
 	}
 }
