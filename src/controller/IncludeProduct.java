@@ -20,7 +20,7 @@ import model.Provider;
 public class IncludeProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
+    /**Creating new Product
      * @see HttpServlet#HttpServlet()
      */
     public IncludeProduct() {
@@ -31,6 +31,7 @@ public class IncludeProduct extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Get name and description of the IncludeProducView
 		String nameProduct = request.getParameter("name");
 		String descriptionProduct = request.getParameter("description");
 		
@@ -39,12 +40,28 @@ public class IncludeProduct extends HttpServlet {
 		product.setProductName(nameProduct);
 		product.setProductPrice(0.0);
 		product.setProductProvider(null);
-			
-		ProductDAO productdao = new ProductDAO();
-		productdao.includeProduct(product);
 		
+		//Flag to verify if the Product wad add in the DataBase
+		boolean wasAdd = false;
+		
+		//Acess the DAO class and adding the new product
+		ProductDAO productdao = new ProductDAO();
+		wasAdd = productdao.includeProduct(product);
+		
+		String mesageAddConfirmation = "Iniciada";
+		if (wasAdd) {
+			mesageAddConfirmation = "Produto " + product.getProductName() + " adicionado com sucesso!";
+		}
+		else {
+			mesageAddConfirmation = "Produto " + product.getProductName() + " Não Foi Adicionado!";
+		}
+		
+		//Set the mensage for send to Product Response
+		request.setAttribute("mensage", mesageAddConfirmation);
+		
+		//Dispacher the result from the view of confirmation		
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/index.html");
+		rd = request.getRequestDispatcher("/ProductResponse.jsp");
         rd.forward(request,response);
 	}
 
