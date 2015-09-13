@@ -1,6 +1,6 @@
 
   <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">SisCot</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="/SisCot" class="brand-logo">SisCot</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="IncludeProductView.jsp">Produtos</a></li>
       </ul>
