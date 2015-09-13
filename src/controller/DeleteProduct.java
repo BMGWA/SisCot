@@ -55,7 +55,7 @@ public class DeleteProduct extends HttpServlet {
 		
 		ProductDAO productdao = new ProductDAO();
 		System.out.println("Nome do Produto:" + productName);
-		wasDeleted = productdao.deleteProduct("productName");
+		wasDeleted = productdao.deleteProduct(productName);
 		
 		return wasDeleted;
 	}
