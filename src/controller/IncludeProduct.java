@@ -32,18 +32,21 @@ public class IncludeProduct extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
-		String mesageAddConfirmation = "Iniciada";
-		boolean wasAdd = includeProduct(request);
+		String messageAddConfirmation = "Iniciada";
+		//Get name and description of the IncludeProducView
+		String nameProduct = request.getParameter("name");
+		String descriptionProduct = request.getParameter("description");
+		boolean wasAdd = includeProduct(nameProduct, descriptionProduct);
 		
 		if (wasAdd) {
-			mesageAddConfirmation = "Produto adicionado com sucesso!";
+			messageAddConfirmation = "Produto adicionado com sucesso!";
 		}
 		else {
-			mesageAddConfirmation = "Produto Não Foi Adicionado!";
+			messageAddConfirmation = "Produto Não Foi Adicionado!";
 		}
 		
 		//Set the mensage for send to Product Response
-		request.setAttribute("mensage", mesageAddConfirmation);
+		request.setAttribute("mensage", messageAddConfirmation);
 		
 		//Dispacher the result from the view of confirmation		
 		RequestDispatcher rd;
@@ -51,13 +54,9 @@ public class IncludeProduct extends HttpServlet {
         rd.forward(request,response);
 	}
 	
-	public boolean includeProduct(HttpServletRequest request){
+	public boolean includeProduct(String nameProduct, String descriptionProduct){
 		boolean wasAdd = false;
-		
-		//Get name and description of the IncludeProducView
-		String nameProduct = request.getParameter("name");
-		String descriptionProduct = request.getParameter("description");
-		
+			
 		Product product = new Product(); 
 		product.setProductDescription(descriptionProduct);
 		product.setProductName(nameProduct);

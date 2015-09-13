@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-<title>Starter Template - Materialize</title>
+<title>Cadastrar Produto</title>
 
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -17,13 +17,12 @@
 <link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastrar Produto</title>
 </head>
 <body>
 
 	<c:import url="header.jsp" />
 	<div class="row center">
-		<h1>Cadastro do Produtos</h1>
+		<h1>Cadastro de Produtos</h1>
 	</div>
 
 	 <div class="container">

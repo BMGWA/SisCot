@@ -13,7 +13,6 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastrar Produto</title>
 </head>
 
 
