@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ProductDAO;
 import model.Product;
 import model.Provider;
 
@@ -39,8 +40,8 @@ public class IncludeProduct extends HttpServlet {
 		product.setProductPrice(0.0);
 		product.setProductProvider(null);
 			
-		
-		System.out.println("AQUUUUUUUUUI" + product.getProductDescription());
+		ProductDAO productdao = new ProductDAO();
+		productdao.includeProduct(product);
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/index.html");

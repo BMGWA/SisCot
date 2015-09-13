@@ -7,7 +7,7 @@ public class DBConfigure {
 	private String password;
 	
 	public DBConfigure(){
-		this.url = "jdbc:mysql://localhost:3306/teste1";
+		this.url = "jdbc:mysql://localhost:3306/SisCot";
 		this.user = "siscot";
 		this.password = "12345";
 	}
