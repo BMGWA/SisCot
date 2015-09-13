@@ -26,7 +26,7 @@ public class ConsultProduct extends HttpServlet {
 		ArrayList<Product> productList = new ArrayList<Product>();
 		ProductDAO productdao = new ProductDAO();
 		
-		productList = productdao.listProducts();
+		productList = productdao.listProducts();		
 		
 		request.setAttribute("products", productList);
 				

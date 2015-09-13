@@ -5,11 +5,13 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.sql.Connection;
+
 import org.junit.Test;
 
 import controller.IncludeProduct;
 import dao.DBConfigure;
-import model.Product;
+import dao.DBConnect;
 
 /**
  * @author tiago
@@ -94,5 +96,37 @@ public class ProductTeste {
 				
 		assertEquals(correctDBConfigure, testeDbConfigure);
 	}
+	
+	@Test
+	public void testCorretUserInTheCorrectDBConfiguraion() {
+		
+		DBConfigure dbconfigure = new DBConfigure();
+		
+		String testeDbConfigure = dbconfigure.getUser();
+		String correctDBConfigure = "siscot";
+				
+		assertEquals(correctDBConfigure, testeDbConfigure);
+	}
 
+	@Test
+	public void testCorretPasswordInTheCorrectDBConfiguraion() {
+		
+		DBConfigure dbconfigure = new DBConfigure();
+		
+		String testeDbConfigure = dbconfigure.getPassword();
+		String correctDBConfigure = "12345";
+				
+		assertEquals(correctDBConfigure, testeDbConfigure);
+	}
+	
+	@Test
+	public void testConnectionDBConnect() {
+		
+		DBConnect dbconnect = new DBConnect();
+		
+		Connection testeDbConnect = dbconnect.connect();
+				
+		assertNotNull(testeDbConnect);
+		
+	}
 }

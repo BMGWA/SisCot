@@ -27,7 +27,6 @@ public class UpdateProduct extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String messageUpdateConfirmation = "Iniciada";
 		boolean wasUpdated = sendToProductDAO(request);
-		System.out.println("Entrou aki");
 		if(wasUpdated) {
 			messageUpdateConfirmation = "Produto atualizado com sucesso!";
 		}
@@ -44,8 +43,8 @@ public class UpdateProduct extends HttpServlet {
 	
 	public boolean sendToProductDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
-		String actualProductName = request.getParameter("actualName");
-		
+		String actualProductName = (String) request.getParameter("actualName");
+				
 		Product product = new Product();
 		
 		product.setProductName(request.getParameter("name"));
@@ -53,7 +52,6 @@ public class UpdateProduct extends HttpServlet {
 		
 		ProductDAO productDAO = new ProductDAO();
 		
-		System.out.println("nome atual: " + actualProductName);
 		wasUpdated = productDAO.updateProduct(actualProductName, product);
 		
 		return wasUpdated;

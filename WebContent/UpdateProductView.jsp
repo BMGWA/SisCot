@@ -33,12 +33,11 @@
 		
 		<div class="input-field center"> 
 
+		<input type="hidden" name="actualName" value=<%= request.getParameter("productName") %>>
+		  <br><br><br><br>
 		
-		Nome do Produto
-		<input type="text" name="actualName" value = <%= request.getParameter("productName") %>><br><br><br><br>
 		
-		
-		Novo nome do produtp
+		Novo nome do produto
 		<input type="text" name="name" ><br><br><br><br>
 		</div>
 		
