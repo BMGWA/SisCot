@@ -7,29 +7,28 @@ public class Provider {
 	private String providerPassword;
 	private int providerDdd;
 	private int providerPhone;
-	private String prodiverAdress;
-	private String prodiverCity;
-	private String prodiverState;
-	private int prodiverZip;
+	private String ProviderAdress;
+	private String ProviderCity;
+	private String ProviderState;
+	private int ProviderZip;
 	
 	public Provider() {
 		
 	}
 
-	public Provider(String providerCnpj, String providerName, String providerEmail, String providerPassword,
-			int providerDdd, int providerPhone, String prodiverAdress, String prodiverCity, String prodiverState,
-			int prodiverZip) {
-		super();
+	public Provider(Long id, String providerCnpj, String providerName, String providerEmail, String providerPassword,
+			int providerDdd, int providerPhone, String ProviderAdress, String ProviderCity, String ProviderState,
+			int ProviderZip) {
 		this.providerCnpj = providerCnpj;
 		this.providerName = providerName;
 		this.providerEmail = providerEmail;
 		this.providerPassword = providerPassword;
 		this.providerDdd = providerDdd;
 		this.providerPhone = providerPhone;
-		this.prodiverAdress = prodiverAdress;
-		this.prodiverCity = prodiverCity;
-		this.prodiverState = prodiverState;
-		this.prodiverZip = prodiverZip;
+		this.ProviderAdress = ProviderAdress;
+		this.ProviderCity = ProviderCity;
+		this.ProviderState = ProviderState;
+		this.ProviderZip = ProviderZip;
 	}
 
 	public String getProviderCnpj() {
@@ -80,35 +79,35 @@ public class Provider {
 		this.providerPhone = providerPhone;
 	}
 
-	public String getProdiverAdress() {
-		return prodiverAdress;
+	public String getProviderAdress() {
+		return ProviderAdress;
 	}
 
-	public void setProdiverAdress(String prodiverAdress) {
-		this.prodiverAdress = prodiverAdress;
+	public void setProviderAdress(String ProviderAdress) {
+		this.ProviderAdress = ProviderAdress;
 	}
 
-	public String getProdiverCity() {
-		return prodiverCity;
+	public String getProviderCity() {
+		return ProviderCity;
 	}
 
-	public void setProdiverCity(String prodiverCity) {
-		this.prodiverCity = prodiverCity;
+	public void setProviderCity(String ProviderCity) {
+		this.ProviderCity = ProviderCity;
 	}
 
-	public String getProdiverState() {
-		return prodiverState;
+	public String getProviderState() {
+		return ProviderState;
 	}
 
-	public void setProdiverState(String prodiverState) {
-		this.prodiverState = prodiverState;
+	public void setProviderState(String ProviderState) {
+		this.ProviderState = ProviderState;
 	}
 
-	public int getProdiverZip() {
-		return prodiverZip;
+	public int getProviderZip() {
+		return ProviderZip;
 	}
 
-	public void setProdiverZip(int prodiverZip) {
-		this.prodiverZip = prodiverZip;
+	public void setProviderZip(int ProviderZip) {
+		this.ProviderZip = ProviderZip;
 	}
 }
