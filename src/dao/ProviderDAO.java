@@ -79,5 +79,64 @@ public class ProviderDAO {
 		
 		return providers;
 	}
+	
+	public boolean deleteProvider(String providerCnpj) {
+		boolean wasDeleted = false;
+		String sql = "delete from Providers where nome = ?";
+		
+		DBConnect dbconnect = new DBConnect();
+		Connection connection = dbconnect.connect();
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, providerCnpj);
+			statement.execute();
+			
+			wasDeleted = true;
+			
+			statement.close();
+			connection.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return wasDeleted;
+	}
+	
+public boolean updateProvider(String cnpjToUpdate, Provider provider){		
+		boolean wasUpdated = false;
+		String sql = "update Provider set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
+				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=? where cnpj=?";
+
+		DBConnect dbconnect = new DBConnect();
+		Connection connection = dbconnect.connect();
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, provider.getProviderCnpj());
+			statement.setString(2, provider.getProviderName());
+			statement.setString(3, provider.getProviderEmail());
+			statement.setString(4, provider.getProviderPassword());
+			statement.setInt(5, provider.getProviderDdd());
+			statement.setInt(6, provider.getProviderPhone());
+			statement.setString(7, provider.getProviderAdress());
+			statement.setString(8, provider.getProviderCity());
+			statement.setString(9, provider.getProviderState());
+			statement.setInt(10, provider.getProviderZip());
+			statement.setString(11, cnpjToUpdate);
+			
+			statement.executeUpdate();
+			wasUpdated = true;
+			
+			statement.close();
+			connection.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return wasUpdated;
+	}
 
 }
