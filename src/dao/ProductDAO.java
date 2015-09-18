@@ -9,7 +9,11 @@ import java.util.ArrayList;
 import model.Product;
 
 public class ProductDAO {
-	private Connection connection = new ConnectionFactory().getConnection();
+	private Connection connection;
+	
+	public ProductDAO() {
+		this.connection = new ConnectionFactory().getConnection();
+	}
 	
 	/**
 	 * Include in the data base a new product

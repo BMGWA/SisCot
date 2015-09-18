@@ -9,16 +9,18 @@ import java.util.ArrayList;
 import model.Provider;
 
 public class ProviderDAO {
+	private Connection connection;
+	
+	public ProviderDAO() {
+		this.connection = new ConnectionFactory().getConnection();
+	}
 	
 	public boolean insertProvider(Provider provider) {
-		boolean wasAdd = false;
 		String sql = "insert into Providers";
-		
-		DBConnect dbconnect = new DBConnect();
-		Connection connection = dbconnect.connect();
+		boolean wasAdded = false;
 		
 		try {
-			PreparedStatement statement = connection.prepareStatement(sql);
+			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
 			statement.setString(1, provider.getProviderCnpj());
 			statement.setString(2, provider.getProviderName());
@@ -32,7 +34,7 @@ public class ProviderDAO {
 			statement.setString(10, provider.getProviderCnpj());			
 			statement.execute();
 			
-			wasAdd = true;
+			wasAdded = true;
 			
 			statement.close();
 			connection.close();
@@ -40,13 +42,10 @@ public class ProviderDAO {
 			throw new RuntimeException(e);
 		}
 		
-		return wasAdd;
+		return wasAdded;
 	}
 	
 	public ArrayList<Provider> listProviders() {
-		DBConnect dbconnect = new DBConnect();
-		Connection connection = dbconnect.connect();
-		
 		String sql = "select * from Providers";
 		ArrayList<Provider> providers = new ArrayList<Provider>();
 		
@@ -81,11 +80,8 @@ public class ProviderDAO {
 	}
 	
 	public boolean deleteProvider(String providerCnpj) {
-		boolean wasDeleted = false;
 		String sql = "delete from Providers where nome = ?";
-		
-		DBConnect dbconnect = new DBConnect();
-		Connection connection = dbconnect.connect();
+		boolean wasDeleted = false;
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -104,14 +100,11 @@ public class ProviderDAO {
 		return wasDeleted;
 	}
 	
-public boolean updateProvider(String cnpjToUpdate, Provider provider){		
-		boolean wasUpdated = false;
+	public boolean updateProvider(String cnpjToUpdate, Provider provider) {		
 		String sql = "update Provider set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
 				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=? where cnpj=?";
-
-		DBConnect dbconnect = new DBConnect();
-		Connection connection = dbconnect.connect();
-		
+		boolean wasUpdated = false;
+			
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
@@ -135,8 +128,7 @@ public boolean updateProvider(String cnpjToUpdate, Provider provider){
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+			
 		return wasUpdated;
 	}
-
 }
