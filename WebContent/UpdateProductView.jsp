@@ -20,41 +20,46 @@
 </head>
 <body>
 	<c:import url="header.jsp" />
-	<div class="row center">
-		<h1>Alterar Produtos</h1>
-	</div>
-	
-	<h3 class="row center">Produto selecionado: <b><%= request.getParameter("productName") %></h3><br><br>
-	 <div class="container">
-	 <h4 <%= request.getParameter("ProductName") %>></h4>
-	 
-	<form action="UpdateProduct" method="POST" class="center">
-		
-		
-		<div class="input-field center"> 
 
-		<input type="hidden" name="actualName" value=<%= request.getParameter("productName") %>>
-		  <br><br><br><br>
-		
-		
-		Novo nome do produto
-		<input type="text" name="name" ><br><br><br><br>
-		</div>
-		
-		Descrição do Produto 
-		<textarea id="textarea1" class="materialize-textarea" length="120" type="textarea1" name="description" >
-		</textarea><br>
-		
-		
-		
-		<button class="btn waves-effect waves-light" type="submit" name="action">Alterar			
-		</button>
-		</div>
-		<br>
-		<br>
-	</form>
-	</div>
-	
+	<br>
+	<br>
 
+	<div class="row">
+		<div class="col s6 offset-s3">
+			<div class="card-panel">
+				<h2 class="truncate row center" >Alterar Produto</h2>
+				<h3 class="row center">
+					<span class="roboto-bold"> Produto selecionado: <%=request.getParameter("productName")%></span>
+				</h3>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<h4 <%=request.getParameter("ProductName")%>></h4>
+
+		<form action="UpdateProduct" method="POST" class="center">
+
+
+			<div class="input-field center">
+
+				<input type="hidden" name="actualName"
+					value=<%=request.getParameter("productName")%>> <br>
+
+
+
+				<c:import url="FormProduct.jsp" />
+			</div>
+		</form>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<c:import url="footer.jsp" />
 </body>
 </html>

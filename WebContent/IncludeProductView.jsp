@@ -17,35 +17,49 @@
 <link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../../bin/materialize.js"></script>
+<script src="js/init.js"></script>
 </head>
 <body>
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="../../bin/materialize.js"></script>
+	<script src="js/init.js"></script>
 
 	<c:import url="header.jsp" />
-	<div class="row center">
-		<h1>Cadastro de Produtos</h1>
-	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 
-	 <div class="container">
-	<form action="IncludeProduct" method="POST" class="center">
-		
-		
-		<div class="input-field center"> 
-		Nome do Produto
-		<input type="text" name="name" /><br><br><br><br>
+	<div class="row">
+		<div class="col s6 offset-s3">
+			<div class="card-panel">
+				<h1 class="row center">Cadastro de Produtos</h1>
+			</div>
 		</div>
-		
-		
-		Descrição do Produto 
-		<textarea id="textarea1" class="materialize-textarea" length="120" type="textarea1" name="description" >
-		</textarea><br>
-		
-		
-		
-		<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar 			
-		</button>
-	</form>
 	</div>
-	
 
+
+	<div class="row center"></div>
+
+	<div class="container">
+		<form action="IncludeProduct" method="POST" class="center">
+
+			<c:import url="FormProduct.jsp" />
+
+		</form>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<c:import url="footer.jsp" />
 </body>
 </html>
