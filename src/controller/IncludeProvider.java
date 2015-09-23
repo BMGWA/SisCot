@@ -76,14 +76,14 @@ public class IncludeProvider extends HttpServlet {
     	
     	Provider provider = new Provider();
     	
-    	provider.setProviderAdress(providerAdress);
-    	provider.setProviderCity(providerCity);
     	provider.setProviderCnpj(providerCnpj);
-    	provider.setProviderDdd(providerDdd);
-    	provider.setProviderEmail(providerEmail);
     	provider.setProviderName(providerName);
+    	provider.setProviderEmail(providerEmail);
     	provider.setProviderPassword(providerPassword);
+    	provider.setProviderDdd(providerDdd);
     	provider.setProviderPhone(providerPhone);
+    	provider.setProviderAdress(providerAdress);
+    	provider.setProviderCity(providerCity);    	
     	provider.setProviderState(providerState);
     	provider.setProviderZip(providerZip);
     	

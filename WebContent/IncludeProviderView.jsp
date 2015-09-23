@@ -28,25 +28,24 @@
 	 <div class="container">
 	<form action="IncludeProvider" method="POST" class="center">
 		
-		
-		<div class="input-field center"> 
-		Nome do Fornecedor
-		<input type="text" name="name" /><br><br><br><br>
-		</div>
-		
-		
+		<div class="input-field center">
 		CNPJ do Fornecedor
 		<textarea id="textarea1" class="materialize-textarea" length="120" type="textarea1" name="cnpj" >
 		</textarea><br>
-		
-		<div class="input-field center"> 
-		Senha do Fornecedor
-		<input type="text" name="password" /><br><br><br><br>
+			
+		<div class="input-field center">
+		Nome do Fornecedor
+		<input type="text" name="name" /><br><br><br><br>
 		</div>
 		
 		<div class="input-field center"> 
 		Email do Fornecedor
 		<input type="text" name="email" /><br><br><br><br>
+		</div>
+		
+		<div class="input-field center"> 
+		Senha do Fornecedor
+		<input type="text" name="password" /><br><br><br><br>
 		</div>
 		
 		<div class="input-field center"> 
@@ -81,6 +80,7 @@
 		
 		<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar 			
 		</button>
+		<br><br>
 	</form>
 	</div>
 	

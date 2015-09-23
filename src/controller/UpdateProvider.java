@@ -48,12 +48,12 @@ public class UpdateProvider extends HttpServlet {
 		provider.setProviderName(request.getParameter("name"));
 		provider.setProviderEmail(request.getParameter("email"));
 		provider.setProviderPassword(request.getParameter("password"));
-		//provider.setProviderDdd(request.getParameter("ddd"));
-		//provider.setProviderPhone(request.getParameter("phone"));
+		provider.setProviderDdd(Integer.parseInt(request.getParameter("ddd")));
+		provider.setProviderPhone(Integer.parseInt(request.getParameter("phone")));
 		provider.setProviderAdress(request.getParameter("adress"));
 		provider.setProviderCity(request.getParameter("city"));
 		provider.setProviderState(request.getParameter("state"));
-		//provider.setProviderZip(request.getParameter("zip"));
+		provider.setProviderZip(Integer.parseInt(request.getParameter("zip")));
 		
 		ProviderDAO providerDAO = new ProviderDAO();
 		

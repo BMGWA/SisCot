@@ -16,7 +16,7 @@ public class ProviderDAO {
 	}
 	
 	public boolean insertProvider(Provider provider) {
-		String sql = "insert into Providers";
+		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, telefone, endereco, cidade, estado, cep) values (?,?,?,?,?,?,?,?,?,?)";
 		boolean wasAdded = false;
 		
 		try {
@@ -24,14 +24,14 @@ public class ProviderDAO {
 			
 			statement.setString(1, provider.getProviderCnpj());
 			statement.setString(2, provider.getProviderName());
-			statement.setString(9, provider.getProviderEmail());
-			statement.setString(3, provider.getProviderPassword());
-			statement.setInt(4, provider.getProviderDdd());
-			statement.setInt(5, provider.getProviderPhone());
-			statement.setString(6, provider.getProviderAdress());
-			statement.setString(7, provider.getProviderCity());
-			statement.setString(8, provider.getProviderState());
-			statement.setString(10, provider.getProviderCnpj());			
+			statement.setString(3, provider.getProviderEmail());
+			statement.setString(4, provider.getProviderPassword());
+			statement.setInt(5, provider.getProviderDdd());
+			statement.setInt(6, provider.getProviderPhone());
+			statement.setString(7, provider.getProviderAdress());
+			statement.setString(8, provider.getProviderCity());
+			statement.setString(9, provider.getProviderState());
+			statement.setInt(10, provider.getProviderZip());			
 			statement.execute();
 			
 			wasAdded = true;
