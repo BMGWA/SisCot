@@ -21,6 +21,16 @@
 	<div class="row">
 	<div class="col s5 offset-s2">
 	Nome do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerName") %></span><br><br>
+	CNPJ do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerCnpj") %></span><br><br>
+	Email do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerEmail") %></span><br><br>
+	DDD do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerDdd") %></span><br><br>
+	Telefone do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerPhone") %></span><br><br>
+	CEP do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerZip") %></span><br><br>
+	Estado do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerState") %></span><br><br>
+	Cidade do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerCity") %></span><br><br>
+	Endereço do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerAdress") %></span><br><br>
+	
+	
 	
 	<a href="/SisCot/DeleteProvider?providerName=<%= request.getParameter("providerName") %>"> Deletar Fornecedor</a><br> 
 	<a href="/SisCot/UpdateProviderView.jsp?providerName=<%= request.getParameter("providerName") %>
