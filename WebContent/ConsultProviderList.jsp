@@ -26,7 +26,7 @@
 	<br>
 	<div class="row center">
 		<a class="waves-effect waves-light btn"
-			href="/SisCot/IncludeProductView.jsp">Cadastrar Fornecedor</a><br>
+			href="/SisCot/IncludeProviderView.jsp">Cadastrar Fornecedor</a><br>
 		<br>
 	</div>
 

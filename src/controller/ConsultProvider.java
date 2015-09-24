@@ -33,11 +33,12 @@ public class ConsultProvider extends HttpServlet {
     	ProviderDAO providerDao = new ProviderDAO();
     	
     	providerList = providerDao.listProviders();
+    	System.out.println("qtd de providers: " + providerList.size());
     	
     	request.setAttribute("providers", providerList);
     	
     	RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/IncludeProviderView.jsp");
+		rd = request.getRequestDispatcher("/ConsultProviderList.jsp");
         rd.forward(request,response);
     }
 }

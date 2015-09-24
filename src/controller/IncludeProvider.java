@@ -46,8 +46,6 @@ public class IncludeProvider extends HttpServlet {
     	String providerState = request.getParameter("state");
     	int providerZip = Integer.parseInt(request.getParameter("zip"));
     	
-    	System.out.printf(providerCnpj + providerName + providerEmail + providerPassword + providerDdd,
-				 providerPhone + providerAdress + providerCity + providerState + providerZip);
     	
 		boolean wasAdd = includeProvider(providerCnpj, providerName, providerEmail, providerPassword, providerDdd,
 				 providerPhone, providerAdress, providerCity, providerState, providerZip);
