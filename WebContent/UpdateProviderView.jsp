@@ -33,7 +33,7 @@
 		
 		<div class="input-field center"> 
 
-		<input type="hidden" name="actualName" value=<%= request.getParameter("providerName") %>>
+		<input type="hidden" name="actualCnpj" value=<%= request.getParameter("providerCnpj") %>>
 		  <br><br><br><br>
 		
 		

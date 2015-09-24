@@ -41,6 +41,8 @@ public class UpdateProvider extends HttpServlet {
 	public boolean sendToProviderDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
 		String actualProviderCnpj = (String) request.getParameter("actualCnpj");
+		
+		System.out.println("Cnpj atual: " + actualProviderCnpj);
 				
 		Provider provider = new Provider();
 		

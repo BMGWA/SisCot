@@ -101,7 +101,7 @@ public class ProviderDAO {
 	}
 	
 	public boolean updateProvider(String cnpjToUpdate, Provider provider) {		
-		String sql = "update Provider set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
+		String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
 				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=? where cnpj=?";
 		boolean wasUpdated = false;
 			
