@@ -33,8 +33,6 @@ public class ConsultProvider extends HttpServlet {
     	ProviderDAO providerDao = new ProviderDAO();
     	
     	providerList = providerDao.listProviders();
-    	System.out.println("qtd de providers: " + providerList.size());
-    	System.out.println("nome do primeiro: " + providerList.get(0).getProviderName());
     	
     	request.setAttribute("providers", providerList);
     	
