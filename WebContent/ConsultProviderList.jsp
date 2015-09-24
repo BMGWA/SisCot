@@ -36,7 +36,7 @@
 		<div class="col s3 offset-s3">
 			<div class="collection">
 				<li class="collection-item">Fornecedores</li>
-				<c:forEach items="${providers}" var="product">
+				<c:forEach items="${providers}" var="provider">
 					<a class="collection-item"
 						href="/SisCot/ShowProvider.jsp?
 						providerCnpj=${provider.providerCnpj}

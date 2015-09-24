@@ -16,7 +16,7 @@
 </head>
 <body>
 	<c:import url="header.jsp" />
-	<h3 class="row center">Fornecedor <b><%= request.getParameter("providertName") %></h3><br><br>
+	<h3 class="row center">Fornecedor <b><%= request.getParameter("providerName") %></h3><br><br>
 	
 	<div class="row">
 	<div class="col s5 offset-s2">
