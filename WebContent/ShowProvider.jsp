@@ -14,7 +14,7 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body>
+<body class="yellow lighten-5">
 	<c:import url="header.jsp" />
 	<h3 class="row center">Fornecedor <b><%= request.getParameter("providerName") %></h3><br><br>
 	

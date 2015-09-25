@@ -19,7 +19,7 @@
 	media="screen,projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body>
+<body class="yellow lighten-5">
 
 	<c:import url="header.jsp" />
 	<br>

@@ -17,7 +17,7 @@
 
 
 
-<body>
+<body class="yellow lighten-5">
   <c:import url="header.jsp" />
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
