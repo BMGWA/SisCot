@@ -27,7 +27,7 @@
         <h5 class="header col s12 light">Sistema Ágil de Cotações para Compra de Produtos de Fornecedores</h5>
       </div>
       <div class="row center">
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Fazer Login</a>
+        <a href="/SisCot/login.jsp" id="download-button" class="btn-large waves-effect waves-light orange">Fazer Login</a>
       </div>
       <br><br>
 

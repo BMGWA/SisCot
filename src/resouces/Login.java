@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
 		
 		//Get the data of user and verify if is a stored user
 		String username = request.getParameter("login");
-	    String password = request.getParameter("senha");
+	    String password = request.getParameter("password");
 	    session = loginChecks(username, password , session);
 	    
 	    String url = null;
