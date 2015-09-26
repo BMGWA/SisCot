@@ -2,35 +2,47 @@
 <nav class="light-blue lighten-1" role="navigation">
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="/SisCot" class="brand-logo">SisCot</a>
-		<ul class="right hide-on-med-and-down">
-			
-			<%
-				if (session.getAttribute("user") != null) {
-				String user = (String)session.getAttribute("userType");
-				if (user.equals("manager")) {
-			%>
-			<li><a href="/SisCot/ConsultProvider">Fornecedores</a></li>
-			<%}%>
-			
-			<li><a href="/SisCot/ConsultProduct">Produtos</a></li>
-			<%}%>
+		<ul class="right hide-on-med-and-down ">
 
 			<%
 				if (session.getAttribute("user") != null) {
-				String user = (String)session.getAttribute("userType");
-				if (user.equals("provider")) {
+					String user = (String) session.getAttribute("userType");
+					if (user.equals("manager")) {
+			%>
+			<li><a href="/SisCot/ConsultProvider">Fornecedores</a></li>
+			<%
+				}
+			%>
+
+			<li><a href="/SisCot/ConsultProduct">Produtos</a></li>
+			<%
+				}
+			%>
+
+			<%
+				if (session.getAttribute("user") != null) {
+					String user = (String) session.getAttribute("userType");
+					if (user.equals("provider")) {
 			%>
 			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
 			</a></li>
-			<%}
-			else{
-			%>
-				<li> Olá <%=session.getAttribute("user")%></li>
-			<%}%>
-			<li><a href="/SisCot/Logout">Logout</a></li>
 			<%
 				} else {
 			%>
+			<li>Olá <%=session.getAttribute("user")%></li>
+			<%
+				}
+			%>
+			<li><a class="tooltipped" data-position="bottom" data-delay="50"
+				data-tooltip="Sair do Sistema"
+				href="/SisCot/Logout">Logout</a></li>
+
+			
+			
+			<%
+				} else {
+			%>
+
 			<li><a href="/SisCot/login.jsp">Fazer Login</a></li>
 			<%
 				}
@@ -48,3 +60,13 @@
 
 	</div>
 </nav>
+
+<!-- ================================================
+    Scripts
+    ================================================ -->
+
+<!-- jQuery Library -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!--materialize js-->
+<script type="text/javascript" src="js/materialize.js"></script>

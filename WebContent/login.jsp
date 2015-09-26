@@ -27,15 +27,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- Custome CSS-->    
-    <link href="css/custom-style.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <!-- CSS for full screen (Layout-2)-->    
-  <link href="css/style-fullscreen.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
-
-  <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-  
+     
 </head>
 
 
@@ -78,7 +70,7 @@
         <div class="row">
           <div class="input-field col s12">
             
-            <button class="btn waves-effect waves-light col s12  deep-orange darken-1" type="submit" name="action">Login</button>
+            <button class="btn waves-effect waves-light col s12  deep-orange darken-1 "  type="submit" name="action">Login</button>
             
           </div>
         </div>
@@ -102,16 +94,9 @@
     ================================================ -->
 
   <!-- jQuery Library -->
-  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!--materialize js-->
   <script type="text/javascript" src="js/materialize.js"></script>
-  <!--prism-->
-  <script type="text/javascript" src="js/prism.js"></script>
-  <!--scrollbar-->
-  <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-  <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-  <script type="text/javascript" src="js/plugins.js"></script>
   
   
 </body>
