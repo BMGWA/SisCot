@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ManagerDAO;
 import dao.ProviderDAO;
+import model.Manager;
 import model.Provider;
 
 /**
@@ -73,6 +75,29 @@ public class Login extends HttpServlet {
 				
 				session.setAttribute("user", provider.getProviderName());
 				session.setAttribute("userType", "provider");
+				return session;
+			}
+			else{
+				session.setAttribute("user", null);
+				session.setAttribute("userType", null);
+			}
+		}
+		
+		//Get all user from listManagers
+		ManagerDAO managerDAO = new ManagerDAO();
+		ArrayList<Manager> listManagers = new ArrayList<Manager>();
+		listManagers = managerDAO.listManagers();
+		
+		//Search a correct user and password
+		for (Manager manager : listManagers) {
+			boolean isUser = manager.getManagerUsername().equals(username);
+			boolean correctPassword = manager.getManagerPassword().equals(password);
+			
+			if(isUser && correctPassword){
+				
+				session.setAttribute("user", manager.getManagerUsername());
+				session.setAttribute("userType", "manager");
+				return session;
 			}
 			else{
 				session.setAttribute("user", null);

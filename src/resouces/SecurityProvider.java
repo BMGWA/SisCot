@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * @version 1.0
  */
 @WebFilter(displayName = "SecurityProvider", 
-urlPatterns = {"/error.jsp", "/ConsultProductList.jsp", "/ConsultProduct", "/ConsultProvider"}, 
+urlPatterns = {"/Consult*", "/Include*", "/Delete*", "/Update*"}, 
 servletNames = {"/ConsultProduct"})
 public class SecurityProvider implements Filter {
 

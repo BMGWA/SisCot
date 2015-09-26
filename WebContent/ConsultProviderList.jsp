@@ -33,9 +33,9 @@
 
 
 	<div class="row">
-		<div class="col s3 offset-s3">
+		<div class="col s4 offset-s4 z-depth-4 card-panel">
 			<div class="collection">
-				<li class="collection-item">Fornecedores</li>
+				<li class="collection-item center">Fornecedores</li>
 				<c:forEach items="${providers}" var="provider">
 					<a class="collection-item"
 						href="/SisCot/ShowProvider.jsp?
@@ -50,7 +50,6 @@
 						&providerState=${provider.providerState}
 						&providerZip=${provider.providerZip}">
 						${provider.providerName} </a>
-					<br>
 				</c:forEach>
 			</div>
 		</div>

@@ -33,25 +33,24 @@
 
 
 	<div class="row">
-		<div class="col s3 offset-s3">
+		<div class="col s3 offset-s3 ">
 			<div class="collection">
 				<li class="collection-item">Produtos</li>
 				<c:forEach items="${products}" var="product">
 					<a class="collection-item"
 						href="/SisCot/ShowProduct.jsp?productName=${product.productName}&productDescription=${product.productDescription}">
 						${product.productName} </a>
-					<br>
 				</c:forEach>
 			</div>
 		</div>
-		<div class="col s3">
+		
+		<div class="col s3 ">
 			<div class="collection">
 				<li class="collection-item">Descrição</li>
 				<c:forEach items="${products}" var="product">
 					<a class="collection-item"
 						href="/SisCot/ShowProduct.jsp?productName=${product.productName}&productDescription=${product.productDescription}">
 						${product.productDescription} </a>
-					<br>
 				</c:forEach>
 			</div>
 		</div>

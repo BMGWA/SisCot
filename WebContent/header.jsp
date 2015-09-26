@@ -3,14 +3,30 @@
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="/SisCot" class="brand-logo">SisCot</a>
 		<ul class="right hide-on-med-and-down">
+			
+			<%
+				if (session.getAttribute("user") != null) {
+				String user = (String)session.getAttribute("userType");
+				if (user.equals("manager")) {
+			%>
 			<li><a href="/SisCot/ConsultProvider">Fornecedores</a></li>
+			<%}%>
+			
 			<li><a href="/SisCot/ConsultProduct">Produtos</a></li>
+			<%}%>
 
 			<%
 				if (session.getAttribute("user") != null) {
+				String user = (String)session.getAttribute("userType");
+				if (user.equals("provider")) {
 			%>
 			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
 			</a></li>
+			<%}
+			else{
+			%>
+				<li> Olá <%=session.getAttribute("user")%></li>
+			<%}%>
 			<li><a href="/SisCot/Logout">Logout</a></li>
 			<%
 				} else {
