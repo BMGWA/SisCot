@@ -30,8 +30,8 @@
 		
 		<div class="input-field center">
 		CNPJ do Fornecedor
-		<textarea id="textarea1" class="materialize-textarea" length="120" type="textarea1" name="cnpj" >
-		</textarea><br>
+		<input type = "text" name="cnpj" /><br><br><br><br>
+		</div><br>
 			
 		<div class="input-field center">
 		Nome do Fornecedor

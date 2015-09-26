@@ -42,14 +42,14 @@ public class UpdateProvider extends HttpServlet {
 	public boolean sendToProviderDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
 		HttpSession session = request.getSession();
-		String actualProviderCnpj = (String) request.getParameter("actualCnpj");
+		String actualProviderCnpj = request.getParameter("actualCnpj");
 		
 		System.out.println("Cnpj atual: " + actualProviderCnpj);
 				
 		Provider provider = new Provider();
 		
-		provider.setProviderCnpj(request.getParameter("user"));
-		provider.setProviderName((String)session.getAttribute("user"));
+		provider.setProviderCnpj(request.getParameter("cnpj"));
+		provider.setProviderName(request.getParameter("name"));
 		provider.setProviderEmail(request.getParameter("email"));
 		provider.setProviderPassword(request.getParameter("password"));
 		provider.setProviderDdd(Integer.parseInt(request.getParameter("ddd")));
@@ -58,6 +58,13 @@ public class UpdateProvider extends HttpServlet {
 		provider.setProviderCity(request.getParameter("city"));
 		provider.setProviderState(request.getParameter("state"));
 		provider.setProviderZip(Integer.parseInt(request.getParameter("zip")));
+		
+		System.out.println("Dados: " + provider.getProviderAdress() + "\n");
+		System.out.println("Dados: " + provider.getProviderCity() + "\n");
+		System.out.println("Dados: " + provider.getProviderCnpj() + "\n");
+		System.out.println("Dados: " + provider.getProviderDdd() + "\n");
+		System.out.println("Dados: " + provider.getProviderZip() + "\n");
+		System.out.println("Dados: " + provider.getProviderName() + "\n");
 		
 		ProviderDAO providerDAO = new ProviderDAO();
 		
