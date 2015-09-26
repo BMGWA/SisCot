@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * @version 1.0
  */
 @WebFilter(displayName = "SecurityProvider", 
-urlPatterns = {"/error.jsp", "/ConsultProductList.jsp", "/ConsultProduct"}, 
+urlPatterns = {"/error.jsp", "/ConsultProductList.jsp", "/ConsultProduct", "/ConsultProvider"}, 
 servletNames = {"/ConsultProduct"})
 public class SecurityProvider implements Filter {
 
@@ -47,7 +47,7 @@ public class SecurityProvider implements Filter {
 		HttpSession session = req.getSession();
 		
 		//Verify if the current user have a session setted
-		if(session.getAttribute("usuarioLogado") != null) {
+		if(session.getAttribute("user") != null) {
 			chain.doFilter(request, response);
 		}
 		else{

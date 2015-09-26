@@ -32,6 +32,8 @@ public class Login extends HttpServlet {
 		//Get the data of user and verify if is a stored user
 		String username = request.getParameter("login");
 	    String password = request.getParameter("password");
+	    username = username.trim();
+	    
 	    session = loginChecks(username, password , session);
 	    
 	    String url = null;
@@ -68,8 +70,13 @@ public class Login extends HttpServlet {
 			boolean correctPassword = provider.getProviderPassword().equals(password);
 			
 			if(isUser && correctPassword){
-				session.setAttribute("user", username);
+				
+				session.setAttribute("user", provider.getProviderName());
 				session.setAttribute("userType", "provider");
+			}
+			else{
+				session.setAttribute("user", null);
+				session.setAttribute("userType", null);
 			}
 		}
 		

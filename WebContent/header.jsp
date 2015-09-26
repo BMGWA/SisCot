@@ -7,9 +7,9 @@
 			<li><a href="/SisCot/ConsultProduct">Produtos</a></li>
 
 			<%
-				if (session.getAttribute("usuarioLogado") != null) {
+				if (session.getAttribute("user") != null) {
 			%>
-			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("usuarioLogado")%>
+			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
 			</a></li>
 			<li><a href="/SisCot/Logout">Logout</a></li>
 			<%

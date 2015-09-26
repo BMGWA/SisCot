@@ -18,7 +18,7 @@
 	media="screen,projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body class="yellow lighten-5">
+<body class="blue lighten-5">
 	<c:import url="header.jsp" />
 	<div class="row center">
 		<h1>Alterar Produtos</h1>

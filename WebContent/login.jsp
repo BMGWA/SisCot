@@ -17,7 +17,7 @@
 
 
 
-<body class="yellow lighten-5">
+<body class="blue lighten-5">
   <c:import url="header.jsp" />
   <br><br>
   <!-- Start Page Loading -->
