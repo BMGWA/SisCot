@@ -73,7 +73,17 @@ public class Login extends HttpServlet {
 			
 			if(isUser && correctPassword){
 				
-				session.setAttribute("user", provider.getProviderName());
+				session.setAttribute("providerName", provider.getProviderName());
+				session.setAttribute("providerCnpj", provider.getProviderCnpj());
+				session.setAttribute("providerEmail", provider.getProviderEmail());
+				session.setAttribute("providerDdd", provider.getProviderDdd());
+				session.setAttribute("providerPassword", provider.getProviderPassword());
+				session.setAttribute("providerPhone", provider.getProviderPhone());
+				session.setAttribute("providerState", provider.getProviderState());
+				session.setAttribute("providerCity", provider.getProviderCity());
+				session.setAttribute("providerAdress", provider.getProviderAdress());
+				session.setAttribute("providerZip", provider.getProviderZip());
+				
 				session.setAttribute("userType", "provider");
 				return session;
 			}

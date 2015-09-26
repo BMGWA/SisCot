@@ -8,9 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import dao.ProviderDAO;
 import model.Provider;
+import dao.ProviderDAO;
 
 @WebServlet("/UpdateProvider")
 public class UpdateProvider extends HttpServlet {
@@ -40,14 +41,15 @@ public class UpdateProvider extends HttpServlet {
 	
 	public boolean sendToProviderDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
+		HttpSession session = request.getSession();
 		String actualProviderCnpj = (String) request.getParameter("actualCnpj");
 		
 		System.out.println("Cnpj atual: " + actualProviderCnpj);
 				
 		Provider provider = new Provider();
 		
-		provider.setProviderCnpj(request.getParameter("cnpj"));
-		provider.setProviderName(request.getParameter("name"));
+		provider.setProviderCnpj(request.getParameter("user"));
+		provider.setProviderName((String)session.getAttribute("user"));
 		provider.setProviderEmail(request.getParameter("email"));
 		provider.setProviderPassword(request.getParameter("password"));
 		provider.setProviderDdd(Integer.parseInt(request.getParameter("ddd")));
