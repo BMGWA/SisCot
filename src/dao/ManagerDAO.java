@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Manager;
-import model.Provider;
 
 public class ManagerDAO {
 	private Connection connection;

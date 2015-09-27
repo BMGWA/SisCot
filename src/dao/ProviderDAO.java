@@ -16,7 +16,10 @@ public class ProviderDAO {
 	}
 	
 	public boolean insertProvider(Provider provider) {
-		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, telefone, endereco, cidade, estado, cep) values (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, "
+				+ "telefone, endereco, cidade, estado, cep, authorized) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
+		
 		boolean wasAdded = false;
 		
 		try {
@@ -31,7 +34,8 @@ public class ProviderDAO {
 			statement.setString(7, provider.getProviderAdress());
 			statement.setString(8, provider.getProviderCity());
 			statement.setString(9, provider.getProviderState());
-			statement.setInt(10, provider.getProviderZip());			
+			statement.setInt(10, provider.getProviderZip());
+			statement.setBoolean(11, provider.isAuthorized());
 			statement.execute();
 			
 			wasAdded = true;
@@ -66,6 +70,7 @@ public class ProviderDAO {
 				provider.setProviderCity(rs.getString("cidade"));
 				provider.setProviderState(rs.getString("estado"));
 				provider.setProviderZip(rs.getInt("cep"));
+				provider.setProviderZip(rs.getInt("authorized"));
 				
 				providers.add(provider);
 			}
@@ -102,7 +107,7 @@ public class ProviderDAO {
 	
 	public boolean updateProvider(String cnpjToUpdate, Provider provider) {		
 		String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
-				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=? where cnpj=?";
+				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=?, authorized=? where cnpj=?";
 		boolean wasUpdated = false;
 			
 		try {
@@ -118,7 +123,8 @@ public class ProviderDAO {
 			statement.setString(8, provider.getProviderCity());
 			statement.setString(9, provider.getProviderState());
 			statement.setInt(10, provider.getProviderZip());
-			statement.setString(11, cnpjToUpdate);
+			statement.setBoolean(11, provider.isAuthorized());		
+			statement.setString(12, cnpjToUpdate);
 			
 			statement.executeUpdate();
 			wasUpdated = true;

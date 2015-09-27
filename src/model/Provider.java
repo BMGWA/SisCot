@@ -11,14 +11,12 @@ public class Provider {
 	private String ProviderCity;
 	private String ProviderState;
 	private int ProviderZip;
-	
-	public Provider() {
-		
-	}
+	private boolean authorized;
+
 
 	public Provider(Long id, String providerCnpj, String providerName, String providerEmail, String providerPassword,
 			int providerDdd, int providerPhone, String ProviderAdress, String ProviderCity, String ProviderState,
-			int ProviderZip) {
+			int ProviderZip, boolean authorized) {
 		this.providerCnpj = providerCnpj;
 		this.providerName = providerName;
 		this.providerEmail = providerEmail;
@@ -29,6 +27,7 @@ public class Provider {
 		this.ProviderCity = ProviderCity;
 		this.ProviderState = ProviderState;
 		this.ProviderZip = ProviderZip;
+		this.authorized = authorized;
 	}
 
 	public String getProviderCnpj() {
@@ -109,5 +108,17 @@ public class Provider {
 
 	public void setProviderZip(int ProviderZip) {
 		this.ProviderZip = ProviderZip;
+	}
+	
+	public boolean isAuthorized() {
+		return authorized;
+	}
+
+	public void setAuthorized(boolean authorized) {
+		this.authorized = authorized;
+	}
+
+	public Provider() {
+		
 	}
 }

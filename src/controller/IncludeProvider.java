@@ -45,10 +45,11 @@ public class IncludeProvider extends HttpServlet {
     	String providerCity = request.getParameter("city");
     	String providerState = request.getParameter("state");
     	int providerZip = Integer.parseInt(request.getParameter("zip"));
+    	boolean authorized = false;
     	
     	
 		boolean wasAdd = includeProvider(providerCnpj, providerName, providerEmail, providerPassword, providerDdd,
-				 providerPhone, providerAdress, providerCity, providerState, providerZip);
+				 providerPhone, providerAdress, providerCity, providerState, providerZip, authorized);
 		
 		if (wasAdd) {
 			messageAddConfirmation = "Fornecedor Cadastrado com sucesso!";
@@ -68,7 +69,7 @@ public class IncludeProvider extends HttpServlet {
     
     public boolean includeProvider(String providerCnpj, String providerName, String providerEmail, 
     		String providerPassword, int providerDdd, int providerPhone, String providerAdress, 
-    		String providerCity, String providerState, int providerZip) {
+    		String providerCity, String providerState, int providerZip, boolean authorized) {
     	
     	boolean wasAdd = false;
     	
@@ -84,6 +85,7 @@ public class IncludeProvider extends HttpServlet {
     	provider.setProviderCity(providerCity);    	
     	provider.setProviderState(providerState);
     	provider.setProviderZip(providerZip);
+    	provider.setAuthorized(authorized);
     	
     	ProviderDAO providerdao = new ProviderDAO();
     	
