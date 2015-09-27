@@ -5,7 +5,7 @@
 		<ul class="right hide-on-med-and-down ">
 
 			<%
-				if (session.getAttribute("user") != null) {
+				if (session.getAttribute("providerCnpj") != null) {
 					String user = (String) session.getAttribute("userType");
 					if (user.equals("manager")) {
 			%>
@@ -20,11 +20,11 @@
 			%>
 
 			<%
-				if (session.getAttribute("user") != null) {
+				if (session.getAttribute("providerName") != null) {
 					String user = (String) session.getAttribute("userType");
 					if (user.equals("provider")) {
 			%>
-			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
+			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("providerName")%>
 			</a></li>
 			<%
 				} else {

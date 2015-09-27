@@ -8,9 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import dao.ProviderDAO;
 import model.Provider;
+import dao.ProviderDAO;
 
 @WebServlet("/UpdateProvider")
 public class UpdateProvider extends HttpServlet {
@@ -40,7 +41,8 @@ public class UpdateProvider extends HttpServlet {
 	
 	public boolean sendToProviderDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
-		String actualProviderCnpj = (String) request.getParameter("actualCnpj");
+		HttpSession session = request.getSession();
+		String actualProviderCnpj = request.getParameter("actualCnpj");
 		
 		System.out.println("Cnpj atual: " + actualProviderCnpj);
 				
@@ -56,6 +58,13 @@ public class UpdateProvider extends HttpServlet {
 		provider.setProviderCity(request.getParameter("city"));
 		provider.setProviderState(request.getParameter("state"));
 		provider.setProviderZip(Integer.parseInt(request.getParameter("zip")));
+		
+		System.out.println("Dados: " + provider.getProviderAdress() + "\n");
+		System.out.println("Dados: " + provider.getProviderCity() + "\n");
+		System.out.println("Dados: " + provider.getProviderCnpj() + "\n");
+		System.out.println("Dados: " + provider.getProviderDdd() + "\n");
+		System.out.println("Dados: " + provider.getProviderZip() + "\n");
+		System.out.println("Dados: " + provider.getProviderName() + "\n");
 		
 		ProviderDAO providerDAO = new ProviderDAO();
 		
