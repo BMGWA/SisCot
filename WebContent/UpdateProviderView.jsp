@@ -88,6 +88,11 @@
 		<input type="text" name="zip" value=<%= session.getAttribute("providerZip") %>><br><br><br><br>
 		</div>
 		
+		<div class="input-field center"> 
+		Autorização do Fornecedor
+		<input type="text" name="zip" value=<%= session.getAttribute("providerZip") %>><br><br><br><br>
+		</div>
+		
 		<button class="btn waves-effect waves-light" type="submit" name="action">Alterar			
 		</button>
 		</div>

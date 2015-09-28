@@ -18,9 +18,12 @@ import javax.servlet.http.HttpSession;
  * @author tiago
  * @version 1.0
  */
-@WebFilter(displayName = "SecurityProvider", 
-urlPatterns = {"/Consult*", "/Include*", "/Delete*", "/Update*"}, 
-servletNames = {"/ConsultProduct"})
+@WebFilter(urlPatterns = {  "*.jsp", "*.html",
+		"/ConsultProduct", "/ConsultProvider", 
+		"/DeleteProduct", "/DeleteProvider", 
+		"/IncludeProduct", "/IncludeProvider",
+		"/UpdateProduct", "/UpdateProvider"
+		})
 public class SecurityProvider implements Filter {
 
     /**
@@ -45,9 +48,13 @@ public class SecurityProvider implements Filter {
 		//Get the request
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
+		String url = req.getRequestURL().toString();
+		
+		boolean isSession = (session.getAttribute("user") != null);
+		boolean requestIsIndex = (url.equals("http://localhost:8080/SisCot/"));
 		
 		//Verify if the current user have a session setted
-		if(session.getAttribute("user") != null) {
+		if( isSession || requestIsIndex ) {
 			chain.doFilter(request, response);
 		}
 		else{
