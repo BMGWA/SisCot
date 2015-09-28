@@ -29,6 +29,7 @@
 	Estado do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerState") %></span><br><br>
 	Cidade do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerCity") %></span><br><br>
 	Endereço do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerAdress") %></span><br><br>
+	Autorização do Fornecedor: <span class="blue-text text-darken-2"><%= request.getParameter("providerAuthorized") %></span><br><br>
 	
 	
 	

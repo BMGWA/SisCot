@@ -48,7 +48,8 @@
 						&providerAdress=${provider.providerAdress}
 						&providerCity=${provider.providerCity}
 						&providerState=${provider.providerState}
-						&providerZip=${provider.providerZip}">
+						&providerZip=${provider.providerZip}
+						$providerAuthorized=${provider.isAuthorized}">
 						${provider.providerName} </a>
 				</c:forEach>
 			</div>

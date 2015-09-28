@@ -25,12 +25,12 @@
 	</div>
 
 	<h3 class="row center">
-		Fornecedor selecionado: <b><%=session.getAttribute("providerName")%>
+		Fornecedor selecionado: <b><%=session.getAttribute("user")%>
 	</h3>
 	<br>
 	<br>
 	<div class="container">
-		<h4 <%=session.getAttribute("ProviderName")%>></h4>
+		<h4 <%=session.getAttribute("user")%>></h4>
 
 		<form action="UpdateProvider" method="POST" class="center">
 
@@ -48,8 +48,8 @@
 
 					<div class="input-field center">
 						Nome do Fornecedor <input type="text" name="name"
-							value=<%=session.getAttribute("providerName")%>><br>
-						<br> <br> <br>
+							value=<%=session.getAttribute("user")%>><br> <br>
+						<br> <br>
 					</div>
 
 					<div class="input-field center">
@@ -100,15 +100,17 @@
 						<br> <br> <br>
 					</div>
 
+
+					<%
+					String user = (String)session.getAttribute("userType");
+					if(user.equals("manager")){ %>
 					<div class="input-field center">
-						 
-							
-							<input type="checkbox" name="authorized"
-							class="filled-in" id="filled-in-box" <%=session.getAttribute("authorized")%> /> 
-							<label
+						<input type="checkbox" name="authorized" class="filled-in"
+							id="filled-in-box" <%=session.getAttribute("authorized")%> /> <label
 							for="filled-in-box">Fornecedor Autorizado</label> <br> <br>
 						<br> <br>
 					</div>
+					<%}%>
 
 					<button class="btn waves-effect waves-light" type="submit"
 						name="action">Alterar</button>
