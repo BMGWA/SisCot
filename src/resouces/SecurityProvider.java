@@ -55,6 +55,7 @@ public class SecurityProvider implements Filter {
 		
 		//Verify if the current user have a session setted
 		if( isSession || requestIsIndex ) {
+			session = setSession(session);
 			chain.doFilter(request, response);
 		}
 		else{
@@ -62,6 +63,11 @@ public class SecurityProvider implements Filter {
 			rd = request.getRequestDispatcher("/login.jsp");
 	        rd.forward(request,response);
 		}
+	}
+
+	private HttpSession setSession(HttpSession session) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**

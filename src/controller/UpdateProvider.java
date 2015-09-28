@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Provider;
+import resouces.Login;
 import dao.ProviderDAO;
 
 @WebServlet("/UpdateProvider")
@@ -58,6 +59,7 @@ public class UpdateProvider extends HttpServlet {
 		provider.setProviderCity(request.getParameter("city"));
 		provider.setProviderState(request.getParameter("state"));
 		provider.setProviderZip(Integer.parseInt(request.getParameter("zip")));
+		provider.setAuthorized(request.getParameter("authorized") != null);
 		
 		System.out.println("Dados: " + provider.getProviderAdress() + "\n");
 		System.out.println("Dados: " + provider.getProviderCity() + "\n");
@@ -65,6 +67,10 @@ public class UpdateProvider extends HttpServlet {
 		System.out.println("Dados: " + provider.getProviderDdd() + "\n");
 		System.out.println("Dados: " + provider.getProviderZip() + "\n");
 		System.out.println("Dados: " + provider.getProviderName() + "\n");
+		System.out.println("Dados Aurotizado:" + provider.isAuthorized() + "\n");
+		
+		Login login = new Login();
+		session = login.updateSessionProvider(session, provider);
 		
 		ProviderDAO providerDAO = new ProviderDAO();
 		

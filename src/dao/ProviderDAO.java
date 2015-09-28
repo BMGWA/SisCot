@@ -70,7 +70,8 @@ public class ProviderDAO {
 				provider.setProviderCity(rs.getString("cidade"));
 				provider.setProviderState(rs.getString("estado"));
 				provider.setProviderZip(rs.getInt("cep"));
-				provider.setProviderZip(rs.getInt("authorized"));
+				provider.setAuthorized(rs.getBoolean("authorized"));
+				
 				
 				providers.add(provider);
 			}

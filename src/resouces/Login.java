@@ -73,18 +73,8 @@ public class Login extends HttpServlet {
 			
 			if(isUser && correctPassword){
 				
-				session.setAttribute("user", provider.getProviderName());
-				session.setAttribute("providerCnpj", provider.getProviderCnpj());
-				session.setAttribute("providerEmail", provider.getProviderEmail());
-				session.setAttribute("providerDdd", provider.getProviderDdd());
-				session.setAttribute("providerPassword", provider.getProviderPassword());
-				session.setAttribute("providerPhone", provider.getProviderPhone());
-				session.setAttribute("providerState", provider.getProviderState());
-				session.setAttribute("providerCity", provider.getProviderCity());
-				session.setAttribute("providerAdress", provider.getProviderAdress());
-				session.setAttribute("providerZip", provider.getProviderZip());
-				
-				session.setAttribute("userType", "provider");
+				session = updateSessionProvider(session, provider);
+							
 				return session;
 			}
 			else{
@@ -107,19 +97,51 @@ public class Login extends HttpServlet {
 				
 				session.setAttribute("user", manager.getManagerUsername());
 				session.setAttribute("userType", "manager");
-				System.out.println("IF");
 				return session;
 			}
 			else{
 				session.setAttribute("user", null);
 				session.setAttribute("userType", null);
-				System.out.println("ELSE");
 			}
 		}
 		
 		return session;
 	}
 	
+	/**
+	 * Update the data of current provider
+	 * @param session
+	 * @param provider
+	 * @return
+	 */
+	public HttpSession updateSessionProvider(HttpSession session, Provider provider) {
+		session.setAttribute("user", provider.getProviderName());
+		session.setAttribute("providerCnpj", provider.getProviderCnpj());
+		session.setAttribute("providerEmail", provider.getProviderEmail());
+		session.setAttribute("providerDdd", provider.getProviderDdd());
+		session.setAttribute("providerPassword", provider.getProviderPassword());
+		session.setAttribute("providerPhone", provider.getProviderPhone());
+		session.setAttribute("providerState", provider.getProviderState());
+		session.setAttribute("providerCity", provider.getProviderCity());
+		session.setAttribute("providerAdress", provider.getProviderAdress());
+		session.setAttribute("providerZip", provider.getProviderZip());
+		
+		String authorized = null; 
+		System.out.println("Banco autenticado: " + provider.isAuthorized());
+		if(provider.isAuthorized()){
+			System.out.println("Cheio");
+		}
+		else{
+			authorized = "";
+		}
+			
+		
+		session.setAttribute("authorized", authorized);
+		
+		session.setAttribute("userType", "provider");
+		return session;
+	}
+
 	/**
 	 * Make a dispatcher for all methods with a url
 	 * @param request
