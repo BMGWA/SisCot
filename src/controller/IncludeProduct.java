@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDAO;
 import model.Product;
-import model.Provider;
 
 /**
  * Servlet implementation class IncludeProduct

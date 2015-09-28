@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,19 +14,13 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
+
+
+
 <body class="blue lighten-5">
-	<c:import url="header.jsp" />
-	<h3 class="row center">Produto <b><%= request.getParameter("productName") %></h3><br><br>
-	
-	<div class="row">
-	<div class="col s5 offset-s2">
-	Descrição do Produto: <span class="blue-text text-darken-2"><%= request.getParameter("productDescription") %></span><br><br>
-	
-	<a href="/SisCot/DeleteProduct?productName=<%= request.getParameter("productName") %>"> Deletar Produto</a>	<br> 
-	<a href="/SisCot/UpdateProductView.jsp?productName=<%= request.getParameter("productName") %>
-		"> Alterar Produto</a>
-	</div>
-	</div>
-	
+  <c:import url="header.jsp" />
+  <br><br><br>
+  <div class='row center'> <h1>Login recusado</h1></div>
+
 </body>
 </html>

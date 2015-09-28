@@ -17,7 +17,7 @@
 
 
 
-<body>
+<body class="blue lighten-5	">
   <c:import url="header.jsp" />
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -27,7 +27,7 @@
         <h5 class="header col s12 light">Sistema Ágil de Cotações para Compra de Produtos de Fornecedores</h5>
       </div>
       <div class="row center">
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Fazer Login</a>
+        <a href="/SisCot/login.jsp" id="download-button" class="btn-large waves-effect waves-light orange">Fazer Login</a>
       </div>
       <br><br>
 
@@ -111,9 +111,10 @@
   </footer>
 
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../../bin/materialize.js"></script>
+  <!-- jQuery Library -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--materialize js-->
+  <script type="text/javascript" src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 
   </body>

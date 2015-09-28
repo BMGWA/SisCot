@@ -4,10 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-<title>Cadastrar Produto</title>
+<title>Produto</title>
 
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -17,10 +18,6 @@
 <link href="css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../../bin/materialize.js"></script>
-<script src="js/init.js"></script>
 </head>
 <body class="blue lighten-5">
 
@@ -29,33 +26,14 @@
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<div class="row ">
+	
+		<div class="card-panel teal">
+			<h3 class="row center"><%=request.getAttribute("mensage")%></h1>
+	
+	</div></div>
 
-	<div class="row">
-		<div class="col s6 offset-s3">
-			<div class="card-panel">
-				<h1 class="row center">Cadastro de Produtos</h1>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="row center"></div>
-
-	<div class="container">
-		<form action="IncludeProduct" method="POST" class="center">
-
-			<c:import url="FormProduct.jsp" />
-
-		</form>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<c:import url="footer.jsp" />
 </body>
 </html>
