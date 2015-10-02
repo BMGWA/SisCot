@@ -11,6 +11,9 @@
 			%>
 			<li><a href="/SisCot/ConsultProvider">Fornecedores</a></li>
 			<%
+			%>
+			<li><a href="/SisCot/IncludePregaoView.jsp">Pregao</a></li>
+			<%
 				}
 			%>
 

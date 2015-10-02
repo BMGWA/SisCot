@@ -25,15 +25,17 @@ public class PregaoDAO {
 	
 	public boolean includePregao(Pregao pregao) {
 		String sql = "insert into Pregao (managerName, pregaoDate) values (?,?)";
-		Date date = new Date(pregao.getPregaoDate().getTimeInMillis());
+		//Date date = new Date(pregao.getPregaoDate().getTimeInMillis());
 		boolean wasAdd = false;
 		
 		try {
+			System.out.println("values:" + pregao.getManagerName());
 			//Prepare param to execut the Query
 			PreparedStatement statement =  this.connection.prepareStatement(sql);
 			
 			statement.setString(1, pregao.getManagerName());
-			statement.setDate(1, date, pregao.getPregaoDate());
+			//statement.setDate(1, date, pregao.getPregaoDate());
+			statement.setDate(2, pregao.getPregaoDate());
 			statement.execute();
 			
 			//The product was added
@@ -74,11 +76,9 @@ public class PregaoDAO {
 			//Stores all the products listed in the array
 			while(rs.next()) {
 				Pregao pregao = new Pregao();
-				Calendar calendar = Calendar.getInstance();
-				
-				calendar.setTime(rs.getDate("pregaoDate"));
+
 				pregao.setManagerName(rs.getString("managerName"));
-				pregao.setPregaoDate(calendar);
+				pregao.setPregaoDate(rs.getDate("pregaoDate"));
 				pregaoList.add(pregao);
 			}
 			
@@ -119,7 +119,6 @@ public class PregaoDAO {
 	
 	public boolean updateProduct(int idToUpdate, Pregao pregao) {
 		String sql = "update Pregao set managerName=?, pregaoDate=? where id=?";
-		Date date = new Date(pregao.getPregaoDate().getTimeInMillis());
 		boolean wasUpdated = false;
 
 		try {
@@ -127,7 +126,7 @@ public class PregaoDAO {
 			
 			//Set the first atribute of the query
 			statement.setString(1, pregao.getManagerName());
-			statement.setDate(2, date, pregao.getPregaoDate());
+			statement.setDate(2, pregao.getPregaoDate());
 			statement.setInt(3, idToUpdate);
 			
 			statement.executeUpdate();

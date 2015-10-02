@@ -1,19 +1,15 @@
 package model;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Pregao {
 	private ArrayList<Product> products;
 	private Date pregaoDate;
 	private String managerName;
 	
-	public Pregao (ArrayList<Product> products, Date pregaoDate, String managerName) {
+	public Pregao () {
 		super();
-		
-		this.products = products;
-		this.pregaoDate = pregaoDate;
-		this.managerName = managerName;
 		
 	}
 
