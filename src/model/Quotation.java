@@ -3,12 +3,13 @@ package model;
 import java.sql.Date;
 import java.util.ArrayList;
 
-public class Pregao {
+public class Quotation {
 	private ArrayList<Product> products;
-	private Date pregaoDate;
+	private Date quotationDate;
 	private String managerName;
+	private int id;
 	
-	public Pregao () {
+	public Quotation () {
 		super();
 		
 	}
@@ -21,12 +22,12 @@ public class Pregao {
 		this.products = products;
 	}
 
-	public Date getPregaoDate() {
-		return pregaoDate;
+	public Date getQuotationDate() {
+		return quotationDate;
 	}
 
-	public void setPregaoDate(Date pregaoDate) {
-		this.pregaoDate = pregaoDate;
+	public void setQuotationDate(Date quotationDate) {
+		this.quotationDate = quotationDate;
 	}
 
 	public String getManagerName() {
@@ -35,5 +36,13 @@ public class Pregao {
 
 	public void setManagerName(String managerName) {
 		this.managerName = managerName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

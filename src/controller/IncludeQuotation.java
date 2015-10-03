@@ -12,23 +12,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import model.Pregao;
-import dao.PregaoDAO;
+import model.Quotation;
+import dao.QuotationDAO;
 
 
 /**
  * Servlet implementation class IncludeProduct
  */
 @WebServlet("/IncludePregao")
-public class IncludePregao extends HttpServlet{
+public class IncludeQuotation extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
     
    /**Creating new Pregao
     * @see HttpServlet#HttpServlet()
     */
-	public IncludePregao() {
+	public IncludeQuotation() {
 		super();
 	}
 	
@@ -38,8 +39,9 @@ public class IncludePregao extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
 		String messageAddConfirmation = "Iniciada";
+		HttpSession session = request.getSession();
 		//Get name and description of the IncludeProducView
-		String managerName = request.getParameter("managerName");
+		String managerName = (String) session.getAttribute("user");
 		String textDate = request.getParameter("date");
 		Date pregaoDate = convertTextDateToDate(textDate);
 		boolean wasAdd = includePregao(managerName, pregaoDate);
@@ -72,16 +74,16 @@ public class IncludePregao extends HttpServlet{
 		return date;
 	}
 	
-	private boolean includePregao(String managerName, Date pregaoDate) {
+	private boolean includePregao(String managerName, Date quotationDate) {
 		boolean wasAdd = false;
 		
-		Pregao pregao = new Pregao();
-		pregao.setManagerName(managerName);
-		pregao.setPregaoDate(pregaoDate);
-		pregao.setProducts(null);
+		Quotation quotation = new Quotation();
+		quotation.setManagerName(managerName);
+		quotation.setQuotationDate(quotationDate);
+		quotation.setProducts(null);
 		
-		PregaoDAO pregaodao = new PregaoDAO();
-		wasAdd = pregaodao.includePregao(pregao);
+		QuotationDAO quotationdao = new QuotationDAO();
+		wasAdd = quotationdao.includeQuotation(quotation);
 		
 		return wasAdd;
 	}

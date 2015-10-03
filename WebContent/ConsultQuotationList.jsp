@@ -26,20 +26,34 @@
 	<br>
 	<div class="row center">
 		<a class="waves-effect waves-light btn"
-			href="/SisCot/IncludePregaoView.jsp">Criar Novo Pregão</a><br>
+			href="/SisCot/IncludeQuotationView.jsp">Criar Nova Cotação</a><br>
 		<br>
 	</div>
 
 
 
 	<div class="row">
+	<div class ="col s10">
 		<div class="col s3 offset-s3 ">
 			<div class="collection">
-				<li class="collection-item">Gerente</li>
-				<c:forEach items="${pregaoList}" var="pregao">
+				<li class="collection-item">ID da cotação #</li>
+				<c:forEach items="${quotationList}" var="quotation">
 					<a class="collection-item"
-						href="/SisCot/ShowPregao.jsp?managerName=${pregao.managerName}&pregaoDate=${pregao.pregaoDate}">
-						${pregao.managerName} </a>
+						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
+						&quotationId=${quotation.id}">
+						${quotation.id} </a>
+				</c:forEach>
+			</div>
+		</div>
+		
+		<div class="col s3  ">
+			<div class="collection">
+				<li class="collection-item">Gerente</li>
+				<c:forEach items="${quotationList}" var="quotation">
+					<a class="collection-item"
+						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
+						&quotationId=${quotation.id}">
+						${quotation.managerName} </a>
 				</c:forEach>
 			</div>
 		</div>
@@ -47,13 +61,15 @@
 		<div class="col s3 ">
 			<div class="collection">
 				<li class="collection-item">Data</li>
-				<c:forEach items="${pregaoList}" var="pregao">
+				<c:forEach items="${quotationList}" var="quotation">
 					<a class="collection-item"
-						href="/SisCot/ShowPregao.jsp?managerName=${pregao.managerName}&productDescription=${pregao.pregaoDate}">
-						${pregao.pregaoDate} </a>
+						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
+						&quotationId=${quotation.id}">
+						${quotation.quotationDate} </a>
 				</c:forEach>
 			</div>
 		</div>
+	</div>
 	</div>
 
 

@@ -8,34 +8,34 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import model.Pregao;
+import model.Quotation;
 
-public class PregaoDAO {
+public class QuotationDAO {
 	private Connection connection;
 	
-	public PregaoDAO() {
+	public QuotationDAO() {
 			this.connection = new ConnectionFactory().getConnection();
 	}
 	
 	/**
-	 * Include in the data base a new pregao
-	 * @param A new pregao
-	 * @return wasAdd if the pregao was add
+	 * Include in the data base a new quotation
+	 * @param A new quotation
+	 * @return wasAdd if the quotation was add
 	 */
 	
-	public boolean includePregao(Pregao pregao) {
-		String sql = "insert into Pregao (managerName, pregaoDate) values (?,?)";
-		//Date date = new Date(pregao.getPregaoDate().getTimeInMillis());
+	public boolean includeQuotation(Quotation quotation) {
+		String sql = "insert into Quotation (managerName, quotationDate) values (?,?)";
+		//Date date = new Date(quotation.getquotationDate().getTimeInMillis());
 		boolean wasAdd = false;
 		
 		try {
-			System.out.println("values:" + pregao.getManagerName());
+			System.out.println("values:" + quotation.getManagerName());
 			//Prepare param to execut the Query
 			PreparedStatement statement =  this.connection.prepareStatement(sql);
 			
-			statement.setString(1, pregao.getManagerName());
-			//statement.setDate(1, date, pregao.getPregaoDate());
-			statement.setDate(2, pregao.getPregaoDate());
+			statement.setString(1, quotation.getManagerName());
+			//statement.setDate(1, date, quotation.getquotationDate());
+			statement.setDate(2, quotation.getQuotationDate());
 			statement.execute();
 			
 			//The product was added
@@ -56,9 +56,9 @@ public class PregaoDAO {
 	 * Shows all existing products in the database 
 	 * @return
 	 */
-	public ArrayList<Pregao> listPregao() {
-		String sql = "select * from Pregao";
-		ArrayList<Pregao> pregaoList= new ArrayList<Pregao>();
+	public ArrayList<Quotation> listQuotation() {
+		String sql = "select * from Quotation";
+		ArrayList<Quotation> quotationList= new ArrayList<Quotation>();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -75,11 +75,12 @@ public class PregaoDAO {
 			
 			//Stores all the products listed in the array
 			while(rs.next()) {
-				Pregao pregao = new Pregao();
+				Quotation quotation = new Quotation();
 
-				pregao.setManagerName(rs.getString("managerName"));
-				pregao.setPregaoDate(rs.getDate("pregaoDate"));
-				pregaoList.add(pregao);
+				quotation.setManagerName(rs.getString("managerName"));
+				quotation.setQuotationDate(rs.getDate("quotationDate"));
+				quotation.setId(rs.getInt("id"));
+				quotationList.add(quotation);
 			}
 			
 			//Close the operators
@@ -90,11 +91,11 @@ public class PregaoDAO {
 			throw new RuntimeException(e);
 		}
 		
-		return pregaoList;
+		return quotationList;
 	}
 	
-	public boolean deletePregao(int id) {
-		String sql = "delete from Pregao where id = ?";
+	public boolean deleteQuotation(int id) {
+		String sql = "delete from Quotation where id = ?";
 		boolean wasDeleted = false;
 		
 		try {
@@ -117,16 +118,16 @@ public class PregaoDAO {
 		return wasDeleted;
 	}
 	
-	public boolean updateProduct(int idToUpdate, Pregao pregao) {
-		String sql = "update Pregao set managerName=?, pregaoDate=? where id=?";
+	public boolean updateQuotation(int idToUpdate, Quotation quotation) {
+		String sql = "update Quotation set managerName=?, quotationDate=? where id=?";
 		boolean wasUpdated = false;
 
 		try {
 			PreparedStatement statement =  this.connection.prepareStatement(sql);
 			
 			//Set the first atribute of the query
-			statement.setString(1, pregao.getManagerName());
-			statement.setDate(2, pregao.getPregaoDate());
+			statement.setString(1, quotation.getManagerName());
+			statement.setDate(2, quotation.getQuotationDate());
 			statement.setInt(3, idToUpdate);
 			
 			statement.executeUpdate();

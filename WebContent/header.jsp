@@ -9,15 +9,21 @@
 					String user = (String) session.getAttribute("userType");
 					if (user.equals("manager")) {
 			%>
-			<li><a href="/SisCot/ConsultProvider">Fornecedores</a></li>
+			<li><a class="tooltipped" data-position="bottom" data-delay="50"
+				data-tooltip="Consultar Fornecedores"
+			href="/SisCot/ConsultProvider">Fornecedores</a></li>
 			<%
 			%>
-			<li><a href="/SisCot/ConsultPregao">Pregao</a></li>
+			<li><a class="tooltipped" data-position="bottom" data-delay="50"
+				data-tooltip="Consultar Cotações"
+				href="/SisCot/ConsultQuotation">Cotações</a></li>
 			<%
 				}
 			%>
 
-			<li><a href="/SisCot/ConsultProduct">Produtos</a></li>
+			<li><a class="tooltipped" data-position="bottom" data-delay="50"
+				data-tooltip="Consultar Produtos"
+				href="/SisCot/ConsultProduct">Produtos</a></li>
 			<%
 				}
 			%>
@@ -27,7 +33,9 @@
 					String user = (String) session.getAttribute("userType");
 					if (user.equals("provider")) {
 			%>
-			<li><a href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
+			<li><a class="tooltipped" data-position="bottom" data-delay="50"
+				data-tooltip="Atualizar Dados" 
+			href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
 			</a></li>
 			<%
 				} else {

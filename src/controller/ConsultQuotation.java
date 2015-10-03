@@ -10,28 +10,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Pregao;
-import dao.PregaoDAO;
+import model.Quotation;
+import dao.QuotationDAO;
 
-@WebServlet("/ConsultPregao")
-public class ConsultPregao extends HttpServlet {
+@WebServlet("/ConsultQuotation")
+public class ConsultQuotation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public ConsultPregao() {
+	public ConsultQuotation() {
 		super();
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
-		ArrayList<Pregao> pregaoList = new ArrayList<Pregao>();
-		PregaoDAO pregaodao = new PregaoDAO();
+		ArrayList<Quotation> quotationList = new ArrayList<Quotation>();
+		QuotationDAO quotationdao = new QuotationDAO();
 		
-		pregaoList = pregaodao.listPregao();		
+		quotationList = quotationdao.listQuotation();		
 		
-		request.setAttribute("pregaoList", pregaoList);
+		request.setAttribute("quotationList", quotationList);
 				
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/ConsultPregaoList.jsp");
+		rd = request.getRequestDispatcher("/ConsultQuotationList.jsp");
         rd.forward(request,response);
 	}
 }
