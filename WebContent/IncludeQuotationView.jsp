@@ -57,7 +57,7 @@
 			<br><br>
 			</div><br><br>
 			
-			<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar 			
+			<button class="btn waves-effect waves-light" type="submit" name="action">Criar Pregao			
 		</button>
 		<br><br>
 

@@ -23,8 +23,9 @@
 		Criado por: <span class="blue-text text-darken-2"><%= request.getParameter("managerName") %></span><br><br>
 		Data: <span class="blue-text text-darken-2"><%= request.getParameter("quotationDate") %></span><br><br>
 		
-		<a href="/SisCot/DeleteQuotation?productName=<%= request.getParameter("managerName") %>"> Deletar Cotação</a>	<br> 
-		<a href="/SisCot/UpdateProductView.jsp?productName=<%= request.getParameter("managerName") %>
+		<a href="/SisCot/DeleteQuotation?quotationId=<%= request.getParameter("quotationId") %>">
+		 Deletar Cotação</a>	<br> 
+		<a href="/SisCot/UpdateQuotationView.jsp?quotationId=<%= request.getParameter("quotationId") %>
 			"> Alterar Cotação</a>
 		</div>
 	
