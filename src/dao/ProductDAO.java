@@ -37,7 +37,6 @@ public class ProductDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();			
 			throw new RuntimeException(e);
@@ -78,7 +77,6 @@ public class ProductDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {	
 			e.printStackTrace();			
 			throw new RuntimeException(e);
@@ -102,7 +100,6 @@ public class ProductDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();			
 			throw new RuntimeException(e);
@@ -129,7 +126,6 @@ public class ProductDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
