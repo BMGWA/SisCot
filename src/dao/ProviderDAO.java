@@ -41,7 +41,6 @@ public class ProviderDAO {
 			wasAdded = true;
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -77,7 +76,6 @@ public class ProviderDAO {
 			}
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -86,7 +84,7 @@ public class ProviderDAO {
 	}
 	
 	public boolean deleteProvider(String providerCnpj) {
-		String sql = "delete from Providers where nome = ?";
+		String sql = "delete from Providers where cnpj = ?";
 		boolean wasDeleted = false;
 
 		try {
@@ -98,7 +96,6 @@ public class ProviderDAO {
 			wasDeleted = true;
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -131,7 +128,6 @@ public class ProviderDAO {
 			wasUpdated = true;
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
