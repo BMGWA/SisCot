@@ -43,7 +43,6 @@ public class QuotationDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();			
 			throw new RuntimeException(e);
@@ -85,7 +84,6 @@ public class QuotationDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {	
 			e.printStackTrace();			
 			throw new RuntimeException(e);
@@ -109,7 +107,6 @@ public class QuotationDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();			
 			throw new RuntimeException(e);
@@ -136,7 +133,6 @@ public class QuotationDAO {
 			
 			//Close the operators
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
