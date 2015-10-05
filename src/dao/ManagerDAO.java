@@ -29,7 +29,6 @@ public class ManagerDAO {
 			wasAdded = true;
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -55,7 +54,6 @@ public class ManagerDAO {
 			}
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -76,7 +74,6 @@ public class ManagerDAO {
 			wasDeleted = true;
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -85,7 +82,7 @@ public class ManagerDAO {
 	}
 	
 	public boolean updateManager(String usernameToUpdate, Manager manager) {		
-		String sql = "update Managers set username=?, password=?";
+		String sql = "update Managers set username=?, password=? where username=?";
 		boolean wasUpdated = false;
 			
 		try {
@@ -93,12 +90,13 @@ public class ManagerDAO {
 			
 			statement.setString(1, manager.getManagerUsername());
 			statement.setString(2, manager.getManagerPassword());
+			statement.setString(3, usernameToUpdate);
+			
 			
 			statement.executeUpdate();
 			wasUpdated = true;
 			
 			statement.close();
-			connection.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
