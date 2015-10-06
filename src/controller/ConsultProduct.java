@@ -28,10 +28,20 @@ public class ConsultProduct extends HttpServlet {
 		
 		productList = productdao.listProducts();		
 		
+		String url  = request.getHeader("Referer");
+		
+		System.out.println("url: " + url);
+		
 		request.setAttribute("products", productList);
-				
+		
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/ConsultProductList.jsp");
+		if(url.contains("Quotation")) {
+			rd = request.getRequestDispatcher("/IncludeQuotationView.jsp");
+		}
+		else {
+			rd = request.getRequestDispatcher("/ConsultProductList.jsp");
+		}
+		
         rd.forward(request,response);
 	}
 }

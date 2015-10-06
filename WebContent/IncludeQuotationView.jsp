@@ -2,6 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.Date, java.text.*" %>
+<%@ page import=" dao.ProductDAO" %>
+<%@ page import=" model.Product" %>
+<%@ page import=" java.util.ArrayList" %>
+<%
+	ArrayList<Product> productList = new ArrayList<Product>();
+	ProductDAO productdao = new ProductDAO();
+	productList = productdao.listProducts();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -13,7 +21,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-<title>Criar Novo Pregão</title>
+<title>Criar Nova Cotação</title>
 
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -37,14 +45,14 @@
 	<br>
 
 	<div class="row center">
-		<h1>Criar Pregao</h1>
+		<h1>Criar Cotação</h1>
 	</div>
 
 
 	<div class="row center"></div>
 
 	<div class="container">
-		<form action="IncludePregao" method="POST" class="center">
+		<form action="IncludeQuotation" method="POST" class="center">
 
 			<div class="input-field center">
 			Nome do Gerente: <%=session.getAttribute("user")%>
@@ -53,11 +61,23 @@
 			</div><br>
 			
 			<div class="input-field center">
-			Data do Pregão: <%=quotationDate %>
+			Data da Cotação: <%=quotationDate %>
 			<br><br>
 			</div><br><br>
 			
-			<button class="btn waves-effect waves-light" type="submit" name="action">Criar Pregao			
+			<div class="row">
+				<div class="col s10 offset-s1">
+					<div class="collection">
+						<li class="collection-item">Produtos</li>
+						<c:forEach items="${products}" var="product">
+							<a class="collection-item"
+								href="/SisCot/ShowProduct.jsp?productName=${product.productName}&productDescription=${product.productDescription}">
+								${product.productName} </a>
+						</c:forEach>
+					</div>
+				</div>
+		
+			<button class="btn waves-effect waves-light" type="submit" name="action">Criar Cotação			
 		</button>
 		<br><br>
 
