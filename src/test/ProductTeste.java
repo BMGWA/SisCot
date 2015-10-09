@@ -9,7 +9,7 @@ import java.sql.Connection;
 
 import org.junit.Test;
 
-import controller.IncludeProduct;
+import controller.InsertProduct;
 
 /**
  * @author tiago
@@ -19,7 +19,7 @@ public class ProductTeste {
 	
 	@Test
 	public void testIfReturnsTrueWithCorrectNameAndDescripriton() {
-		IncludeProduct includeProduct = new IncludeProduct();
+		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = "Orange";
 		String descriptionProduct = "Is a fruit";
 		
@@ -31,7 +31,7 @@ public class ProductTeste {
 	
 	@Test
 	public void testIfReturnsFalseWithIncorrectName() {
-		IncludeProduct includeProduct = new IncludeProduct();
+		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = null;
 		String descriptionProduct = "Is a fruit";
 		
@@ -49,7 +49,7 @@ public class ProductTeste {
 	
 	@Test
 	public void testIfReturnsFalseWithIncorrectDescription() {
-		IncludeProduct includeProduct = new IncludeProduct();
+		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = "Orange";
 		String descriptionProduct = null;
 		
@@ -68,7 +68,7 @@ public class ProductTeste {
 	
 	@Test
 	public void testIfReturnsFalseWithIncorrectDescriptionAndName() {
-		IncludeProduct includeProduct = new IncludeProduct();
+		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = null;
 		String descriptionProduct = null;
 		

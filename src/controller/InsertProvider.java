@@ -16,13 +16,13 @@ import dao.ProviderDAO;
  * Servlet implementation class IncludeProvider
  */
 @WebServlet("/IncludeProvider")
-public class IncludeProvider extends HttpServlet {
+public class InsertProvider extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**Creating new Provider
      * @see HttpServlet#HttpServlet()
      */
-    public IncludeProvider() {
+    public InsertProvider() {
         super();
     }
     
@@ -61,7 +61,7 @@ public class IncludeProvider extends HttpServlet {
     	provider.setProviderZip(providerZip);
     	provider.setAuthorized(authorized);
 		    	
-		boolean wasAdd = includeProvider(provider);
+		boolean wasAdd = insertProvider(provider);
 		
 		if (wasAdd) {
 			messageAddConfirmation = "Fornecedor Cadastrado com sucesso!";
@@ -79,8 +79,7 @@ public class IncludeProvider extends HttpServlet {
         rd.forward(request,response);
     }
     
-    public boolean includeProvider(Provider provider) {
-    	
+    public boolean insertProvider(Provider provider) {    	
     	boolean wasAdd = false;
     	
     	ProviderDAO providerdao = new ProviderDAO();

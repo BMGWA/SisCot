@@ -16,13 +16,13 @@ import model.Product;
  * Servlet implementation class IncludeProduct
  */
 @WebServlet("/IncludeProduct")
-public class IncludeProduct extends HttpServlet {
+public class InsertProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**Creating new Product
      * @see HttpServlet#HttpServlet()
      */
-    public IncludeProduct() {
+    public InsertProduct() {
         super();
     }
 
@@ -67,7 +67,7 @@ public class IncludeProduct extends HttpServlet {
 		
 		//Acess the DAO class and adding the new product
 		ProductDAO productdao = new ProductDAO();
-		wasAdd = productdao.includeProduct(product);
+		wasAdd = productdao.insertProduct(product);
 		
 		return wasAdd;
 	}

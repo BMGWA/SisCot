@@ -19,14 +19,14 @@ import dao.QuotationDAO;
  * Servlet implementation class IncludeProduct
  */
 @WebServlet("/IncludeQuotation")
-public class IncludeQuotation extends HttpServlet{
+public class InsertQuotation extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
     
    /**Creating new Quotation
     * @see HttpServlet#HttpServlet()
     */
-	public IncludeQuotation() {
+	public InsertQuotation() {
 		super();
 	}
 	
@@ -41,7 +41,7 @@ public class IncludeQuotation extends HttpServlet{
 		String managerName = (String) session.getAttribute("user");
 		java.util.Date utilDate = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-		boolean wasAdd = includePregao(managerName, sqlDate);
+		boolean wasAdd = insertQuotation(managerName, sqlDate);
 		
 		if(wasAdd) {
 			messageAddConfirmation = "Cotação criada com sucesso!";
@@ -59,7 +59,7 @@ public class IncludeQuotation extends HttpServlet{
 	}
 	
 	
-	private boolean includePregao(String managerName, Date quotationDate) {
+	public boolean insertQuotation(String managerName, Date quotationDate) {
 		boolean wasAdd = false;
 		
 		Quotation quotation = new Quotation();

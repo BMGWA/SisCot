@@ -20,7 +20,7 @@ public class ProductDAO {
 	 * @param A new product
 	 * @return wasAdd if the product was add
 	 */
-	public boolean includeProduct(Product product) {
+	public boolean insertProduct(Product product) {
 		String sql = "insert into Products (nome, description) values (?,?)";
 		boolean wasAdd = false;
 		
