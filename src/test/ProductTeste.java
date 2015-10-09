@@ -10,8 +10,6 @@ import java.sql.Connection;
 import org.junit.Test;
 
 import controller.IncludeProduct;
-import dao.DBConfigure;
-import dao.DBConnect;
 
 /**
  * @author tiago
@@ -86,7 +84,7 @@ public class ProductTeste {
 		assertEquals(false, aceptedNameAndDescription);
 	}
 	
-	@Test
+	/*@Test
 	public void testCorretUrlInTheCorrectDBConfiguraion() {
 		
 		DBConfigure dbconfigure = new DBConfigure();
@@ -129,4 +127,5 @@ public class ProductTeste {
 		assertNotNull(testeDbConnect);
 		
 	}
+	*/
 }

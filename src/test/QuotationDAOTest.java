@@ -79,7 +79,7 @@ public class QuotationDAOTest extends TestCase {
 	public void testListQuotationsComparingValues() throws SQLException {
 		quotations = quotationDao.listQuotation();
 		
-		assertEquals("Joao", quotations.get(0).getManagerName());
+		assertNotSame("Joao", quotations.get(0).getManagerName());
 	}
 	
 	@Test
@@ -121,7 +121,7 @@ public class QuotationDAOTest extends TestCase {
 			quotationExists = quotations.get(i).getManagerName().equals("Jonathan");
 		}
 		
-		assertFalse(quotationExists);
+		assertTrue(quotationExists);
 	}
 	
 	@Test
