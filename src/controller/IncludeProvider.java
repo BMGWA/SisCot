@@ -47,9 +47,21 @@ public class IncludeProvider extends HttpServlet {
     	int providerZip = Integer.parseInt(request.getParameter("zip"));
     	boolean authorized = false;
     	
-    	
-		boolean wasAdd = includeProvider(providerCnpj, providerName, providerEmail, providerPassword, providerDdd,
-				 providerPhone, providerAdress, providerCity, providerState, providerZip, authorized);
+		Provider provider = new Provider();
+		    	
+    	provider.setProviderCnpj(providerCnpj);
+    	provider.setProviderName(providerName);
+    	provider.setProviderEmail(providerEmail);
+    	provider.setProviderPassword(providerPassword);
+    	provider.setProviderDdd(providerDdd);
+    	provider.setProviderPhone(providerPhone);
+    	provider.setProviderAdress(providerAdress);
+    	provider.setProviderCity(providerCity);    	
+    	provider.setProviderState(providerState);
+    	provider.setProviderZip(providerZip);
+    	provider.setAuthorized(authorized);
+		    	
+		boolean wasAdd = includeProvider(provider);
 		
 		if (wasAdd) {
 			messageAddConfirmation = "Fornecedor Cadastrado com sucesso!";
@@ -67,25 +79,9 @@ public class IncludeProvider extends HttpServlet {
         rd.forward(request,response);
     }
     
-    public boolean includeProvider(String providerCnpj, String providerName, String providerEmail, 
-    		String providerPassword, int providerDdd, int providerPhone, String providerAdress, 
-    		String providerCity, String providerState, int providerZip, boolean authorized) {
+    public boolean includeProvider(Provider provider) {
     	
     	boolean wasAdd = false;
-    	
-    	Provider provider = new Provider();
-    	
-    	provider.setProviderCnpj(providerCnpj);
-    	provider.setProviderName(providerName);
-    	provider.setProviderEmail(providerEmail);
-    	provider.setProviderPassword(providerPassword);
-    	provider.setProviderDdd(providerDdd);
-    	provider.setProviderPhone(providerPhone);
-    	provider.setProviderAdress(providerAdress);
-    	provider.setProviderCity(providerCity);    	
-    	provider.setProviderState(providerState);
-    	provider.setProviderZip(providerZip);
-    	provider.setAuthorized(authorized);
     	
     	ProviderDAO providerdao = new ProviderDAO();
     	
