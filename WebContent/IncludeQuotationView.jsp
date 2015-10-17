@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.util.Date, java.text.*" %>
-<%@ page import=" dao.ProductDAO" %>
-<%@ page import=" model.Product" %>
-<%@ page import=" java.util.ArrayList" %>
+<%@ page import="java.util.Date, java.text.*"%>
+<%@ page import=" dao.ProductDAO"%>
+<%@ page import=" model.Product"%>
+<%@ page import=" java.util.ArrayList"%>
 <%
 	ArrayList<Product> productList = new ArrayList<Product>();
 	ProductDAO productdao = new ProductDAO();
@@ -55,32 +55,40 @@
 		<form action="IncludeQuotation" method="POST" class="center">
 
 			<div class="input-field center">
-			Nome do Gerente: <%=session.getAttribute("user")%>
+				Nome do Gerente:
+				<%=session.getAttribute("user")%>
+				<br>
+
+			</div>
 			<br>
-			
-			</div><br>
-			
+
 			<div class="input-field center">
-			Data da Cotação: <%=quotationDate %>
-			<br><br>
-			</div><br><br>
-			
+				Data da Cotação:
+				<%=quotationDate%>
+				<br> 
+			</div>
+			<br> 
+
 			<div class="row">
 				<div class="col s10 offset-s1">
-					<div class="collection">
-						<li class="collection-item">Produtos</li>
-						<c:forEach items="${products}" var="product">
-							<a class="collection-item"
-								href="/SisCot/ShowProduct.jsp?productName=${product.productName}&productDescription=${product.productDescription}">
-								${product.productName} </a>
-						</c:forEach>
-					</div>
-				</div>
-		
-			<button class="btn waves-effect waves-light" type="submit" name="action">Criar Cotação			
-		</button>
-		<br><br>
+					
 
+						<c:forEach items="${products}" var="product">
+
+							<p>
+								<input type="checkbox" id="${product.productName}" name="${product.productName}" /> <label
+									for="${product.productName}">${product.productName}</label>
+							</p>
+						</c:forEach>
+
+					
+
+				</div>
+			</div>
+
+			<button class="btn waves-effect waves-light" type="submit"
+				name="action">Criar Cotação</button>
+			<br> <br>
 		</form>
 	</div>
 	<br>

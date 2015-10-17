@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Product;
 import model.Quotation;
+import dao.ProductDAO;
 import dao.QuotationDAO;
 
 
@@ -35,12 +38,17 @@ public class InsertQuotation extends HttpServlet{
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
+		
 		String messageAddConfirmation = "Iniciada";
 		HttpSession session = request.getSession();
+		
 		//Get name and description of the IncludeProducView
 		String managerName = (String) session.getAttribute("user");
 		java.util.Date utilDate = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+		
+		selectProducts(request);
+		
 		boolean wasAdd = insertQuotation(managerName, sqlDate);
 		
 		if(wasAdd) {
@@ -59,6 +67,24 @@ public class InsertQuotation extends HttpServlet{
 	}
 	
 	
+	private void selectProducts(HttpServletRequest request) {
+		ArrayList<Product> productList = new ArrayList<Product>();
+		ProductDAO productdao = new ProductDAO();
+		
+		productList = productdao.listProducts();
+		
+		for (Product product : productList) {
+			String productName;
+			productName = product.getProductName();
+			
+			String nameProduct;
+			nameProduct = request.getParameter(productName);
+
+			System.out.println(productName);
+			System.out.println(nameProduct);
+		}
+	}
+
 	public boolean insertQuotation(String managerName, Date quotationDate) {
 		boolean wasAdd = false;
 		
