@@ -34,8 +34,7 @@ public class InsertProduct extends HttpServlet {
 		String messageAddConfirmation = "Iniciada";
 		//Get name and description of the IncludeProducView
 		String nameProduct = request.getParameter("name");
-		String descriptionProduct = request.getParameter("description");
-		boolean wasAdd = includeProduct(nameProduct, descriptionProduct);
+		boolean wasAdd = includeProduct(nameProduct);
 		
 		if (wasAdd) {
 			messageAddConfirmation = "Produto adicionado com sucesso!";
@@ -53,11 +52,10 @@ public class InsertProduct extends HttpServlet {
         rd.forward(request,response);
 	}
 	
-	public boolean includeProduct(String nameProduct, String descriptionProduct){
+	public boolean includeProduct(String nameProduct){
 		boolean wasAdd = false;
 			
 		Product product = new Product(); 
-		product.setProductDescription(descriptionProduct);
 		product.setProductName(nameProduct);
 		product.setProductPrice(0.0);
 		product.setProductProvider(null);

@@ -21,10 +21,9 @@ public class ProductTeste {
 	public void testIfReturnsTrueWithCorrectNameAndDescripriton() {
 		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = "Orange";
-		String descriptionProduct = "Is a fruit";
 		
 		boolean aceptedNameAndDescription= false;
-		aceptedNameAndDescription = includeProduct.includeProduct(nameProduct, descriptionProduct);
+		aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
 		
 		assertEquals(true, aceptedNameAndDescription);
 	}
@@ -33,11 +32,10 @@ public class ProductTeste {
 	public void testIfReturnsFalseWithIncorrectName() {
 		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = null;
-		String descriptionProduct = "Is a fruit";
 		
 		boolean aceptedNameAndDescription= true;
 		try{
-			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct, descriptionProduct);
+			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
 		}
 		catch(Exception e){
 			aceptedNameAndDescription = false;
@@ -51,11 +49,10 @@ public class ProductTeste {
 	public void testIfReturnsFalseWithIncorrectDescription() {
 		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = "Orange";
-		String descriptionProduct = null;
 		
 		boolean aceptedNameAndDescription= true;
 		try{
-			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct, descriptionProduct);
+			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
 		}
 		catch(Exception e){
 			aceptedNameAndDescription = false;
@@ -70,11 +67,10 @@ public class ProductTeste {
 	public void testIfReturnsFalseWithIncorrectDescriptionAndName() {
 		InsertProduct includeProduct = new InsertProduct();
 		String nameProduct = null;
-		String descriptionProduct = null;
 		
 		boolean aceptedNameAndDescription= true;
 		try{
-			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct, descriptionProduct);
+			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
 		}
 		catch(Exception e){
 			aceptedNameAndDescription = false;

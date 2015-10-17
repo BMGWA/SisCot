@@ -25,7 +25,6 @@ public class ProductDAOTest extends TestCase {
 	
 	@Test
 	public void testInsertProduct() {		
-		product.setProductDescription("5kg");
 		product.setProductName("Arroz");
 		
 		assertEquals(true, productDao.insertProduct(product));		
@@ -33,7 +32,6 @@ public class ProductDAOTest extends TestCase {
 	
 	@Test
 	public void testInsertProductComparingValues() throws SQLException {		
-		product.setProductDescription("1kg");
 		product.setProductName("Feijão");
 
 		productDao.insertProduct(product);
@@ -57,7 +55,6 @@ public class ProductDAOTest extends TestCase {
 	
 	@Test
 	public void testListProductsComparingValues() throws SQLException {		
-		product.setProductDescription("Neutro");
 		product.setProductName("Detergente");
 
 		productDao.insertProduct(product);
@@ -76,7 +73,6 @@ public class ProductDAOTest extends TestCase {
 	@Test
 	public void testDeleteProduct() throws SQLException {
 		product.setProductName("RemoverProduto");
-		product.setProductDescription("Remover este produto");
 		
 		productDao.insertProduct(product);
 		
@@ -86,7 +82,6 @@ public class ProductDAOTest extends TestCase {
 	@Test
 	public void testDeleteProductSearchingForTheProduct() throws SQLException {
 		product.setProductName("RemoverProduto2");
-		product.setProductDescription("Remover este produto tambem");
 		
 		productDao.insertProduct(product);
 		productDao.deleteProduct("RemoverProduto2");
@@ -106,7 +101,6 @@ public class ProductDAOTest extends TestCase {
 	@Test
 	public void testUpdateProduct() throws SQLException {
 		product.setProductName("Atualizar");
-		product.setProductDescription("Produto a ser atualizado");
 		
 		productDao.insertProduct(product);
 		
@@ -118,12 +112,10 @@ public class ProductDAOTest extends TestCase {
 	@Test
 	public void testUpdateProductSearchingForTheNewName() throws SQLException {
 		product.setProductName("Produto");
-		product.setProductDescription("Produto a ser atualizado");
 		
 		productDao.insertProduct(product);
 		
 		product.setProductName("ProdutoAtualizado2");
-		product.setProductDescription("Este produto foi atualizado");
 		productDao.updateProduct("Produto", product);
 		
 		products = productDao.listProducts();

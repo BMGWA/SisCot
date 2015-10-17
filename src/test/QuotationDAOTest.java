@@ -36,7 +36,6 @@ public class QuotationDAOTest extends TestCase {
 	@Test
 	public void testInsertQuotation() throws SQLException {
 		product.setProductName("ProdutoPregao");
-		product.setProductDescription("Produto do Pregrao");
 		
 		products.add(product);
 		
@@ -49,7 +48,6 @@ public class QuotationDAOTest extends TestCase {
 	@Test
 	public void testInsertQuotationChekingValues() throws SQLException {
 		product.setProductName("TestPregrao");
-		product.setProductDescription("pregao teste");
 		
 		products.add(product);
 		
@@ -88,7 +86,6 @@ public class QuotationDAOTest extends TestCase {
 		quotation.setQuotationDate(quotationDate);
 		
 		product.setProductName("Macbook");
-		product.setProductDescription("Macbook pro 13");
 		
 		products.add(product);
 		
@@ -105,7 +102,6 @@ public class QuotationDAOTest extends TestCase {
 		quotation.setQuotationDate(quotationDate);
 		
 		product.setProductName("Galaxy");
-		product.setProductDescription("S3");
 		
 		products.add(product);
 		
@@ -129,8 +125,7 @@ public class QuotationDAOTest extends TestCase {
 		quotation.setManagerName("Amanda");
 		quotation.setQuotationDate(quotationDate);
 		
-		product.setProductName("Batom");
-		product.setProductDescription("vermelho");		
+		product.setProductName("Batom");	
 		products.add(product);
 		
 		quotation.setProducts(products);
@@ -142,8 +137,7 @@ public class QuotationDAOTest extends TestCase {
 		Quotation quotation2 = new Quotation();
 		quotation2.setManagerName("Anne");
 		quotation2.setQuotationDate(quotationDate);
-		product.setProductName("Batom");
-		product.setProductDescription("vermelho");		
+		product.setProductName("Batom");	
 		products.add(product);
 		quotation2.setProducts(products);
 		
