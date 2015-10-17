@@ -34,7 +34,7 @@ public class InsertProduct extends HttpServlet {
 		String messageAddConfirmation = "Iniciada";
 		//Get name and description of the IncludeProducView
 		String nameProduct = request.getParameter("name");
-		int wasAdd = includeProduct(nameProduct);
+		int wasAdd = insertProduct(nameProduct);
 		
 		messageAddConfirmation = messageHandling(wasAdd);
 		
@@ -47,7 +47,7 @@ public class InsertProduct extends HttpServlet {
         rd.forward(request,response);
 	}
 	
-	public int includeProduct(String nameProduct){
+	public int insertProduct(String nameProduct){
 		boolean daoWasAdd = false;
 		
 		/* 
@@ -57,6 +57,8 @@ public class InsertProduct extends HttpServlet {
 		 * 2 -> Empty product name.
 		 */
 		int wasAdd = 0; 
+		
+		nameProduct = nameProduct.trim();
 		
 		if(!nameProduct.equals("")) {
 			
