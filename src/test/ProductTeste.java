@@ -5,8 +5,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.sql.Connection;
-
 import org.junit.Test;
 
 import controller.InsertProduct;
@@ -23,7 +21,7 @@ public class ProductTeste {
 		String nameProduct = "Orange";
 		
 		boolean aceptedNameAndDescription= false;
-		aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
+		aceptedNameAndDescription = includeProduct.insertProduct(nameProduct);
 		
 		assertEquals(true, aceptedNameAndDescription);
 	}
@@ -35,7 +33,7 @@ public class ProductTeste {
 		
 		boolean aceptedNameAndDescription= true;
 		try{
-			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
+			aceptedNameAndDescription = includeProduct.insertProduct(nameProduct);
 		}
 		catch(Exception e){
 			aceptedNameAndDescription = false;
@@ -52,7 +50,7 @@ public class ProductTeste {
 		
 		boolean aceptedNameAndDescription= true;
 		try{
-			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
+			aceptedNameAndDescription = includeProduct.insertProduct(nameProduct);
 		}
 		catch(Exception e){
 			aceptedNameAndDescription = false;
@@ -70,7 +68,7 @@ public class ProductTeste {
 		
 		boolean aceptedNameAndDescription= true;
 		try{
-			aceptedNameAndDescription = includeProduct.includeProduct(nameProduct);
+			aceptedNameAndDescription = includeProduct.insertProduct(nameProduct);
 		}
 		catch(Exception e){
 			aceptedNameAndDescription = false;

@@ -35,7 +35,7 @@
 	<div class="row">
 		<div class="col s6 offset-s3 ">
 			<div class="collection">
-				<li class="collection-item">Produtos</li>
+			<li class="collection-item center">Produtos</li>
 				<c:forEach items="${products}" var="product">
 					<a class="collection-item"
 						href="/SisCot/ShowProduct.jsp?productName=${product.productName}">

@@ -76,6 +76,7 @@
 						</c:forEach>
 					</div>
 				</div>
+			</div>
 		
 			<button class="btn waves-effect waves-light" type="submit" name="action">Criar Cotação			
 		</button>

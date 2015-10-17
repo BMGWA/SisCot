@@ -34,7 +34,7 @@ public class InsertProduct extends HttpServlet {
 		String messageAddConfirmation = "Iniciada";
 		//Get name and description of the IncludeProducView
 		String nameProduct = request.getParameter("name");
-		boolean wasAdd = includeProduct(nameProduct);
+		boolean wasAdd = insertProduct(nameProduct);
 		
 		if (wasAdd) {
 			messageAddConfirmation = "Produto adicionado com sucesso!";
@@ -52,7 +52,7 @@ public class InsertProduct extends HttpServlet {
         rd.forward(request,response);
 	}
 	
-	public boolean includeProduct(String nameProduct){
+	public boolean insertProduct(String nameProduct){
 		boolean wasAdd = false;
 			
 		Product product = new Product(); 
@@ -65,7 +65,7 @@ public class InsertProduct extends HttpServlet {
 		
 		//Acess the DAO class and adding the new product
 		ProductDAO productdao = new ProductDAO();
-		wasAdd = productdao.includeProduct(product);
+		wasAdd = productdao.insertProduct(product);
 		
 		return wasAdd;
 	}

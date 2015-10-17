@@ -25,7 +25,7 @@
 	</div>
 
 	<h3 class="row center">
-		Fornecedor selecionado: <b><%=session.getAttribute("user")%>
+		Fornecedor selecionado: <b><%=session.getAttribute("user")%></b>
 	</h3>
 	<br>
 	<br>
@@ -44,7 +44,7 @@
 
 				<div class="input-field center">
 					CNPJ do Fornecedor <input type="text" name="cnpj"
-						value=<%=session.getAttribute("providerCnpj")%>> </input><br>
+						value=<%=session.getAttribute("providerCnpj")%>><br>
 
 					<div class="input-field center">
 						Nome do Fornecedor <input type="text" name="name"
@@ -115,6 +115,7 @@
 					<button class="btn waves-effect waves-light" type="submit"
 						name="action">Alterar</button>
 				</div>
+			</div>
 				<br> <br>
 		</form>
 	</div>
