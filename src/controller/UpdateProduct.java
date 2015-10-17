@@ -48,7 +48,6 @@ public class UpdateProduct extends HttpServlet {
 		Product product = new Product();
 		
 		product.setProductName(request.getParameter("name"));
-		product.setProductDescription(request.getParameter("description"));
 		
 		ProductDAO productDAO = new ProductDAO();
 		

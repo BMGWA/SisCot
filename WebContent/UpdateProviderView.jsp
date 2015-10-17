@@ -25,83 +25,70 @@
 	</div>
 
 	<h3 class="row center">
-		Fornecedor selecionado: <b><%=session.getAttribute("user")%>
+		Fornecedor selecionado: <b><%=session.getAttribute("user")%></b>
 	</h3>
-	<br>
-	<br>
+	
 	<div class="container">
 		<h4 <%=session.getAttribute("user")%>></h4>
+		
+		<form class="pure-form pure-form-aligned" action="UpdateProvider" method="POST" class="center">
+			<fieldset>
+				<div class="row">
+					<div class="pure-control-group col s6">
+            		<label for="actualCnpj">CNPJ</label>
+	        		    <input id="actualCnpj" name="actualCnpj" type="text" value=<%=session.getAttribute("providerCnpj")%>>
+			        </div>
+			        <div class="pure-control-group col s6">
+            		<label for="actualPhone">Telefone</label>
+	        		    <input id="actualPhone" name="actualPhone" type="text" value=<%=session.getAttribute("actualPhone")%>>
+			        </div>
+				</div>
 
-		<form action="UpdateProvider" method="POST" class="center">
+				<div class="row">
+					<div class="pure-control-group col s6">
+            		<label for="actualName">Nome</label>
+	        		    <input id="actualName" name="actualName" type="text" value=<%=session.getAttribute("actualName")%>>
+			        </div>
+			        <div class="pure-control-group col s6">
+            		<label for="actualAdress">Endereço</label>
+	        		    <input id="actualAdress" name="actualAdress" type="text" value=<%=session.getAttribute("actualAdress")%>>
+			        </div>
+				</div>
 
+				<div class="row">
+					<div class="pure-control-group col s6">
+            		<label for="actualEmail">Email</label>
+	        		    <input id="actualEmail" name="actualEmail" type="text" value=<%=session.getAttribute("actualEmail")%>>
+			        </div>
+			        <div class="pure-control-group col s6">
+            		<label for="actualCity">Cidade</label>
+	        		    <input id="actualCity" name="actualCity" type="text" value=<%=session.getAttribute("actualCity")%>>
+			        </div>
+				</div>
 
-			<div class="input-field center">
+				<div class="row">
+					<div class="pure-control-group col s6">
+            		<label for="actualPassword">Senha</label>
+	        		    <input id="actualPassword" name="actualPassword" type="text" value=<%=session.getAttribute("actualPassword")%>>
+			        </div>
+			        <div class="pure-control-group col s6">
+            		<label for="actualState">Estado</label>
+	        		    <input id="actualState" name="actualState" type="text" value=<%=session.getAttribute("actualState")%>>
+			        </div>
+				</div>
 
-				<input type="hidden" name="actualCnpj"
-					value=<%=session.getAttribute("providerCnpj")%>> <br>
-				<br> <br> <br>
+				<div class="row">
+					<div class="pure-control-group col s6">
+            		<label for="actualDdd">DDD</label>
+	        		    <input id="actualDdd" name="actualDdd" type="text" value=<%=session.getAttribute("actualDdd")%>>
+			        </div>
+			        <div class="pure-control-group col s6">
+            		<label for="actualZip">CEP</label>
+	        		    <input id="actualZip" name="actualZip" type="text" value=<%=session.getAttribute("actualZip")%>>
+			        </div>
+				</div>
 
-
-				<div class="input-field center">
-					CNPJ do Fornecedor <input type="text" name="cnpj"
-						value=<%=session.getAttribute("providerCnpj")%>> </input><br>
-
-					<div class="input-field center">
-						Nome do Fornecedor <input type="text" name="name"
-							value=<%=session.getAttribute("user")%>><br> <br>
-						<br> <br>
-					</div>
-
-					<div class="input-field center">
-						Email do Fornecedor <input type="text" name="email"
-							value=<%=session.getAttribute("providerEmail")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						Senha do Fornecedor <input type="text" name="password"
-							value=<%=session.getAttribute("providerPassword")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						DDD do Fornecedor <input type="text" name="ddd"
-							value=<%=session.getAttribute("providerDdd")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						Telefone do Fornecedor <input type="text" name="phone"
-							value=<%=session.getAttribute("providerPhone")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						Endereço do Fornecedor <input type="text" name="adress"
-							value=<%=session.getAttribute("providerAdress")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						Cidade do Fornecedor <input type="text" name="city"
-							value=<%=session.getAttribute("providerCity")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						Estado do Fornecedor <input type="text" name="state"
-							value=<%=session.getAttribute("providerState")%>><br>
-						<br> <br> <br>
-					</div>
-
-					<div class="input-field center">
-						CEP do Fornecedor <input type="text" name="zip"
-							value=<%=session.getAttribute("providerZip")%>><br>
-						<br> <br> <br>
-					</div>
-
-
-					<%
+				<%
 					String user = (String)session.getAttribute("userType");
 					if(user.equals("manager")){ %>
 					<div class="input-field center">
@@ -112,13 +99,14 @@
 					</div>
 					<%}%>
 
-					<button class="btn waves-effect waves-light" type="submit"
-						name="action">Alterar</button>
+					<div class="center">
+					<button class="btn waves-effect waves-light" type="submit" name="action">
+						Cadastrar
+					</button>
 				</div>
-				<br> <br>
+			</fieldset>
 		</form>
 	</div>
-
 
 </body>
 </html>

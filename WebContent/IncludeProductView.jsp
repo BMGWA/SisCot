@@ -40,13 +40,16 @@
 
 
 	<div class="row center"></div>
-
-	<div class="container">
-		<form action="IncludeProduct" method="POST" class="center">
-
-			<c:import url="FormProduct.jsp" />
-
-		</form>
+	<div class = "row">
+		<div class = "col s8 offset-s2">
+			<div class="container">
+				<form action="IncludeProduct" method="POST" class="center">
+		
+					<c:import url="FormProduct.jsp" />
+		
+				</form>
+			</div>
+		</div>
 	</div>
 	<br>
 	<br>

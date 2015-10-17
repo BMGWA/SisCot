@@ -16,7 +16,7 @@
 </head>
 <body class="blue lighten-5">
 	<c:import url="header.jsp" />
-	<h3 class="row center">Cotação #<b><%= request.getParameter("quotationId") %></h3><br><br>
+	<h3 class="row center">Cotação #<b><%= request.getParameter("quotationId") %></b></h3><br><br>
 	
 	<div class="row">
 		<div class="col s5 offset-s2">

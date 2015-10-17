@@ -5,20 +5,17 @@ public class Product {
 	private String productName;
 	private double productPrice;
 	private Provider productProvider;
-	private String productDescription;
 	
 	public Product() {
 		
 	}
 
-	public Product(String productName, double productPrice, Provider productProvider,
-			String productDescription) {
+	public Product(String productName, double productPrice, Provider productProvider) {
 		super();
 		
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.productProvider = productProvider;
-		this.productDescription = productDescription;
 	}
 
 	public String getProductName() {
@@ -44,14 +41,4 @@ public class Product {
 	public void setProductProvider(Provider productProvider) {
 		this.productProvider = productProvider;
 	}
-
-	public String getProductDescription() {
-		return productDescription;
-	}
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
-	
-	
 }

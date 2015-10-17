@@ -81,7 +81,7 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">BMGWA  Developers</h5>
-          <p class="grey-text text-lighten-4">Somos um time de Desenvilvimento de Software, estudantes da Universidade de Brasília Unidade Gama - UnB FGA. Desenvolvemos aplicações e sistemas de acordo com a necessidade do cliente, sempre com o objetivo de satisfaze-lo.</p>
+          <p class="grey-text text-lighten-4">Somos um time de Desenvilvimento de Software, estudantes da Universidade de Brasília Unidade Gama - UnB FGA. Desenvolvemos aplicações e sistemas de acordo com a necessidade do cliente, sempre com o objetivo de satisfazê-lo.</p>
 
 
         </div>

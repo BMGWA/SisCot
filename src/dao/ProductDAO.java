@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dao.ConnectionFactory;
+
 import model.Product;
 
 public class ProductDAO {
@@ -20,8 +22,9 @@ public class ProductDAO {
 	 * @param A new product
 	 * @return wasAdd if the product was add
 	 */
+
 	public boolean insertProduct(Product product) {
-		String sql = "insert into Products (nome, description) values (?,?)";
+		String sql = "insert into Products (nome) values (?)";
 		boolean wasAdd = false;
 		
 		try {
@@ -29,7 +32,6 @@ public class ProductDAO {
 			PreparedStatement statement =  this.connection.prepareStatement(sql);
 			
 			statement.setString(1, product.getProductName());
-			statement.setString(2, product.getProductDescription());
 			statement.execute();
 			
 			//The product was added
@@ -71,7 +73,6 @@ public class ProductDAO {
 				Product product = new Product();
 				
 				product.setProductName(rs.getString("nome"));
-				product.setProductDescription(rs.getString("description"));
 				products.add(product);
 			}
 			
@@ -109,16 +110,15 @@ public class ProductDAO {
 	}
 	
 	public boolean updateProduct(String nameToUpdate, Product product) {
-		String sql = "update Products set description=?, nome=? where nome=?";
+		String sql = "update Products set nome=? where nome=?";
 		boolean wasUpdated = false;
 
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
 			//Set the first atribute of the query
-			statement.setString(1, product.getProductDescription());
-			statement.setString(2, product.getProductName());
-			statement.setString(3, nameToUpdate);
+			statement.setString(1, product.getProductName());
+			statement.setString(2, nameToUpdate);
 			
 			statement.executeUpdate();
 			

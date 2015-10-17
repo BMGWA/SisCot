@@ -38,20 +38,20 @@
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
             <input id="username" type="text" name="login">
-            <label for="username" class="center-align">Username</label>
+            <label for="username" class="center-align">Usuário</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
             <input id="password" type="password" name="password">
-            <label for="password">Password</label>
+            <label for="password">Senha</label>
           </div>
         </div>
         <div class="row">          
           <div class="input-field col s12 m12 l12  login-text">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember me</label>
+              <label for="remember-me">Lembrar credenciais</label>
           </div>
         </div>
         <div class="row">
@@ -63,10 +63,10 @@
         </div>
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="/SisCot/IncludeProviderView.jsp">Register Now!</a></p>
+            <p class="margin medium-small"><a href="/SisCot/IncludeProviderView.jsp">Cadastrar!</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small "><a href="page-forgot-password.html">Forgot password ?</a></p>
+              <p class="margin right-align medium-small "><a href="page-forgot-password.html">Esqueci minha senha.</a></p>
           </div>          
         </div>
 

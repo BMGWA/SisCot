@@ -16,11 +16,11 @@
 </head>
 <body class="blue lighten-5">
 	<c:import url="header.jsp" />
-	<h3 class="row center">Produto <b><%= request.getParameter("productName") %></h3><br><br>
+	<h3 class="row center">Produto <b><%= request.getParameter("productName") %></b></h3><br><br>
 	
 	<div class="row">
 	<div class="col s5 offset-s2">
-	Descrição do Produto: <span class="blue-text text-darken-2"><%= request.getParameter("productDescription") %></span><br><br>
+	Nome do Produto: <span class="blue-text text-darken-2"><%= request.getParameter("productName") %></span><br><br>
 	
 	<a href="/SisCot/DeleteProduct?productName=<%= request.getParameter("productName") %>"> Deletar Produto</a>	<br> 
 	<a href="/SisCot/UpdateProductView.jsp?productName=<%= request.getParameter("productName") %>
