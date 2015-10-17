@@ -65,7 +65,7 @@ public class InsertProduct extends HttpServlet {
 		
 		//Acess the DAO class and adding the new product
 		ProductDAO productdao = new ProductDAO();
-		wasAdd = productdao.insertProduct(product);
+		wasAdd = productdao.includeProduct(product);
 		
 		return wasAdd;
 	}
