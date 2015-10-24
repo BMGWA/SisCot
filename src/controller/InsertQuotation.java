@@ -47,11 +47,13 @@ public class InsertQuotation extends HttpServlet{
 		java.util.Date utilDate = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		
-		selectProducts(request);
+		Quotation quotation = createNewCotation(managerName, sqlDate);
 		
-		boolean wasAdd = insertQuotation(managerName, sqlDate);
+		int id = insertQuotation(quotation);
+		quotation.setId(id);
+		selectProducts(request, quotation);
 		
-		if(wasAdd) {
+		if(id != 0) {
 			messageAddConfirmation = "Cotação criada com sucesso!";
 		}
 		else {
@@ -67,7 +69,7 @@ public class InsertQuotation extends HttpServlet{
 	}
 	
 	
-	private void selectProducts(HttpServletRequest request) {
+	private void selectProducts(HttpServletRequest request, Quotation quotation) {
 		ArrayList<Product> productList = new ArrayList<Product>();
 		ProductDAO productdao = new ProductDAO();
 		
@@ -80,22 +82,29 @@ public class InsertQuotation extends HttpServlet{
 			String nameProduct;
 			nameProduct = request.getParameter(productName);
 
-			System.out.println(productName);
-			System.out.println(nameProduct);
+			if(nameProduct != null){
+				QuotationDAO quotationDAO = new QuotationDAO();
+				quotationDAO.includeQuotationProduc(quotation, product);
+			}
 		}
 	}
 
-	public boolean insertQuotation(String managerName, Date quotationDate) {
-		boolean wasAdd = false;
+	public int insertQuotation(Quotation quotation) {
+		int id;
+			
+		QuotationDAO quotationdao = new QuotationDAO();
+		id = quotationdao.includeQuotation(quotation);
 		
+		return id;
+	}
+	
+	private Quotation createNewCotation(String managerName, Date quotationDate){
 		Quotation quotation = new Quotation();
 		quotation.setManagerName(managerName);
 		quotation.setQuotationDate(quotationDate);
 		quotation.setProducts(null);
 		
-		QuotationDAO quotationdao = new QuotationDAO();
-		wasAdd = quotationdao.includeQuotation(quotation);
-		
-		return wasAdd;
+		return quotation;
 	}
 }
+

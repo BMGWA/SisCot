@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.Product;
 import model.Quotation;
 
 public class QuotationDAO {
@@ -21,10 +22,11 @@ public class QuotationDAO {
 	 * @return wasAdd if the quotation was add
 	 */
 	
-	public boolean includeQuotation(Quotation quotation) {
+	public int includeQuotation(Quotation quotation) {
 		String sql = "insert into Quotation (managerName, quotationDate) values (?,?)";
 		//Date date = new Date(quotation.getquotationDate().getTimeInMillis());
 		boolean wasAdd = false;
+		int id = 0;
 		
 		try {
 			System.out.println("values:" + quotation.getManagerName());
@@ -37,6 +39,20 @@ public class QuotationDAO {
 			statement.execute();
 			
 			//The product was added
+			
+			sql = "select * from Quotation where managerName = ? AND quotationDate = ?";
+			statement = this.connection.prepareStatement(sql);
+			
+			//Set the first atribute of the query
+			statement.setString(1, quotation.getManagerName());
+			statement.setDate(2, quotation.getQuotationDate());
+			
+			//Returns a result of the query of search
+			ResultSet rs = statement.executeQuery();	
+			
+			//Stores all the products listed in the array
+			rs.last();
+			id = rs.getInt("id");
 			wasAdd = true;
 			
 			//Close the operators
@@ -46,7 +62,7 @@ public class QuotationDAO {
 			throw new RuntimeException(e);
 		}
 		
-		return wasAdd;
+		return id;
 	}
 	
 	/**
@@ -138,4 +154,37 @@ public class QuotationDAO {
 		return wasUpdated;
 	}
 	
+	public boolean includeQuotationProduc(Quotation quotation, Product product) {
+		String sql = "insert into Quotation_Product_Provider(quotationID, productName)"
+				+ " values (?,?)";
+		
+		//Date date = new Date(quotation.getquotationDate().getTimeInMillis());
+		boolean wasAdd = false;
+		
+		try {
+			System.out.println("Cotação ID:" + quotation.getId());
+			System.out.println("Produto name:" + product.getProductName());
+			//Prepare param to execut the Query
+			PreparedStatement statement =  this.connection.prepareStatement(sql);
+			
+			
+			statement.setInt(1, quotation.getId());
+			//statement.setDate(1, date, quotation.getquotationDate());
+			statement.setString(2, product.getProductName());
+			statement.execute();
+			
+			//The product was added
+			wasAdd = true;
+			
+			//Close the operators
+			statement.close();
+		} catch(SQLException e) {
+			e.printStackTrace();			
+			throw new RuntimeException(e);
+		}
+		
+		return wasAdd;
+	}
+	
 }
+
