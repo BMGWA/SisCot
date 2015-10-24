@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Quotation;
 import dao.QuotationDAO;
+import model.Product;
+import model.Quotation;
 
 @WebServlet("/ConsultQuotation")
 public class ConsultQuotation extends HttpServlet {
@@ -28,7 +29,17 @@ public class ConsultQuotation extends HttpServlet {
 		
 		quotationList = quotationdao.listQuotation();		
 		
+		ArrayList<Product> list = new ArrayList<>();
+		
+		list = quotationList.get(25).getProducts();
+				
+		System.out.println("Passou: " + quotationList.get(25).getManagerName());
+		for (Product product : list) {
+			System.out.println("Nome Produto: " + product.getProductName());
+		}
+		
 		request.setAttribute("quotationList", quotationList);
+		
 				
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ConsultQuotationList.jsp");

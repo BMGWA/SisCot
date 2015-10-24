@@ -90,9 +90,14 @@ public class QuotationDAO {
 			while(rs.next()) {
 				Quotation quotation = new Quotation();
 
+				ArrayList<Product> listProducts = new ArrayList<>();
+				listProducts = getListProductsInAQuotation(rs.getInt("id"));
+				
 				quotation.setManagerName(rs.getString("managerName"));
 				quotation.setQuotationDate(rs.getDate("quotationDate"));
 				quotation.setId(rs.getInt("id"));
+				quotation.setProducts(listProducts);
+				
 				quotationList.add(quotation);
 			}
 			
@@ -105,7 +110,7 @@ public class QuotationDAO {
 		
 		return quotationList;
 	}
-	
+
 	public boolean deleteQuotation(int id) {
 		String sql = "delete from Quotation where id = ?";
 		boolean wasDeleted = false;
@@ -184,6 +189,47 @@ public class QuotationDAO {
 		}
 		
 		return wasAdd;
+	}
+	
+	/**
+	 * Shows all existing products in the database 
+	 * @return
+	 */
+	private ArrayList<Product> getListProductsInAQuotation(int quotationID) {
+		String sql = "select * from Quotation_Product_Provider where quotationID = ?";
+		ArrayList<Product> productList= new ArrayList<Product>();
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
+			statement.setInt(1, quotationID);
+			
+			//Returns a result of the query of search
+			ResultSet rs = statement.executeQuery();	
+			
+			//Stores all the products listed in the array
+			while(rs.next()) {
+				Product product = new Product();
+
+				product.setProductName(rs.getString("productName"));
+				productList.add(product);
+			}
+			
+			//Close the operators
+			statement.close();
+		} catch(SQLException e) {	
+			e.printStackTrace();			
+			throw new RuntimeException(e);
+		}
+		
+		return productList;
 	}
 	
 }
