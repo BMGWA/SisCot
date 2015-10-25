@@ -37,21 +37,22 @@
 
 			<div class="row">
 				<div class="col s10">
-						<div class="collection">
-							<li class="collection-item">Produtos</li>
-							qwer
-							<%
+					<div class="collection">
+						<li class="collection-item">Produtos</li> qwer
+						<%
 							ArrayList<Product> p = new ArrayList<Product>();
 							String productList1[];
-							p = (ArrayList)request.getAttribute("productList");
+							p = (ArrayList) request.getAttribute("productList");
 							productList1 = request.getParameterValues("productList");
-							for(int i = 0; i < productList1.length ; i++) {
-							%>
-								<%= productList1[i] %>
-							<%} %>
-											
-						
-						 
+							for (int i = 0; i < productList1.length; i++) {
+						%>
+						<%=productList1[i]%>
+						<%
+							}
+						%>
+
+
+
 					</div>
 				</div>
 			</div>
@@ -65,7 +66,17 @@
 				Alterar Cotação</a>
 		</div>
 
-		<div class="col s10 offset-s5">Produtos da cotação:</div>
+		
 	</div>
+	<br><br><br><br>	
+
+	<div class="row">
+		<div class="center">
+
+			<a class="waves-effect waves-light btn-large" href="Report"><i
+				class="material-icons right">description</i>Gerar Relatório da Cotação</a>
+		</div>
+	</div>
+
 </body>
 </html>

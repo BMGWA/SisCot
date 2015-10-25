@@ -6,6 +6,10 @@ import dao.ReportDAO;
 
 public class ReportManager extends Report{
 
+	public ReportManager(ArrayList<Product> products, Quotation quotation, double totalPrice) {
+		super(products, quotation, totalPrice);
+	}
+
 	@Override
 	public ArrayList<ArrayList> showProducts() {
 		ReportDAO reportdao = new ReportDAO();
