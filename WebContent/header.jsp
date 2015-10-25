@@ -34,9 +34,13 @@
 					if (user.equals("provider")) {
 			%>
 			<li><a class="tooltipped" data-position="bottom" data-delay="50"
+				data-tooltip="Consultar Cotações"
+				href="/SisCot/ConsultQuotationProvider">Cotações</a></li>
+			<li><a class="tooltipped" data-position="bottom" data-delay="50"
 				data-tooltip="Atualizar Dados" 
 			href="/SisCot/UpdateProviderView.jsp"> Olá <%=session.getAttribute("user")%>
 			</a></li>
+			
 			<%
 				} else {
 			%>
