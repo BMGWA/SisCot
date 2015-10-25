@@ -37,7 +37,8 @@ create table Managers(
 create table Quotation(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	managerName VARCHAR(30) NOT NULL,
-	quotationDate DATE NOT NULL
+	quotationDate DATE NOT NULL,
+	quotationIsOn boolean NOT NULL
 );
 
 create table Quotation_Product_Provider(

@@ -23,7 +23,8 @@ public class QuotationDAO {
 	 */
 	
 	public int includeQuotation(Quotation quotation) {
-		String sql = "insert into Quotation (managerName, quotationDate) values (?,?)";
+		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" +
+				" values (?,?,?)";
 		//Date date = new Date(quotation.getquotationDate().getTimeInMillis());
 		boolean wasAdd = false;
 		int id = 0;
@@ -36,6 +37,7 @@ public class QuotationDAO {
 			statement.setString(1, quotation.getManagerName());
 			//statement.setDate(1, date, quotation.getquotationDate());
 			statement.setDate(2, quotation.getQuotationDate());
+			statement.setBoolean(3, quotation.getQuotationIsOn());
 			statement.execute();
 			
 			//The product was added
@@ -95,6 +97,7 @@ public class QuotationDAO {
 				
 				quotation.setManagerName(rs.getString("managerName"));
 				quotation.setQuotationDate(rs.getDate("quotationDate"));
+				quotation.setQuotationIsOn(rs.getBoolean("quotationIsOn"));
 				quotation.setId(rs.getInt("id"));
 				quotation.setProducts(listProducts);
 				
