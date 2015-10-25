@@ -94,12 +94,47 @@ public class ReportDAO {
 		return providersManager;
 	}
 
-	public ArrayList<String> listProductsProvider(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<String> listProductsProvider(int id, String providerName) {
+		String sql = "select productName from Quotation_Product_Provider " +
+				"where quotationID = ? AND where providerName = ?";
+		ArrayList<String> productsManager = new ArrayList<String>();
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
+			statement.setInt(1, id);
+			statement.setString(2, providerName);
+
+			// Returns a result of the query of search
+			ResultSet rs = statement.executeQuery();
+
+			// Stores all the products listed in the array
+			while (rs.next()) {
+
+				String product;
+				product = rs.getString("productName");
+
+				productsManager.add(product);
+			}
+
+			// Close the operators
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		return productsManager;
 	}
 
-	public ArrayList<String> listProvidersProvider(int id) {
+	public ArrayList<String> listProvidersProvider(int id, String providerName) {
 		// TODO Auto-generated method stub
 		return null;
 	}

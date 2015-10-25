@@ -8,6 +8,13 @@ public abstract class Report {
 	private Quotation quotation;
 	private double totalPrice;
 	
+	public Report(ArrayList<Product> products, Quotation quotation, double totalPrice) {
+		super();
+		this.products = products;
+		this.quotation = quotation;
+		this.totalPrice = totalPrice;
+	}
+	
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
