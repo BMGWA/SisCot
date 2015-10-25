@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Report
@@ -31,12 +32,27 @@ public class ReportContoller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// Get the request
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpSession session = req.getSession();
+		
+		if (session.getAttribute("user") != null) {
+			String user = (String) session.getAttribute("userType");
+			
+			if (user.equals("manager")) {
+				//Implement method to manager 
+			}
+			else if (user.equals("provider")) {
+				//Implement method to provider 
+			}
+		}
+
 		// Dispacher the result from the view of confirmation
 		/*
-		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/index.jsp");
-		rd.forward(request, response);
-		*/
+		 * RequestDispatcher rd; rd =
+		 * request.getRequestDispatcher("/index.jsp"); rd.forward(request,
+		 * response);
+		 */
 	}
 
 }
