@@ -27,19 +27,9 @@ public class ConsultQuotation extends HttpServlet {
 		ArrayList<Quotation> quotationList = new ArrayList<Quotation>();
 		QuotationDAO quotationdao = new QuotationDAO();
 		
-		quotationList = quotationdao.listQuotation();		
-		
-		ArrayList<Product> list = new ArrayList<>();
-		
-		list = quotationList.get(25).getProducts();
-				
-		System.out.println("Passou: " + quotationList.get(25).getManagerName());
-		for (Product product : list) {
-			System.out.println("Nome Produto: " + product.getProductName());
-		}
+		quotationList = quotationdao.listQuotation();
 		
 		request.setAttribute("quotationList", quotationList);
-		
 				
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ConsultQuotationList.jsp");

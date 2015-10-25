@@ -2,11 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
-public abstract class Report {
+public class Report {
 
 	private ArrayList<Product> products;
 	private Quotation quotation;
 	private double totalPrice;
+	
+	public Report() {
+		
+	}
 	
 	public Report(ArrayList<Product> products, Quotation quotation, double totalPrice) {
 		super();
@@ -34,5 +38,8 @@ public abstract class Report {
 		this.totalPrice = totalPrice;
 	}
 	
-	public abstract ArrayList<ArrayList> showProducts();
+	public ArrayList<ArrayList> showProducts(){
+		
+		return null;
+	}
 }

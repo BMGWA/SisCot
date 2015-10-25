@@ -195,7 +195,7 @@ public class QuotationDAO {
 	 * Shows all existing products in the database 
 	 * @return
 	 */
-	private ArrayList<Product> getListProductsInAQuotation(int quotationID) {
+	public ArrayList<Product> getListProductsInAQuotation(int quotationID) {
 		String sql = "select * from Quotation_Product_Provider where quotationID = ?";
 		ArrayList<Product> productList= new ArrayList<Product>();
 		
