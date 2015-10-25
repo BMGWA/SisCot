@@ -49,8 +49,10 @@ public class InsertQuotation extends HttpServlet{
 		
 		Quotation quotation = createNewCotation(managerName, sqlDate);
 		
+		quotation.setQuotationIsOn(true);
 		int id = insertQuotation(quotation);
 		quotation.setId(id);
+		
 		selectProducts(request, quotation);
 		
 		if(id != 0) {
