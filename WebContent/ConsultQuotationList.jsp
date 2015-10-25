@@ -41,7 +41,7 @@
 				<c:forEach items="${quotationList}" var="quotation">
 					<a class="collection-item"
 						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
-						&quotationId=${quotation.id}&productList=${quotation.products}">
+						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
 						${quotation.id} </a>
 				</c:forEach>
 			</div>
@@ -55,7 +55,7 @@
 					
 					<a class="collection-item"
 						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
-						&quotationId=${quotation.id}&productList=${quotation.products}">
+						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
 						${quotation.managerName} </a>
 				</c:forEach>
 			</div>
@@ -67,7 +67,7 @@
 				<c:forEach items="${quotationList}" var="quotation">
 					<a class="collection-item"
 						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
-						&quotationId=${quotation.id}&productList=${quotation.products}">
+						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
 						${quotation.quotationDate} </a>
 				</c:forEach>
 			</div>

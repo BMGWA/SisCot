@@ -7,6 +7,7 @@ public class Quotation {
 	private ArrayList<Product> products;
 	private Date quotationDate;
 	private String managerName;
+	private boolean quotationIsOn;
 	private int id;
 	
 	public Quotation(ArrayList<Product> products, Date quotationDate, String managerName, int id) {
@@ -51,5 +52,13 @@ public class Quotation {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public boolean getQuotationIsOn() {
+		return quotationIsOn;
+	}
+
+	public void setQuotationIsOn(boolean quotationIsOn) {
+		this.quotationIsOn = quotationIsOn;
 	}
 }

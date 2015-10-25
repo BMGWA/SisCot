@@ -16,7 +16,7 @@
 			%>
 			<li><a class="tooltipped" data-position="bottom" data-delay="50"
 				data-tooltip="Consultar Cotações"
-				href="/SisCot/ConsultQuotation">Cotações</a></li>
+				href="/SisCot/ConsultQuotationManager">Cotações</a></li>
 			<%
 				}
 			%>

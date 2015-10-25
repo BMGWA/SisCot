@@ -1,6 +1,6 @@
  drop table Products;
- drop table Providers;
- drop table Managers;
+drop table Providers;
+drop table Managers;
 drop table Quotation_Product_Provider;
 drop table Quotation; 
 
@@ -9,8 +9,7 @@ create table Products(
 	id INT UNSIGNED PRIMARY KEY  AUTO_INCREMENT,
 	nome VARCHAR(100) NOT NULL,
 	price double,
-	provider VARCHAR(100),
-	description TEXT NOT NULL
+	provider VARCHAR(100)
 );
 
 create table Providers( 
@@ -38,7 +37,8 @@ create table Managers(
 create table Quotation(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	managerName VARCHAR(30) NOT NULL,
-	quotationDate DATE NOT NULL
+	quotationDate DATE NOT NULL,
+	quotationIsOn boolean NOT NULL
 );
 
 create table Quotation_Product_Provider(
@@ -49,6 +49,6 @@ create table Quotation_Product_Provider(
 
 ALTER TABLE Quotation_Product_Provider ADD FOREIGN KEY(quotationID) REFERENCES Quotation (id);
 
-insert into Products (nome, description) values ("Arroz", "branco");
+insert into Products (nome) values ("Arroz");
 insert into Providers (cnpj, nome, email,  senha, ddd, telefone, endereco, cidade, estado, cep, authorized) values ("12343456", "Atacadao", "email@hotmail.com", "password", 61, 3045, "Asa Sul", "Brasilia", "DF", 76420, true);
 insert into Managers (username, password) values ("gerente", "password");

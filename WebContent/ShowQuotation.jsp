@@ -32,6 +32,22 @@
 		<div class="col s5 offset-s2">
 			Criado por: <span class="blue-text text-darken-2"><%=request.getParameter("managerName")%></span><br>
 			<br> Data: <span class="blue-text text-darken-2"><%=request.getParameter("quotationDate")%></span><br>
+			<br> 
+			<%	
+				if(request.getParameter("quotationIsOn").equals("true")) {
+			%>
+			Cotação está em ANDAMENTO;
+			
+			<%
+				}
+				else {
+			%>
+			
+			Cotação está FECHADA;
+			
+			<%
+				}
+			%>
 			<br>
 
 
