@@ -234,7 +234,39 @@ public class QuotationDAO {
 	
 	public Quotation selectQuotationByID(int quotationID){
 		
-		return null;
+		String sql = "select * from Quotation where quotationID = ?";
+		Quotation quotation = new Quotation();
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
+			statement.setInt(1, quotationID);
+			
+			//Returns a result of the query of search
+			ResultSet rs = statement.executeQuery();	
+			
+			//Stores all the products listed in the array
+			rs.last();
+			
+			quotation.setId(quotationID);
+			quotation.setManagerName(rs.getString("managerName"));
+			quotation.setQuotationDate(rs.getDate("quotationDate"));
+
+			//Close the operators
+			statement.close();
+		} catch(SQLException e) {	
+			e.printStackTrace();			
+			throw new RuntimeException(e);
+		}
+		
+		return quotation;
 	}
 	
 }
