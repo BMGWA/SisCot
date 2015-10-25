@@ -32,53 +32,25 @@
 		<div class="col s5 offset-s2">
 			Criado por: <span class="blue-text text-darken-2"><%=request.getParameter("managerName")%></span><br>
 			<br> Data: <span class="blue-text text-darken-2"><%=request.getParameter("quotationDate")%></span><br>
-			<br> 
-			<%	
-				if(request.getParameter("quotationIsOn").equals("true")) {
+			<br>
+			<%
+				if (request.getParameter("quotationIsOn").equals("true")) {
 			%>
 			Cotação está em ANDAMENTO;
-			
+
 			<%
-				}
-				else {
+				} else {
 			%>
-			
+
 			Cotação está FECHADA;
-			
+
 			<%
 				}
 			%>
-			<br>
-
-
-			<div class="row">
-				<div class="col s10">
-					<div class="collection">
-						<li class="collection-item">Produtos</li> qwer
-						<%
-							ArrayList<Product> p = new ArrayList<Product>();
-							String productList1[];
-							p = (ArrayList) request.getAttribute("productList");
-							productList1 = request.getParameterValues("productList");
-							for (int i = 0; i < productList1.length; i++) {
-						%>
-						<%=productList1[i]%>
-						<%
-							}
-						%>
-
-
-
-					</div>
-				</div>
-			</div>
-
-
-			<a
+			<br> <a
 				href="/SisCot/DeleteQuotation?quotationId=<%=request.getParameter("quotationId")%>">
 				Deletar Cotação</a> <br> <a
-				href="/SisCot/UpdateQuotationView.jsp?quotationId=<%=request.getParameter("quotationId")%>
-			">
+				href="/SisCot/UpdateQuotationView.jsp?quotationId=<%=request.getParameter("quotationId")%>			">
 				Alterar Cotação</a>
 		</div>
 
@@ -94,9 +66,9 @@
 
 			<a class="waves-effect waves-light btn-large"
 				href="Report?quotationId=<%=request.getParameter("quotationId")%>">
-				<i class="material-icons right">description</i>
-				Gerar Relatório da
-				Cotação</a>
+				<i class="material-icons right">description</i> Gerar Relatório da
+				Cotação
+			</a>
 			<%
 				request.setAttribute("quotationId", request.getParameter("quotationId"));
 			%>
