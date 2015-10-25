@@ -9,9 +9,16 @@ public class Quotation {
 	private String managerName;
 	private int id;
 	
+	public Quotation(ArrayList<Product> products, Date quotationDate, String managerName, int id) {
+		super();
+		this.products = products;
+		this.quotationDate = quotationDate;
+		this.managerName = managerName;
+		this.id = id;
+	}
+
 	public Quotation () {
 		super();
-		
 	}
 
 	public ArrayList<Product> getProducts() {

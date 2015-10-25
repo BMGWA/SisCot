@@ -66,15 +66,24 @@
 				Alterar Cotação</a>
 		</div>
 
-		
+
 	</div>
-	<br><br><br><br>	
+	<br>
+	<br>
+	<br>
+	<br>
 
 	<div class="row">
 		<div class="center">
 
-			<a class="waves-effect waves-light btn-large" href="Report"><i
-				class="material-icons right">description</i>Gerar Relatório da Cotação</a>
+			<a class="waves-effect waves-light btn-large"
+				href="Report?quotationId=<%=request.getParameter("quotationId")%>">
+				<i class="material-icons right">description</i>
+				Gerar Relatório da
+				Cotação</a>
+			<%
+				request.setAttribute("quotationId", request.getParameter("quotationId"));
+			%>
 		</div>
 	</div>
 

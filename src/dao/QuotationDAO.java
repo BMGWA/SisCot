@@ -232,5 +232,10 @@ public class QuotationDAO {
 		return productList;
 	}
 	
+	public Quotation selectQuotationByID(int quotationID){
+		
+		return null;
+	}
+	
 }
 

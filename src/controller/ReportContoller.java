@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.QuotationDAO;
+import model.Quotation;
+
 /**
  * Servlet implementation class Report
  */
@@ -32,6 +35,9 @@ public class ReportContoller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		Quotation quotation = new Quotation();
+		quotation =  getQuotation(request);
+		
 		// Get the request
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
@@ -53,6 +59,18 @@ public class ReportContoller extends HttpServlet {
 		 * request.getRequestDispatcher("/index.jsp"); rd.forward(request,
 		 * response);
 		 */
+	}
+
+	private Quotation getQuotation(HttpServletRequest request) {
+		
+		String quotationId = request.getParameter("quotationId");
+		int integerQuotationID = Integer.parseInt(quotationId);
+			
+		QuotationDAO quotationdao = new QuotationDAO();
+		Quotation quotation = new Quotation();
+		quotation = quotationdao.selectQuotationByID(integerQuotationID);
+				
+		return quotation;
 	}
 
 }
