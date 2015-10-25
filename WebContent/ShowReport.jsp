@@ -30,9 +30,32 @@
 
 
 	<c:if test="${not empty listProducts}">
-		<c:forEach items="${listProducts}" var="product">		
-			${product}
-	</c:forEach>
+
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<ul class="collection with-header">
+					<li class="collection-header center"><h4>Lista de
+							Produtos</h4></li>
+
+					<c:forEach items="${listProducts}" var="product">
+						<li class="collection-item">${product}</li>
+					</c:forEach>
+				</ul>
+			</div>
+
+			<div class="col s4">
+				<ul class="collection with-header">
+					<li class="collection-header center"><h4>Lista de
+							Fornecedores</h4></li>
+
+					<c:forEach items="${listProviders}" var="provider">
+						<li class="collection-item">${provider}</li>
+					</c:forEach>
+				</ul>
+			</div>
+
+
+		</div>
 	</c:if>
 
 
@@ -44,6 +67,7 @@
 		<h3 class="center">Não há produtos nesta cotação pertecente à
 			você</h3>
 	</c:if>
+
 
 
 

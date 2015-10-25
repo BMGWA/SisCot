@@ -80,6 +80,9 @@ public class ReportDAO {
 
 				String product;
 				product = rs.getString("providerName");
+				
+				if(product == null) 
+					product = "Produto não possui fornecedor!";
 
 				providersManager.add(product);
 			}

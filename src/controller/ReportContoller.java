@@ -73,6 +73,13 @@ public class ReportContoller extends HttpServlet {
 
 		request.setAttribute("listProducts", productsForProvider.get(0));
 		request.setAttribute("listProviders", productsForProvider.get(1));
+		
+		ArrayList<String> tes = new ArrayList<>();
+		tes = productsForProvider.get(1);
+		
+		for (String string : tes) {
+			System.out.println("Fornecedores: " + string);
+		}
 
 		// Dispacher the result from the view of confirmation
 		
