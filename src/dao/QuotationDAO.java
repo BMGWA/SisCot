@@ -234,7 +234,7 @@ public class QuotationDAO {
 	
 	public Quotation selectQuotationByID(int quotationID){
 		
-		String sql = "select * from Quotation where quotationID = ?";
+		String sql = "select * from Quotation where id = ?";
 		Quotation quotation = new Quotation();
 		
 		try {
