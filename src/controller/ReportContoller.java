@@ -76,17 +76,10 @@ public class ReportContoller extends HttpServlet {
 
 		// Dispacher the result from the view of confirmation
 		
-		System.out.println("CHEGOU");
-
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ShowReport.jsp");
 		rd.forward(request, response);
 
-	}
-
-	private String getProviderName(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private int getQuotationID(HttpServletRequest request) {
