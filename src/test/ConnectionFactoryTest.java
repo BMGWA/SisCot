@@ -5,11 +5,11 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 import junit.framework.TestCase;
 
 public class ConnectionFactoryTest extends TestCase {
-	Connection connection = new ConnectionFactory().getConnection();
+	Connection connection = new ConnectionDB().getConnection();
 	
 	@Test
 	public void testGetConnection() {		

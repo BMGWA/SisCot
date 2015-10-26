@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import org.junit.Test;
 import junit.framework.TestCase;
 
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 import dao.ManagerDAO;
 
 import model.Manager;
 
 public class ManagerDAOTest extends TestCase {
 	
-	Connection connection = new ConnectionFactory().getConnection();
+	Connection connection = new ConnectionDB().getConnection();
 	Manager manager = new Manager();
 	ManagerDAO managerDao = new ManagerDAO();
 	ResultSet rs;

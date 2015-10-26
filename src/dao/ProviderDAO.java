@@ -12,7 +12,7 @@ public class ProviderDAO {
 	private Connection connection;
 	
 	public ProviderDAO() {
-		this.connection = new ConnectionFactory().getConnection();
+		this.connection = ConnectionDB.getConnection().connectionWithDataBase;
 	}
 	
 	public boolean insertProvider(Provider provider) {

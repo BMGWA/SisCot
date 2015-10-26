@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 
 import model.Product;
 
@@ -14,7 +14,7 @@ public class ProductDAO {
 	private Connection connection;
 	
 	public ProductDAO() {
-		this.connection = new ConnectionFactory().getConnection();
+		this.connection = ConnectionDB.getConnection().connectionWithDataBase;
 	}
 	
 	/**

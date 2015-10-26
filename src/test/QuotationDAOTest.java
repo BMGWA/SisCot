@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 import dao.QuotationDAO;
 import junit.framework.TestCase;
 import model.Manager;
@@ -20,7 +20,7 @@ import model.Quotation;
 
 public class QuotationDAOTest extends TestCase {
 	
-	Connection connection = new ConnectionFactory().getConnection();
+	Connection connection = new ConnectionDB().getConnection();
 	Quotation quotation = new Quotation();
 	QuotationDAO quotationDao = new QuotationDAO();
 	Manager manager = new Manager();;

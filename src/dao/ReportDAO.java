@@ -14,7 +14,7 @@ public class ReportDAO {
 	private Connection connection;
 
 	public ReportDAO() {
-		this.connection = new ConnectionFactory().getConnection();
+		this.connection = ConnectionDB.getConnection().connectionWithDataBase;
 	}
 
 	public ArrayList<String> listProductsManager(int id) {
@@ -30,7 +30,7 @@ public class ReportDAO {
 
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			
+
 			statement.setInt(1, id);
 
 			// Returns a result of the query of search
@@ -56,7 +56,7 @@ public class ReportDAO {
 	}
 
 	public ArrayList<String> listProvidersManager(int id) {
-		
+
 		String sql = "select providerName from Quotation_Product_Provider " + "where quotationID = ?";
 		ArrayList<String> providersManager = new ArrayList<String>();
 
@@ -69,7 +69,7 @@ public class ReportDAO {
 
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			
+
 			statement.setInt(1, id);
 
 			// Returns a result of the query of search
@@ -80,8 +80,8 @@ public class ReportDAO {
 
 				String product;
 				product = rs.getString("providerName");
-				
-				if(product == null) 
+
+				if (product == null)
 					product = "Produto não possui fornecedor!";
 
 				providersManager.add(product);
@@ -98,8 +98,8 @@ public class ReportDAO {
 	}
 
 	public ArrayList<String> listProductsProvider(int id, String providerName) {
-		String sql = "select productName from Quotation_Product_Provider " +
-				"where quotationID = ? AND where providerName = ?";
+		String sql = "select productName from Quotation_Product_Provider "
+				+ "where quotationID = ? AND where providerName = ?";
 		ArrayList<String> productsProvider = new ArrayList<String>();
 
 		try {
@@ -111,7 +111,7 @@ public class ReportDAO {
 
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			
+
 			statement.setInt(1, id);
 			statement.setString(2, providerName);
 
@@ -138,8 +138,8 @@ public class ReportDAO {
 	}
 
 	public ArrayList<String> listProvidersProvider(int id, String providerName) {
-		String sql = "select providerName from Quotation_Product_Provider " +
-				"where quotationID = ? AND where providerName = ?";
+		String sql = "select providerName from Quotation_Product_Provider "
+				+ "where quotationID = ? AND where providerName = ?";
 		ArrayList<String> providersToProvider = new ArrayList<String>();
 
 		try {
@@ -151,7 +151,7 @@ public class ReportDAO {
 
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			
+
 			statement.setInt(1, id);
 			statement.setString(2, providerName);
 

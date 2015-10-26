@@ -8,14 +8,14 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 import dao.ProductDAO;
 import junit.framework.TestCase;
 import model.Product;
 
 public class ProductDAOTest extends TestCase {
 	
-	Connection connection = new ConnectionFactory().getConnection();
+	Connection connection = new ConnectionDB().getConnection();
 	Product product = new Product();
 	ProductDAO productDao = new ProductDAO();
 	ResultSet rs;

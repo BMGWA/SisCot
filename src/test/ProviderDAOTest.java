@@ -8,14 +8,14 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 import dao.ProviderDAO;
 import junit.framework.TestCase;
 import model.Provider;
 
 public class ProviderDAOTest extends TestCase {
 	
-	Connection connection = new ConnectionFactory().getConnection();
+	Connection connection = new ConnectionDB().getConnection();
 	Provider provider = new Provider();
 	ProviderDAO providerDao = new ProviderDAO();
 	ResultSet rs;

@@ -12,7 +12,7 @@ public class ManagerDAO {
 	private Connection connection;
 	
 	public ManagerDAO() {
-		this.connection = new ConnectionFactory().getConnection();
+		this.connection = ConnectionDB.getConnection().connectionWithDataBase;
 	}
 	
 	public boolean insertManager(Manager manager) {

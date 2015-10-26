@@ -5,13 +5,13 @@ import java.sql.Connection;
 import org.junit.Test;
 
 import controller.InsertProduct;
-import dao.ConnectionFactory;
+import dao.ConnectionDB;
 import dao.ProductDAO;
 import junit.framework.TestCase;
 import model.Product;
 
 public class InsertProductTest extends TestCase {
-	Connection connection = new ConnectionFactory().getConnection();
+	Connection connection = new ConnectionDB().getConnection();
 	Product product = new Product();
 	ProductDAO productDao = new ProductDAO();
 	InsertProduct insertProduct = new InsertProduct();
