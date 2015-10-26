@@ -13,13 +13,15 @@ import model.Provider;
 import dao.ProviderDAO;
 
 /**
+ * @author tiago
  * Servlet implementation class IncludeProvider
  */
 @WebServlet("/IncludeProvider")
 public class InsertProvider extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**Creating new Provider
+    /**
+     * Creating new Provider
      * @see HttpServlet#HttpServlet()
      */
     public InsertProvider() {

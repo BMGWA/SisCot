@@ -47,11 +47,7 @@
 			<%
 				}
 			%>
-			<br> <a
-				href="/SisCot/DeleteQuotation?quotationId=<%=request.getParameter("quotationId")%>">
-				Deletar Cotação</a> <br> <a
-				href="/SisCot/UpdateQuotationView.jsp?quotationId=<%=request.getParameter("quotationId")%>			">
-				Alterar Cotação</a>
+			
 		</div>
 
 

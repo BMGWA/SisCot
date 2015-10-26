@@ -99,7 +99,7 @@ public class ReportDAO {
 
 	public ArrayList<String> listProductsProvider(int id, String providerName) {
 		String sql = "select productName from Quotation_Product_Provider "
-				+ "where quotationID = ? AND where providerName = ?";
+				+ "where quotationID = ? AND  providerName = ? ";
 		ArrayList<String> productsProvider = new ArrayList<String>();
 
 		try {
