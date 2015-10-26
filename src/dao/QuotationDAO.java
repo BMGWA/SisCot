@@ -115,6 +115,49 @@ public class QuotationDAO {
 
 		return quotationList;
 	}
+	
+	public ArrayList<Quotation> listQuotationProvider() {
+		String sql = "select * from Quotation where quotationIsOn = true";
+		ArrayList<Quotation> quotationList= new ArrayList<Quotation>();
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
+			//Returns a result of the query of search
+			ResultSet rs = statement.executeQuery();	
+			
+			//Stores all the products listed in the array
+			while(rs.next()) {
+				Quotation quotation = new Quotation();
+
+				ArrayList<Product> listProducts = new ArrayList<>();
+				listProducts = getListProductsInAQuotation(rs.getInt("id"));
+				
+				quotation.setManagerName(rs.getString("managerName"));
+				quotation.setQuotationDate(rs.getDate("quotationDate"));
+				quotation.setQuotationIsOn(rs.getBoolean("quotationIsOn"));
+				quotation.setId(rs.getInt("id"));
+				quotation.setProducts(listProducts);
+				
+				quotationList.add(quotation);
+			}
+			
+			//Close the operators
+			statement.close();
+		} catch(SQLException e) {	
+			e.printStackTrace();			
+			throw new RuntimeException(e);
+		}
+		
+		return quotationList;
+	}
 
 	public boolean deleteQuotation(int id) {
 		String sql = "delete from Quotation where id = ?";
