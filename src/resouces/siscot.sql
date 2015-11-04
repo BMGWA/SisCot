@@ -1,4 +1,4 @@
- drop table Products;
+drop table Products;
 drop table Providers;
 drop table Managers;
 drop table Quotation_Product_Provider;
@@ -44,7 +44,8 @@ create table Quotation(
 create table Quotation_Product_Provider(
 	quotationID INT UNSIGNED NOT NULL,
 	productName VARCHAR(100) NOT NULL,
-    providerName VARCHAR(100)
+    providerName VARCHAR(100),
+    priceProduct DOUBLE 
 );
 
 ALTER TABLE Quotation_Product_Provider ADD FOREIGN KEY(quotationID) REFERENCES Quotation (id);
