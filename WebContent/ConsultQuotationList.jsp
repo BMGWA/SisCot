@@ -25,11 +25,19 @@
 
 	<br>
 	<br>
+	<%
+		if (session != null) {
+			if (session.getAttribute("userType").equals("manager")) {
+	%>
 	<div class="row center">
 		<a class="waves-effect waves-light btn"
 			href="/SisCot/ConsultProduct">Criar Nova Cotação</a><br>
 		<br>
 	</div>
+	<%
+		}
+		}
+	%>
 
 
 

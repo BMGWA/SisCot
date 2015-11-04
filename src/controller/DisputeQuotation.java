@@ -1,6 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +31,29 @@ public class DisputeQuotation extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		Enumeration<String> teste = request.getParameterNames();
+		ArrayList<String> products = new ArrayList<String>();
+		ArrayList<Double> priceOfProducts = new ArrayList<Double>();
+		
+		String priceOfProduct = null;
+		String currentProduct = null;
+		Double currentProductValue;
+		
+		while(teste.hasMoreElements()){
+			currentProduct = teste.nextElement();
+			priceOfProduct = request.getParameter(currentProduct);
+			currentProductValue = Double.parseDouble(priceOfProduct);
+			
+			products.add(currentProduct);
+			priceOfProducts.add(currentProductValue);
+			
+			System.out.println("Price: " + currentProductValue.doubleValue());
+		}
+		
+		
+		RequestDispatcher rd;
+		rd = request.getRequestDispatcher("/index.jsp");
+		rd.forward(request, response);
 	}
 
 }

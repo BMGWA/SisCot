@@ -43,8 +43,7 @@
 						</c:forEach>
 
 						<br>
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">
+						<button class="btn waves-effect waves-light" type="submit">
 							Submit <i class="material-icons right">send</i>
 						</button>
 
