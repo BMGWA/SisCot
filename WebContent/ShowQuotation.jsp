@@ -22,6 +22,8 @@
 </head>
 <body class="blue lighten-5">
 	<c:import url="header.jsp" />
+	
+	
 	<h3 class="row center">
 		Cotação #<b><%=request.getParameter("quotationId")%></b>
 	</h3>
@@ -82,7 +84,7 @@
 	<div class="row">
 		<div class="center">
 			<a class="waves-effect waves-light btn-large blue"
-				href="DisputeQuotation?quotationId=<%=request.getParameter("quotationId")%>">
+				href="Report?quotationId=<%=request.getParameter("quotationId")%>&isOn=<%=request.getParameter("quotationIsOn")%>">
 				<i class="material-icons right">assignment</i> Disputar Cotação
 			</a>
 
@@ -100,7 +102,7 @@
 		<div class="center">
 
 			<a class="waves-effect waves-light btn-large"
-				href="Report?quotationId=<%=request.getParameter("quotationId")%>">
+				href="Report?quotationId=<%=request.getParameter("quotationId")%>&isOn=<%=request.getParameter("quotationIsOn")%>">
 				<i class="material-icons right">description</i> Gerar Relatório da
 				Cotação
 			</a>

@@ -39,7 +39,11 @@ public class ReportContoller extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		sendQuotation(request, response);
+	}
+	
+	void sendQuotation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int quotationID = getQuotationID(request);
 
 		// Create a quotation with ID
@@ -83,12 +87,27 @@ public class ReportContoller extends HttpServlet {
 
 		// Dispacher the result from the view of confirmation
 		
-		System.out.println("URL: " + request.getRequestURL());
+		String urlToSend = null;
+		boolean quotationIsOn = verifyStateQuotation(request);
+		
+		if(quotationIsOn)
+			urlToSend = "/DisputeQuotation.jsp";
+		else
+			urlToSend = "/ShowReport.jsp";
+		
+		System.out.println("PAssou pagian: " + urlToSend);
 		
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/ShowReport.jsp");
+		rd = request.getRequestDispatcher(urlToSend);
 		rd.forward(request, response);
+	}
 
+	private boolean verifyStateQuotation(HttpServletRequest request) {
+		
+		String quotationIsOn = request.getParameter("isOn");
+		boolean quotationIsOnBool = Boolean.parseBoolean(quotationIsOn);
+		
+		return quotationIsOnBool;
 	}
 
 	private int getQuotationID(HttpServletRequest request) {
