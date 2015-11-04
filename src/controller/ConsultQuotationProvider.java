@@ -42,7 +42,7 @@ public class ConsultQuotationProvider extends ConsultQuotation {
 		ArrayList<Quotation> quotationList = new ArrayList<Quotation>();
 		QuotationDAO quotationdao = new QuotationDAO();
 		
-		quotationList = quotationdao.listQuotationProvider();
+		quotationList = quotationdao.listQuotation();
 		
 		return quotationList;
 	}

@@ -46,12 +46,12 @@
 			</a>
 
 			<%
-				}else{%>
-					<a class="waves-effect waves-light btn-large blue"
-				href="DisputeQuotation?quotationId=<%=request.getParameter("quotationId")%>">
-				<i class="material-icons right">assignment</i> Disputar Cotação
-			</a>
-					<%}}
+				} else {
+			%>
+
+			<%
+				}
+					}
 			%>
 			<h5>Cotação está em ANDAMENTO</h5>
 			<%
@@ -73,6 +73,29 @@
 	<br>
 	<br>
 
+	<%
+		if (request.getParameter("quotationIsOn").equals("true")) {
+			if (session != null) {
+				if (session.getAttribute("userType").equals("provider")) {
+	%>
+
+	<div class="row">
+		<div class="center">
+			<a class="waves-effect waves-light btn-large blue"
+				href="DisputeQuotation?quotationId=<%=request.getParameter("quotationId")%>">
+				<i class="material-icons right">assignment</i> Disputar Cotação
+			</a>
+
+		</div>
+	</div>
+
+	<%
+		}
+
+			}
+
+		} else {
+	%>
 	<div class="row">
 		<div class="center">
 
@@ -86,6 +109,12 @@
 			%>
 		</div>
 	</div>
+
+
+	<%
+		}
+	%>
+
 
 </body>
 </html>

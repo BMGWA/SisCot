@@ -83,6 +83,8 @@ public class ReportContoller extends HttpServlet {
 
 		// Dispacher the result from the view of confirmation
 		
+		System.out.println("URL: " + request.getRequestURL());
+		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ShowReport.jsp");
 		rd.forward(request, response);
