@@ -206,6 +206,31 @@ public class QuotationDAO {
 
 		return wasUpdated;
 	}
+	
+	//Change the quotation for closed quotation
+	public boolean updateQuotation(int idToUpdate) {
+		String sql = "update Quotation set quotationIsOn=? where id=?";
+		boolean wasUpdated = false;
+
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+
+			// Set the first atribute of the query
+			statement.setBoolean(1, false);
+			statement.setInt(2, idToUpdate);
+
+			statement.executeUpdate();
+
+			wasUpdated = true;
+
+			// Close the operators
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return wasUpdated;
+	}
 
 	public boolean includeQuotationProduc(Quotation quotation, Product product) {
 		String sql = "insert into Quotation_Product_Provider(quotationID, productName)" + " values (?,?)";

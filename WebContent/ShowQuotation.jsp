@@ -38,7 +38,7 @@
 			%>
 			<h5>Cotação está em ANDAMENTO</h5>
 			<a class="waves-effect waves-light btn-large red"
-				href="Report?quotationId=<%=request.getParameter("quotationId")%>">
+				href="CloseQuotation?quotationId=<%=request.getParameter("quotationId")%>">
 				<i class="material-icons right">av_timer</i> Fechar Cotação
 			</a>
 			
