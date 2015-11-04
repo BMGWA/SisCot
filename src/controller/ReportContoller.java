@@ -45,6 +45,7 @@ public class ReportContoller extends HttpServlet {
 	
 	void sendQuotation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int quotationID = getQuotationID(request);
+		boolean quotationIsOn = verifyStateQuotation(request);
 
 		// Create a quotation with ID
 		Quotation quotation = new Quotation();
@@ -66,9 +67,12 @@ public class ReportContoller extends HttpServlet {
 
 			if (user.equals("manager")) {
 				report = new ReportManager(products, quotation, 0.0);
-			} else if (user.equals("provider")) {
+			} else if (user.equals("provider") && !quotationIsOn) {
 				String providerName = (String) session.getAttribute("user");
 				report = new ReportProvider(products, quotation, 0.0, providerName);
+			}
+			else if(user.equals("provider") && quotationIsOn){
+				report = new ReportManager(products, quotation, 0.0);
 			}
 		}
 
@@ -88,7 +92,7 @@ public class ReportContoller extends HttpServlet {
 		// Dispacher the result from the view of confirmation
 		
 		String urlToSend = null;
-		boolean quotationIsOn = verifyStateQuotation(request);
+		
 		
 		if(quotationIsOn)
 			urlToSend = "/DisputeQuotation.jsp";
