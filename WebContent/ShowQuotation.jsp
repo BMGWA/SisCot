@@ -35,14 +35,25 @@
 			<br>
 			<%
 				if (request.getParameter("quotationIsOn").equals("true")) {
+					if (session != null) {
+						if (session.getAttribute("userType").equals("manager")) {
 			%>
-			<h5>Cotação está em ANDAMENTO</h5>
+
+
 			<a class="waves-effect waves-light btn-large red"
 				href="CloseQuotation?quotationId=<%=request.getParameter("quotationId")%>">
 				<i class="material-icons right">av_timer</i> Fechar Cotação
 			</a>
-			
 
+			<%
+				}else{%>
+					<a class="waves-effect waves-light btn-large blue"
+				href="DisputeQuotation?quotationId=<%=request.getParameter("quotationId")%>">
+				<i class="material-icons right">assignment</i> Disputar Cotação
+			</a>
+					<%}}
+			%>
+			<h5>Cotação está em ANDAMENTO</h5>
 			<%
 				} else {
 			%>
@@ -52,7 +63,7 @@
 			<%
 				}
 			%>
-			
+
 		</div>
 
 

@@ -99,7 +99,7 @@ public class ReportDAO {
 
 	public ArrayList<String> listProductsProvider(int id, String providerName) {
 		String sql = "select productName from Quotation_Product_Provider "
-				+ "where quotationID = ? AND  providerName = ? ";
+				+ " where quotationID = ? AND  providerName = ? ";
 		ArrayList<String> productsProvider = new ArrayList<String>();
 
 		try {
@@ -139,7 +139,7 @@ public class ReportDAO {
 
 	public ArrayList<String> listProvidersProvider(int id, String providerName) {
 		String sql = "select providerName from Quotation_Product_Provider "
-				+ "where quotationID = ? AND where providerName = ?";
+				+ "where quotationID = ? AND providerName = ?";
 		ArrayList<String> providersToProvider = new ArrayList<String>();
 
 		try {
