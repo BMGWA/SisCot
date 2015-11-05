@@ -37,6 +37,10 @@ public class DisputeQuotation extends HttpServlet {
 		ArrayList<String> products = new ArrayList<String>();
 		ArrayList<Double> priceOfProducts = new ArrayList<Double>();
 		
+		String quotationId = request.getParameter("insert");
+		int integerQuotationId = Integer.parseInt(quotationId);
+				
+		
 		String priceOfProduct = null;
 		String currentProduct = null;
 		Double currentProductValue;
@@ -63,7 +67,7 @@ public class DisputeQuotation extends HttpServlet {
 		}
 		
 		QuotationDAO quotationdao = new QuotationDAO();
-		quotationdao.updateQuotationPrices(products, priceOfProducts);
+		quotationdao.updateQuotationPrices(products, priceOfProducts, integerQuotationId);
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/index.jsp");
