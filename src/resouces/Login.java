@@ -160,7 +160,7 @@ public class Login extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	public String getProviderNameFromSession(HttpServletRequest request, HttpServletResponse response)
+	public static String getProviderNameFromSession(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Get the request
 		HttpServletRequest req = (HttpServletRequest) request;

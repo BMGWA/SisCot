@@ -347,12 +347,13 @@ public class QuotationDAO {
 		String sqlUpdate = "update Quotation_Product_Provider set providerName=?, priceProduct=? "
 				+ "where quotationID=? AND productName=?";
 		
-		String sqlQuery = "select priceProduct Quotation_Product_Provider"
-				+ "where quotationID=? AND productName=?";
+		String sqlQuery = "select priceProduct from Quotation_Product_Provider "
+				+ " where quotationID=? AND productName=?";
 		
 
 		try {
 			PreparedStatement statementUpdate = this.connection.prepareStatement(sqlUpdate);
+			
 			PreparedStatement statementQuery = this.connection.prepareStatement(sqlQuery);
 			
 			for (int i = 0; i < priceOfProducts.size(); ++i) {
@@ -362,14 +363,17 @@ public class QuotationDAO {
 				
 				ResultSet rs = statementQuery.executeQuery();
 				
+				
 				Double value;
 				
 				rs.last();
 				value = rs.getDouble("priceProduct");
 				
-				if((Math.abs(value - 0) < 0.001) && (value > priceOfProducts.get(i))){
+				System.out.println("Value: " + value + " veiw: " + priceOfProducts.get(i));
+				
+				if((Math.abs(value - 0) < 0.001) || (value > priceOfProducts.get(i))){
 					//Set the first atribute of the query
-					
+					System.out.println("Passou aqui, ó");
 
 					statementUpdate.setString(1, provideName);
 					statementUpdate.setDouble(2, priceOfProducts.get(i).doubleValue());
@@ -381,7 +385,7 @@ public class QuotationDAO {
 			}
 			
 			// Close the operators
-			statementUpdate.close();
+			//statementUpdate.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

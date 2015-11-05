@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.QuotationDAO;
+import resouces.Login;
 
 /**
  * Servlet implementation class DisputeQuotation
@@ -31,11 +32,15 @@ public class DisputeQuotation extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
 		Enumeration<String> teste = request.getParameterNames();
 		ArrayList<String> products = new ArrayList<String>();
 		ArrayList<Double> priceOfProducts = new ArrayList<Double>();
+		
+		String providerName= Login.getProviderNameFromSession(request, response);
+		System.out.println("Nome do provider vindo de Login " + providerName);
 		
 		String quotationId = request.getParameter("insert");
 		int integerQuotationId = Integer.parseInt(quotationId);
@@ -67,7 +72,7 @@ public class DisputeQuotation extends HttpServlet {
 		}
 		
 		QuotationDAO quotationdao = new QuotationDAO();
-		quotationdao.updateQuotationPrices(products, priceOfProducts, integerQuotationId);
+		quotationdao.updateQuotationPrices(products, priceOfProducts, integerQuotationId, providerName);
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/index.jsp");
