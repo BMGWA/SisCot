@@ -341,29 +341,51 @@ public class QuotationDAO {
 		return quotation;
 	}
 
-	public void updateQuotationPrices(ArrayList<String> products, ArrayList<Double> priceOfProducts, int integerQuotationId) {
+	public void updateQuotationPrices(ArrayList<String> products, ArrayList<Double> priceOfProducts, 
+			int integerQuotationId, String provideName) {
 		
-		String sql = "update Quotation_Product_Provider set priceProduct=? where quotationID=? AND productName=?";
+		String sqlUpdate = "update Quotation_Product_Provider set providerName=?, priceProduct=? "
+				+ "where quotationID=? AND productName=?";
+		
+		String sqlQuery = "select priceProduct Quotation_Product_Provider"
+				+ "where quotationID=? AND productName=?";
 		
 
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql);
+			PreparedStatement statementUpdate = this.connection.prepareStatement(sqlUpdate);
+			PreparedStatement statementQuery = this.connection.prepareStatement(sqlQuery);
 			
 			for (int i = 0; i < priceOfProducts.size(); ++i) {
 				
-				//Set the first atribute of the query
-				statement.setDouble(1, priceOfProducts.get(i).doubleValue());
-				statement.setInt(2, integerQuotationId);
-				statement.setString(3, products.get(i));
+				statementQuery.setInt(1, integerQuotationId);
+				statementQuery.setString(2, products.get(i));
+				
+				ResultSet rs = statementQuery.executeQuery();
+				
+				Double value;
+				
+				rs.last();
+				value = rs.getDouble("priceProduct");
+				
+				if((Math.abs(value - 0) < 0.001) && (value > priceOfProducts.get(i))){
+					//Set the first atribute of the query
+					
 
-				statement.executeUpdate();
+					statementUpdate.setString(1, provideName);
+					statementUpdate.setDouble(2, priceOfProducts.get(i).doubleValue());
+					statementUpdate.setInt(3, integerQuotationId);
+					statementUpdate.setString(4, products.get(i));
+
+					statementUpdate.executeUpdate();
+				}
 			}
 			
 			// Close the operators
-			statement.close();
+			statementUpdate.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 }
+
