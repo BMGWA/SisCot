@@ -17,6 +17,7 @@ import model.Quotation;
 import model.Report;
 import model.ReportManager;
 import model.ReportProvider;
+import resouces.Calculations;
 
 /**
  * Servlet implementation class Report
@@ -80,11 +81,12 @@ public class ReportContoller extends HttpServlet {
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		productsForProvider = report.showProducts();
 		
-		ArrayList<String> teste = new ArrayList<>();
+		ArrayList<String> priceAsString = new ArrayList<>();
 		for(int i = 0; i < productsForProvider.get(2).size(); ++i){
-			teste.add(productsForProvider.get(2).get(i).toString());
 			
-			System.out.println("Preccco produto controller: " + teste.get(i));
+			String priceDecimalFormat = Calculations.formatDecimal((Double)productsForProvider.get(2).get(i));
+			priceAsString.add(priceDecimalFormat);
+			
 		}
 			
 		
@@ -136,5 +138,4 @@ public class ReportContoller extends HttpServlet {
 
 		return quotation;
 	}
-
 }
