@@ -30,9 +30,8 @@
 			if (session.getAttribute("userType").equals("manager")) {
 	%>
 	<div class="row center">
-		<a class="waves-effect waves-light btn"
-			href="/SisCot/ConsultProduct">Criar Nova Cotação</a><br>
-		<br>
+		<a class="waves-effect waves-light btn" href="/SisCot/ConsultProduct">Criar
+			Nova Cotação</a><br> <br>
 	</div>
 	<%
 		}
@@ -42,45 +41,45 @@
 
 
 	<div class="row">
-	<div class ="col s10">
-		<div class="col s3 offset-s3 ">
-			<div class="collection">
-				<li class="collection-item">ID da cotação #</li>
-				<c:forEach items="${quotationList}" var="quotation">
-					<a class="collection-item"
-						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
+		<div class="col s10">
+			<div class="col s3 offset-s3 ">
+				<div class="collection">
+					<li class="collection-item">ID da cotação #</li>
+					<c:forEach items="${quotationList}" var="quotation">
+						<a class="collection-item"
+							href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
 						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
-						${quotation.id} </a>
-				</c:forEach>
+							${quotation.id} </a>
+					</c:forEach>
+				</div>
+			</div>
+
+			<div class="col s3  ">
+				<div class="collection">
+					<li class="collection-item">Gerente</li>
+					<c:forEach items="${quotationList}" var="quotation">
+
+
+						<a class="collection-item"
+							href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
+						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
+							${quotation.managerName} </a>
+					</c:forEach>
+				</div>
+			</div>
+
+			<div class="col s3 ">
+				<div class="collection">
+					<li class="collection-item">Data</li>
+					<c:forEach items="${quotationList}" var="quotation">
+						<a class="collection-item"
+							href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
+						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
+							${quotation.quotationDate} </a>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
-		
-		<div class="col s3  ">
-			<div class="collection">
-				<li class="collection-item">Gerente</li>
-				<c:forEach items="${quotationList}" var="quotation">
-				
-					
-					<a class="collection-item"
-						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
-						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
-						${quotation.managerName} </a>
-				</c:forEach>
-			</div>
-		</div>
-		
-		<div class="col s3 ">
-			<div class="collection">
-				<li class="collection-item">Data</li>
-				<c:forEach items="${quotationList}" var="quotation">
-					<a class="collection-item"
-						href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
-						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
-						${quotation.quotationDate} </a>
-				</c:forEach>
-			</div>
-		</div>
-	</div>
 	</div>
 
 

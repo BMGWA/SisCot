@@ -30,12 +30,10 @@
 
 
 	<c:if test="${not empty listProducts}">
-
 		<div class="row">
-			<div class="col s4 offset-s2">
+			<div class="col s3 offset-s1">
 				<ul class="collection with-header">
-					<li class="collection-header center"><h4>Lista de
-							Produtos</h4></li>
+					<li class="collection-header center"><h4>Produtos</h4></li>
 
 					<c:forEach items="${listProducts}" var="product">
 						<li class="collection-item">${product}</li>
@@ -45,8 +43,7 @@
 
 			<div class="col s4">
 				<ul class="collection with-header">
-					<li class="collection-header center"><h4>Lista de
-							Fornecedores</h4></li>
+					<li class="collection-header center"><h4>Fornecedores</h4></li>
 
 					<c:forEach items="${listProviders}" var="provider">
 						<li class="collection-item">${provider}</li>
@@ -54,7 +51,15 @@
 				</ul>
 			</div>
 
+			<div class="col s3">
+				<ul class="collection with-header">
+					<li class="collection-header center"><h4>Preços</h4></li>
 
+					<c:forEach items="${listPrices}" var="price">
+						<li class="collection-item">${price} teste</li>
+					</c:forEach>
+				</ul>
+			</div>
 		</div>
 	</c:if>
 

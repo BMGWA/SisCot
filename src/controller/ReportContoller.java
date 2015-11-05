@@ -79,10 +79,21 @@ public class ReportContoller extends HttpServlet {
 
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		productsForProvider = report.showProducts();
+		
+		ArrayList<String> teste = new ArrayList<>();
+		for(int i = 0; i < productsForProvider.get(2).size(); ++i){
+			teste.add(productsForProvider.get(2).get(i).toString());
+			
+			System.out.println("Preccco produto controller: " + teste.get(i));
+		}
+			
+		
 
 		request.setAttribute("listProducts", productsForProvider.get(0));
 		request.setAttribute("listProviders", productsForProvider.get(1));
 		request.setAttribute("listPrices", productsForProvider.get(2));
+		
+		
 		
 		// Dispacher the result from the view of confirmation
 		

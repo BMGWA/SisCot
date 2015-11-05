@@ -202,7 +202,6 @@ public class ReportDAO {
 
 		      Double price;
 		      price = rs.getDouble("priceProduct");
-
 		      priceProducts.add(price);
 		    }
 
