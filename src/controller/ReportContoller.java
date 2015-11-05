@@ -43,7 +43,8 @@ public class ReportContoller extends HttpServlet {
 		sendQuotation(request, response);
 	}
 	
-	void sendQuotation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	void sendQuotation(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
 		int quotationID = getQuotationID(request);
 		boolean quotationIsOn = verifyStateQuotation(request);
 
@@ -81,14 +82,8 @@ public class ReportContoller extends HttpServlet {
 
 		request.setAttribute("listProducts", productsForProvider.get(0));
 		request.setAttribute("listProviders", productsForProvider.get(1));
+		request.setAttribute("listPrices", productsForProvider.get(2));
 		
-		ArrayList<String> tes = new ArrayList<>();
-		tes = productsForProvider.get(1);
-		
-		for (String string : tes) {
-			System.out.println("Fornecedores: " + string);
-		}
-
 		// Dispacher the result from the view of confirmation
 		
 		String urlToSend = null;

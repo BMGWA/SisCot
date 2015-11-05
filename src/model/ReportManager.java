@@ -16,10 +16,12 @@ public class ReportManager extends Report{
 		
 		ArrayList<String> listProducts = reportdao.listProductsManager(getQuotation().getId());
 		ArrayList<String> listProviders = reportdao.listProvidersManager(getQuotation().getId());
+		ArrayList<Double> listPrice = reportdao.listPriceProducts(getQuotation().getId());
 		
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		productsForProvider.add(listProducts);
 		productsForProvider.add(listProviders);
+		productsForProvider.add(listPrice);
 		
 		return productsForProvider;
 	}

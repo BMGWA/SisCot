@@ -21,13 +21,16 @@ public class ReportProvider extends Report {
 
 		ArrayList<String> listProducts = reportdao.listProductsProvider(getQuotation().getId(), providerName);
 		ArrayList<String> listProviders = reportdao.listProvidersProvider(getQuotation().getId(), providerName);
+		ArrayList<Double> listPrice = reportdao.listPriceProducts(getQuotation().getId());
 
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		productsForProvider.add(listProducts);
 		productsForProvider.add(listProviders);
+		productsForProvider.add(listPrice);
 
 		return productsForProvider;
 
 	}
 
 }
+
