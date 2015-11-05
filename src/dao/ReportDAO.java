@@ -176,5 +176,43 @@ public class ReportDAO {
 
 		return providersToProvider;
 	}
+	
+	public ArrayList<Double> listPriceProducts(int id) {
+		String sql = "select priceProduct from Quotation_Product_Provider "
+		      + "where quotationID = ?";
+		  ArrayList<Double> priceProducts = new ArrayList<Double>();
 
+		  try {
+		    Class.forName("com.mysql.jdbc.Driver");
+		  } catch (ClassNotFoundException e) {
+		    e.printStackTrace();
+		    throw new RuntimeException(e);
+		  }
+
+		  try {
+		    PreparedStatement statement = this.connection.prepareStatement(sql);
+
+		    statement.setInt(1, id);
+
+		    // Returns a result of the query of search
+		    ResultSet rs = statement.executeQuery();
+
+		    // Stores all the products listed in the array
+		    while (rs.next()) {
+
+		      Double price;
+		      price = rs.getDouble("priceProduct");
+
+		      priceProducts.add(price);
+		    }
+
+		    // Close the operators
+		    statement.close();
+		  } catch (SQLException e) {
+		    e.printStackTrace();
+		    throw new RuntimeException(e);
+		  }
+
+		  return priceProducts;
+		}
 }
