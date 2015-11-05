@@ -341,4 +341,25 @@ public class QuotationDAO {
 		return quotation;
 	}
 
+	public void updateQuotationPrices(ArrayList<String> products, ArrayList<Double> priceOfProducts) {
+		
+		String sql = "update Quotation set managerName=?, quotationDate=? where id=?";
+		
+
+		try {
+			PreparedStatement statement = this.connection.prepareStatement(sql);
+
+			/* Set the first atribute of the query
+			statement.setString(1, quotation.getManagerName());
+			statement.setDate(2, quotation.getQuotationDate());
+			statement.setInt(3, idToUpdate);*/
+
+			statement.executeUpdate();
+			// Close the operators
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

@@ -27,9 +27,7 @@
 		Relatório
 		<%=session.getAttribute("userType")%></h2>
 
-
 	<c:if test="${not empty listProducts}">
-
 		<div class="row">
 			<form action="DisputeQuotation" class="col s12">
 				<div class="row">
@@ -37,34 +35,26 @@
 						<c:forEach items="${listProducts}" var="product">
 							<div class="input-field">
 								<input placeholder="R$" id="${product}" type="text"
-									class="validate" name="${product}"> <label
+									class="validate" name="${product}" value="0.0"> <label
 									for="${product}"><span> ${product}</span></label> <br>
 							</div>
 						</c:forEach>
-
 						<br>
 						<button class="btn waves-effect waves-light" type="submit">
 							Submit <i class="material-icons right">send</i>
 						</button>
-
 					</div>
 				</div>
-
+				<input type="hidden" name="insert" value="<%=request.getParameter("quotationId") %>">
 			</form>
 		</div>
-
-
 	</c:if>
-
-
-
 	<c:if test="${empty listProducts}">
 		<br>
 		<br>
 		<br>
 		<h3 class="center">Não há produtos nesta cotação</h3>
 	</c:if>
-
 	<!-- ================================================
     Scripts
     ================================================ -->
@@ -74,7 +64,6 @@
 		src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<!--materialize js-->
 	<script type="text/javascript" src="js/materialize.js"></script>
-
 
 </body>
 </html>

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.QuotationDAO;
+
 /**
  * Servlet implementation class DisputeQuotation
  */
@@ -39,17 +41,29 @@ public class DisputeQuotation extends HttpServlet {
 		String currentProduct = null;
 		Double currentProductValue;
 		
+		
+		System.out.println("Quotaion ID " + request.getParameter("insert"));
+		 
+		
 		while(teste.hasMoreElements()){
 			currentProduct = teste.nextElement();
-			priceOfProduct = request.getParameter(currentProduct);
-			currentProductValue = Double.parseDouble(priceOfProduct);
 			
-			products.add(currentProduct);
-			priceOfProducts.add(currentProductValue);
+			if(!currentProduct.equals("insert")){
+				
+				priceOfProduct = request.getParameter(currentProduct);
+				currentProductValue = Double.parseDouble(priceOfProduct);
+				
+				products.add(currentProduct);
+				priceOfProducts.add(currentProductValue);
+			}
+				
 			
-			System.out.println("Price: " + currentProductValue.doubleValue());
+			
+			
 		}
 		
+		QuotationDAO quotationdao = new QuotationDAO();
+		quotationdao.updateQuotationPrices(products, priceOfProducts);
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/index.jsp");
