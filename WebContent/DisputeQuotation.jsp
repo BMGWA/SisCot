@@ -45,7 +45,8 @@
 						</button>
 					</div>
 				</div>
-				<input type="hidden" name="insert" value="<%=request.getParameter("quotationId") %>">
+				<input type="hidden" name="insert"
+					value="<%=request.getParameter("quotationId")%>">
 			</form>
 		</div>
 	</c:if>

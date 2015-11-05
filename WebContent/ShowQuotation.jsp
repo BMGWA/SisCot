@@ -22,14 +22,11 @@
 </head>
 <body class="blue lighten-5">
 	<c:import url="header.jsp" />
-	
-	
 	<h3 class="row center">
 		Cotação #<b><%=request.getParameter("quotationId")%></b>
 	</h3>
 	<br>
 	<br>
-
 	<div class="row">
 		<div class="col s5 offset-s2">
 			Criado por: <span class="blue-text text-darken-2"><%=request.getParameter("managerName")%></span><br>
@@ -40,17 +37,13 @@
 					if (session != null) {
 						if (session.getAttribute("userType").equals("manager")) {
 			%>
-
-
 			<a class="waves-effect waves-light btn-large red"
 				href="CloseQuotation?quotationId=<%=request.getParameter("quotationId")%>">
 				<i class="material-icons right">av_timer</i> Fechar Cotação
 			</a>
-
 			<%
 				} else {
 			%>
-
 			<%
 				}
 					}
@@ -59,48 +52,37 @@
 			<%
 				} else {
 			%>
-
 			Cotação está FECHADA
-
 			<%
 				}
 			%>
-
 		</div>
-
-
 	</div>
 	<br>
 	<br>
 	<br>
 	<br>
-
 	<%
 		if (request.getParameter("quotationIsOn").equals("true")) {
 			if (session != null) {
 				if (session.getAttribute("userType").equals("provider")) {
 	%>
-
 	<div class="row">
 		<div class="center">
 			<a class="waves-effect waves-light btn-large blue"
 				href="Report?quotationId=<%=request.getParameter("quotationId")%>&isOn=<%=request.getParameter("quotationIsOn")%>">
 				<i class="material-icons right">assignment</i> Disputar Cotação
 			</a>
-
 		</div>
 	</div>
-
 	<%
 		}
-
 			}
 
 		} else {
 	%>
 	<div class="row">
 		<div class="center">
-
 			<a class="waves-effect waves-light btn-large"
 				href="Report?quotationId=<%=request.getParameter("quotationId")%>&isOn=<%=request.getParameter("quotationIsOn")%>">
 				<i class="material-icons right">description</i> Gerar Relatório da
@@ -111,12 +93,8 @@
 			%>
 		</div>
 	</div>
-
-
 	<%
 		}
 	%>
-
-
 </body>
 </html>

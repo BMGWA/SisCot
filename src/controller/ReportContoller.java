@@ -84,16 +84,17 @@ public class ReportContoller extends HttpServlet {
 		ArrayList<String> priceAsString = new ArrayList<>();
 		for(int i = 0; i < productsForProvider.get(2).size(); ++i){
 			
-			String priceDecimalFormat = Calculations.formatDecimal((Double)productsForProvider.get(2).get(i));
-			priceAsString.add(priceDecimalFormat);
+			ArrayList<Double> listPrice = productsForProvider.get(2);
+			Double priceProduct = (Double)listPrice.get(i);
+			
+			String priceDecimalFormatAsString = Calculations.formatDecimal(priceProduct);
+			priceAsString.add(priceDecimalFormatAsString);
 			
 		}
-			
 		
-
 		request.setAttribute("listProducts", productsForProvider.get(0));
 		request.setAttribute("listProviders", productsForProvider.get(1));
-		request.setAttribute("listPrices", productsForProvider.get(2));
+		request.setAttribute("listPrices", priceAsString);
 		
 		
 		

@@ -29,11 +29,12 @@
 	<br>
 	<br>
 	<div class="row ">
-	
+
 		<div class="card-panel teal">
 			<h3 class="row center"><%=request.getAttribute("mensage")%></h3>
-	
-	</div></div>
+
+		</div>
+	</div>
 
 </body>
 </html>

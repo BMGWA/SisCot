@@ -29,67 +29,67 @@
 	</div>
 
 	<div class="container">
-		<form class="pure-form pure-form-aligned" action="IncludeProvider" method="POST" class="center">
+		<form class="pure-form pure-form-aligned" action="IncludeProvider"
+			method="POST" class="center">
 			<fieldset>
 				<div class="row">
 					<div class="pure-control-group col s6">
-            		<label for="cnpj">CNPJ</label>
-	        		    <input id="cnpj" name="cnpj" type="text" placeholder="Informe o cnpj">
-			        </div>
-			        <div class="pure-control-group col s6">
-            		<label for="phone">Telefone</label>
-	        		    <input id="phone" name="phone" type="text" placeholder="Informe o telefone">
-			        </div>
+						<label for="cnpj">CNPJ</label> <input id="cnpj" name="cnpj"
+							type="text" placeholder="Informe o cnpj">
+					</div>
+					<div class="pure-control-group col s6">
+						<label for="phone">Telefone</label> <input id="phone" name="phone"
+							type="text" placeholder="Informe o telefone">
+					</div>
 				</div>
 
 				<div class="row">
 					<div class="pure-control-group col s6">
-            		<label for="name">Nome</label>
-	        		    <input id="name" name="name" type="text" placeholder="Informe o nome">
-			        </div>
-			        <div class="pure-control-group col s6">
-            		<label for="adress">Endereço</label>
-	        		    <input id="adress" name="adress" type="text" placeholder="Informe o endereço">
-			        </div>
+						<label for="name">Nome</label> <input id="name" name="name"
+							type="text" placeholder="Informe o nome">
+					</div>
+					<div class="pure-control-group col s6">
+						<label for="adress">Endereço</label> <input id="adress"
+							name="adress" type="text" placeholder="Informe o endereço">
+					</div>
 				</div>
 
 				<div class="row">
 					<div class="pure-control-group col s6">
-            		<label for="email">Email</label>
-	        		    <input id="email" name="email" type="text" placeholder="Informe o email">
-			        </div>
-			        <div class="pure-control-group col s6">
-            		<label for="city">Cidade</label>
-	        		    <input id="city" name="city" type="text" placeholder="Informe a cidade">
-			        </div>
+						<label for="email">Email</label> <input id="email" name="email"
+							type="text" placeholder="Informe o email">
+					</div>
+					<div class="pure-control-group col s6">
+						<label for="city">Cidade</label> <input id="city" name="city"
+							type="text" placeholder="Informe a cidade">
+					</div>
 				</div>
 
 				<div class="row">
 					<div class="pure-control-group col s6">
-            		<label for="password">Senha</label>
-	        		    <input id="password" name="password" type="text" placeholder="Informe a senha">
-			        </div>
-			        <div class="pure-control-group col s6">
-            		<label for="state">Estado</label>
-	        		    <input id="state" name="state" type="text" placeholder="Informe o estado">
-			        </div>
+						<label for="password">Senha</label> <input id="password"
+							name="password" type="text" placeholder="Informe a senha">
+					</div>
+					<div class="pure-control-group col s6">
+						<label for="state">Estado</label> <input id="state" name="state"
+							type="text" placeholder="Informe o estado">
+					</div>
 				</div>
 
 				<div class="row">
 					<div class="pure-control-group col s6">
-            		<label for="ddd">DDD</label>
-	        		    <input id="ddd" name="ddd" type="text" placeholder="Informe o ddd">
-			        </div>
-			        <div class="pure-control-group col s6">
-            		<label for="zip">CEP</label>
-	        		    <input id="zip" name="zip" type="text" placeholder="Informe o CEP">
-			        </div>
+						<label for="ddd">DDD</label> <input id="ddd" name="ddd"
+							type="text" placeholder="Informe o ddd">
+					</div>
+					<div class="pure-control-group col s6">
+						<label for="zip">CEP</label> <input id="zip" name="zip"
+							type="text" placeholder="Informe o CEP">
+					</div>
 				</div>
 
 				<div class="center">
-					<button class="btn waves-effect waves-light" type="submit" name="action">
-						Cadastrar
-					</button>
+					<button class="btn waves-effect waves-light" type="submit"
+						name="action">Cadastrar</button>
 				</div>
 			</fieldset>
 		</form>

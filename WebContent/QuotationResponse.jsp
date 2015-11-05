@@ -19,7 +19,7 @@
 	media="screen,projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body  class="yellow lighten-5">
+<body class="yellow lighten-5">
 
 	<c:import url="header.jsp" />
 	<br>
@@ -29,11 +29,12 @@
 	<br>
 	<br>
 	<div class="row ">
-	
+
 		<div class="card-panel teal">
 			<h3 class="row center"><%=request.getAttribute("mensage")%></h3>
-	
-	</div></div>
+
+		</div>
+	</div>
 
 </body>
 </html>

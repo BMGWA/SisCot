@@ -56,7 +56,7 @@
 					<li class="collection-header center"><h4>Preços</h4></li>
 
 					<c:forEach items="${listPrices}" var="price">
-						<li class="collection-item">${price} teste</li>
+						<li class="collection-item center">R$ ${price}</li>
 					</c:forEach>
 				</ul>
 			</div>

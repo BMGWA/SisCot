@@ -27,7 +27,7 @@
 	<div class="row">
 		<div class="col s6 offset-s3">
 			<div class="card-panel">
-				<h2 class="truncate row center" >Alterar Produto</h2>
+				<h2 class="truncate row center">Alterar Produto</h2>
 				<h3 class="row center">
 					<span class="roboto-bold"> Produto selecionado: <%=request.getParameter("productName")%></span>
 				</h3>
@@ -45,28 +45,28 @@
 
 				<input type="hidden" name="actualName"
 					value=<%=request.getParameter("productName")%>> <br>
-				
+
 				<div class="card">
-				
+
 					<div class="card-content">
-				
+
 						<div class="row">
 							<div class="input-field col s12">
-				
-								Nome do Produto <input value=<%=request.getParameter("productName")%>
-									type="text" class="validate" name="name" /><br>
-								<br>
+
+								Nome do Produto <input
+									value=<%=request.getParameter("productName")%> type="text"
+									class="validate" name="name" /><br> <br>
 							</div>
-				
+
 						</div>
 						<button class="btn waves-effect waves-light" type="submit"
 							name="action">Cadastrar</button>
 
-	
 
-	</div>
 
-</div>
+					</div>
+
+				</div>
 			</div>
 		</form>
 	</div>

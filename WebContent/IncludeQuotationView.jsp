@@ -37,56 +37,39 @@
 <script src="js/init.js"></script>
 </head>
 <body class="blue lighten-5">
-
 	<c:import url="header.jsp" />
 	<br>
 	<br>
 	<br>
 	<br>
-
 	<div class="row center">
 		<h1>Criar Cotação</h1>
 	</div>
-
-
-	<div class="row center"></div>
-
 	<div class="container">
 		<form action="IncludeQuotation" method="POST" class="center">
-
 			<div class="input-field center">
 				Nome do Gerente:
 				<%=session.getAttribute("user")%>
 				<br>
-
 			</div>
 			<br>
-
 			<div class="input-field center">
 				Data da Cotação:
 				<%=quotationDate%>
-				<br> 
+				<br>
 			</div>
-			<br> 
-
+			<br>
 			<div class="row">
 				<div class="col s10 offset-s1">
-					
-
-						<c:forEach items="${products}" var="product">
-
-							<p>
-								<input type="checkbox" id="${product.productName}" name="${product.productName}" /> <label
-									for="${product.productName}">${product.productName}</label>
-							</p>
-						</c:forEach>
-
-					
-
+					<c:forEach items="${products}" var="product">
+						<p>
+							<input type="checkbox" id="${product.productName}"
+								name="${product.productName}" /> <label
+								for="${product.productName}">${product.productName}</label>
+						</p>
+					</c:forEach>
 				</div>
 			</div>
-
-
 			<button class="btn waves-effect waves-light" type="submit"
 				name="action">Criar Cotação</button>
 			<br> <br>
