@@ -22,19 +22,25 @@
 	<c:import url="header.jsp" />
 	<div class="section no-pad-bot" id="index-banner">
 		<div class="container">
-			<br>
-			<br>
+			<br> <br>
 			<h1 class="header center orange-text">Sistema de Cotações</h1>
 			<div class="row center">
 				<h5 class="header col s12 light">Sistema Ágil de Cotações para
 					Compra de Produtos de Fornecedores</h5>
 			</div>
 			<div class="row center">
+
+				<%
+					if (session.getAttribute("user") == null) {
+				%>
+
 				<a href="/SisCot/login.jsp" id="download-button"
 					class="btn-large waves-effect waves-light orange">Fazer Login</a>
+				<%
+					}
+				%>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 
 		</div>
 	</div>
@@ -91,8 +97,7 @@
 			</div>
 
 		</div>
-		<br>
-		<br>
+		<br> <br>
 
 		<div class="section"></div>
 	</div>
