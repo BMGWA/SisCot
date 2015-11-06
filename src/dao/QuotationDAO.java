@@ -369,11 +369,8 @@ public class QuotationDAO {
 				rs.last();
 				value = rs.getDouble("priceProduct");
 				
-				System.out.println("Value: " + value + " veiw: " + priceOfProducts.get(i));
-				
 				if((Math.abs(value - 0) < 0.001) || (value > priceOfProducts.get(i))){
 					//Set the first atribute of the query
-					System.out.println("Passou aqui, ó");
 
 					statementUpdate.setString(1, provideName);
 					statementUpdate.setDouble(2, priceOfProducts.get(i).doubleValue());
