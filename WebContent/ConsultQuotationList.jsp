@@ -49,7 +49,7 @@
 						<a class="collection-item"
 							href="/SisCot/ShowQuotation.jsp?managerName=${quotation.managerName}&quotationDate=${quotation.quotationDate}
 						&quotationId=${quotation.id}&productList=${quotation.products}&quotationIsOn=${quotation.quotationIsOn}">
-							${quotation.id} </a>
+							${quotation.id} (${quotation.quotationIsOn}) </a>
 					</c:forEach>
 				</div>
 			</div>
