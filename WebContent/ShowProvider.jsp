@@ -41,21 +41,7 @@
 				class="blue-text text-darken-2"><%=request.getParameter("providerAdress")%></span><br>
 			<br> Autorização do Fornecedor: <span
 				class="blue-text text-darken-2"><%=request.getParameter("providerAuthorized")%></span><br>
-			<br> <a
-				href="/SisCot/DeleteProvider?providerName=<%=request.getParameter("providerName")%>">
-				Deletar Fornecedor</a><br> <a
-				href="/SisCot/UpdateProviderView.jsp?providerName=<%=request.getParameter("providerName")%>
-		&providerCnpj=<%=request.getParameter("providerCnpj")%>
-		&providerEmail=<%=request.getParameter("providerEmail")%>
-		&providerPassword=<%=request.getParameter("providerPassword")%>
-		&providerDdd=<%=request.getParameter("providerDdd")%>
-		&providerPhone=<%=request.getParameter("providerPhone")%>
-		&providerAdress=<%=request.getParameter("providerAdress")%>
-		&providerCity=<%=request.getParameter("providerCity")%>
-		&providerState=<%=request.getParameter("providerState")%>
-		&providerZip=<%=request.getParameter("providerZip")%>
-		">
-				Alterar Fornecedor</a>
+			<br> 
 		</div>
 	</div>
 </body>
