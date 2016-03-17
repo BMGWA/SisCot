@@ -119,4 +119,4 @@ Somos um time de Desenvilvimento de Software, estudantes da Universidade de Bras
 | Integrante | Usuário Git | Email para Contato |
 | --- | --- |---|
 | Iago Rodrigues | [@Makrau](https://github.com/Makrau) | iago006@hotmail.com |
-| Tiago Assunção | [@TiagoAssuncao](https://github.com/TiagoAssuncao) | thiagoribeironiquel@hotmail.com|
+| Tiago Assunção | [@TiagoAssuncao](https://github.com/TiagoAssuncao) | tiago@sof2u.com|
