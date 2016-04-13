@@ -92,7 +92,7 @@ Acesse o mysql console utilizando os comandos e sua respectiva senha:
 
 Crie uma nova base de dados com o nome SisCot: 
 
-`CREATE DATABASE biblioteca;`
+`CREATE DATABASE SisCot;`
 
 Crie os usuários com os seguintes nomes e senhas:
 
